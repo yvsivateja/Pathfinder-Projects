@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:test="http://www.mulesoft.org/schema/mule/test"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/test http://www.mulesoft.org/schema/mule/test/current/mule-test.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <jms:activemq-connector name="Active_MQ" clientId="123456" brokerURL="tcp://localhost:61616" validateConnections="true" doc:name="Active MQ" durable="true" maxRedelivery="2"/>
+    <flow name="mule-learning-jmsFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jmso" doc:name="HTTP"/>
+        <jms:outbound-endpoint connector-ref="Active_MQ" doc:name="JMS" queue="myqueue"/>
+    </flow>
+    <flow name="mule-learning-jmsFlow_prio">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jmsop" doc:name="HTTP"/>
+        <jms:outbound-endpoint connector-ref="Active_MQ" doc:name="JMS" queue="myqueue">
+        	<message-properties-transformer scope="outbound">
+        		<add-message-property key="priority" value="8" />
+        	</message-properties-transformer>
+        </jms:outbound-endpoint>
+    </flow>
+    <flow name="mule-learning-jmsFlow1">
+        <jms:inbound-endpoint queue="myqueue" connector-ref="Active_MQ" doc:name="JMS">
+            <jms:transaction action="ALWAYS_BEGIN"/>
+        </jms:inbound-endpoint>
+        <logger level="INFO" message="1...#[payload]" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <jms:outbound-endpoint connector-ref="Active_MQ" doc:name="JMS" queue="myaqueue">
+            <jms:transaction action="ALWAYS_JOIN"/>
+        </jms:outbound-endpoint>
+        <!-- <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties['http.method']=='POST']">
+                <test:component doc:name="Throws custom exception" exceptionToThrow="java.lang.Exception" throwException="true"/>
+            </when>
+            <otherwise>
+                <test:component doc:name="Throws custom exception" exceptionToThrow="java.lang.RuntimeException" throwException="true"/>
+            </otherwise>
+        </choice> -->
+        <test:component doc:name="Throws custom exception" exceptionToThrow="java.lang.Exception" throwException="true"/>
+        <jms:outbound-endpoint connector-ref="Active_MQ" doc:name="JMS" queue="myaqueue">
+            <jms:transaction action="ALWAYS_JOIN"/>
+        </jms:outbound-endpoint>
+        <!-- <rollback-exception-strategy doc:name="Rollback Exception Strategy" >
+                <logger doc:name="Rollback transaction" level="INFO" message="Entered rollback exception strategy. The message rolls back to its original state for reprocessing."/>
+        </rollback-exception-strategy> -->
+        
+        <default-exception-strategy>
+            <commit-transaction exception-pattern="*"/> 
+            <jms:outbound-endpoint queue="dead.letter" connector-ref="Active_MQ"> 
+                <jms:transaction action="JOIN_IF_POSSIBLE" />
+            </jms:outbound-endpoint>
+        </default-exception-strategy>
+    </flow>
+    <flow name="mule-learning-jmsFlown">
+        <jms:inbound-endpoint queue="myqueue" connector-ref="Active_MQ" doc:name="JMS">
+        	<!-- <jms:selector expression="JMSPriority=8"/> -->
+        </jms:inbound-endpoint>
+        <logger level="INFO" message="2...#[payload]" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mule-learning-jmsFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jmstopic" doc:name="HTTP"/>
+        <jms:outbound-endpoint topic="mytopic" connector-ref="Active_MQ" doc:name="JMS"/>
+    </flow>
+    
+    <flow name="mule-learning-jmsFlow3">
+        <jms:inbound-endpoint topic="mytopic" doc:name="JMS" connector-ref="Active_MQ" durableName="sub1"/>
+        <logger message="sub1....#[payload]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mule-learning-jmsFlow4">
+        <jms:inbound-endpoint doc:name="JMS" connector-ref="Active_MQ" topic="mytopic" durableName="sub2"/>
+         <logger message="sub2....#[payload]" level="INFO" doc:name="Logger"/>
+    </flow> 
+</mule>

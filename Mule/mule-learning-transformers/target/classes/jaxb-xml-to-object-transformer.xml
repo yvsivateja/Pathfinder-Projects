@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+    
+    
+    <mulexml:jaxb-context name="JAXB_Context" packageNames="mule.learning.jaxb" doc:name="JAXB Context"/>
+    <!-- We can also define jaxbcontext as spring bean as follows -->
+     <!-- <spring:beans>
+        <spring:bean id="JAXB_Context" name="JAXB_Context" class="javax.xml.bind.JAXBContext" factory-method="newInstance">
+            <spring:constructor-arg value="mule.learning.jaxb"/>
+        </spring:bean>
+    </spring:beans> -->
+    
+    <flow name="jaxb-xml-to-object-transformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jaxb-xml-to-object" doc:name="HTTP"/>
+        <mulexml:jaxb-xml-to-object-transformer jaxbContext-ref="JAXB_Context" doc:name="XML to JAXB Object"/>
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <json:object-to-json-transformer />
+    </flow>
+</mule>

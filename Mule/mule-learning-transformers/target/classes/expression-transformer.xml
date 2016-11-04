@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+    <flow name="expression-transformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/expr-tran" doc:name="HTTP"/>
+        <expression-transformer expression="#[xpath3('//mytag')]" doc:name="Expression"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <!-- Here, the payload is of type string i.e., result of above transformer -->
+    </flow>
+     <flow name="expression-transformerFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/expr-tran-arr" doc:name="HTTP"/>
+        <expression-transformer  doc:name="Expression">
+            <return-argument evaluator="xpath" expression="//mytag"/>
+            <return-argument evaluator="header" expression="content-type" optional="true"/>
+        </expression-transformer>
+        <logger level="INFO" doc:name="Logger"/>
+        <!-- Here, the payload is of type array i.e., an array of the result of each return-argument in the above transformer -->
+    </flow>
+</mule>

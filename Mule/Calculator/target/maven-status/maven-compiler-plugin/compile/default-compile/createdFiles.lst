@@ -1,0 +1,5 @@
+org/learning/webservices/calculator/beans/AdditionInput.class
+org/learning/webservices/calculator/service/Calculator.class
+org/learning/webservices/calculator/beans/Output.class
+org/learning/webservices/calculator/beans/SubtractionInput.class
+org/learning/webservices/calculator/service/CalculatorImpl.class

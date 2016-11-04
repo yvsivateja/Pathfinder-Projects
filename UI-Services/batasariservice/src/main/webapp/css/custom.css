@@ -1,0 +1,67 @@
+@
+-moz-document url-prefix () {fieldset {
+	display: table-cell;
+}
+
+}
+#resultbody {
+	cursor: pointer;
+}
+
+.help-inline {
+	color: #A94442;
+}
+
+.mandatory {
+	color: #A94442;
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Glyphicons Halflings';
+	src: url('../fonts/glyphicons-halflings-regular.eot');
+	src: url('../fonts/glyphicons-halflings-regular.eot?#iefix')
+		format('embedded-opentype'),
+		url('../fonts/glyphicons-halflings-regular.woff') format('woff'),
+		url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'),
+		url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular')
+		format('svg');
+}
+
+.tag {
+	font-size: 12px;
+	padding: .2em 5em .4em;
+	margin: .3em;
+}
+
+.tag a {
+	color: #bbb;
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.tag a:hover {
+	opacity: 1.0
+}
+
+.tag .remove {
+	vertical-align: bottom;
+	top: 0;
+}
+
+.tag a {
+	margin: 0 0 0 .3em;
+}
+
+.tag a .glyphicon-white {
+	color: #fff;
+	margin-bottom: 2px;
+}
+
+.move-forward {
+	background: url('../images/map_icon.png') repeat scroll 0% 0%
+		transparent;
+	width: 32px;
+	height: 32px;
+	padding-right: 2px;
+}

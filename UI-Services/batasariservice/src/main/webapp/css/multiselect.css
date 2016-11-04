@@ -1,0 +1,22 @@
+#add,#remove {
+	margin-bottom: 3px;
+	width: 16px;
+	height: 16px;
+	display: block;
+	text-indent: -3000px;
+	overflow: hidden;
+}
+
+#add {
+	background: url('../img/multiselect-selector-add.gif') no-repeat scroll
+		center top transparent;
+}
+
+#remove {
+	background: url('../img/multiselect-selector-remove.gif') no-repeat
+		scroll center top transparent;
+}
+
+.select-options {
+	width: inherit;
+}

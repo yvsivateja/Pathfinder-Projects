@@ -1,0 +1,191 @@
+INFO  2016-10-04 00:41:25,149 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'calculator-v1.0-3.8.x'                 +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 00:41:25,864 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 00:41:26,219 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 00:41:26,304 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 00:41:32,790 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2016-10-04 00:41:33,100 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Starting discovery of extensions
+INFO  2016-10-04 00:41:33,343 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Discovered 1 extensions
+INFO  2016-10-04 00:41:33,343 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Registering extension validation (version 3.8)
+INFO  2016-10-04 00:41:33,497 [main] org.mule.config.spring.MuleArtifactContext: Refreshing org.mule.config.spring.MuleArtifactContext@6e8a9c30: startup date [Tue Oct 04 00:41:33 IST 2016]; root of context hierarchy
+INFO  2016-10-04 00:41:36,159 [main] com.mulesoft.gateway.config.spring.placeholder.ExpressionLanguagePlaceholderConfigurer: Loading properties file from class path resource [config.properties]
+INFO  2016-10-04 00:41:36,182 [main] com.mulesoft.gateway.config.spring.placeholder.ExpressionLanguagePlaceholderConfigurer: Loading properties file from class path resource [config.properties]
+INFO  2016-10-04 00:41:36,214 [main] org.mule.config.spring.processors.NoDevkitInjectorProcessor: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+WARN  2016-10-04 00:41:37,996 [main] org.mule.module.ognl.expression.OgnlExpressionEvaluator: OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+INFO  2016-10-04 00:41:38,698 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 00:41:39,028 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising model: _muleSystemModel
+INFO  2016-10-04 00:41:39,031 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: proxy
+INFO  2016-10-04 00:41:39,032 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=404, exceptions=[class org.mule.module.apikit.exception.NotFoundException]}
+INFO  2016-10-04 00:41:39,048 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=405, exceptions=[class org.mule.module.apikit.exception.MethodNotAllowedException]}
+INFO  2016-10-04 00:41:39,048 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=504, exceptions=[class java.util.concurrent.TimeoutException]}
+INFO  2016-10-04 00:41:39,077 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: console
+INFO  2016-10-04 00:41:39,077 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@60591e1b
+INFO  2016-10-04 00:41:39,125 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-tx-log/tx2.log
+INFO  2016-10-04 00:41:39,150 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-xa-tx-log/tx2.log
+INFO  2016-10-04 00:41:40,354 [main] com.mulesoft.module.proxy.raml.RamlProxyConfiguration: Building resource URI cache...
+INFO  2016-10-04 00:41:40,813 [main] org.mule.config.spring.SpringXmlConfigurationBuilder: Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator-v1.0-3.8.x/proxy.xml'}]"
+INFO  2016-10-04 00:41:40,813 [main] org.mule.config.builders.AutoConfigurationBuilder: Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator-v1.0-3.8.x/proxy.xml'}]"
+INFO  2016-10-04 00:41:43,842 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'calculator-v1.0-3.8.x'                     +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 00:41:43,844 [main] org.mule.util.queue.QueueXaResourceManager: Starting ResourceManager
+INFO  2016-10-04 00:41:43,844 [main] org.mule.util.queue.QueueXaResourceManager: Started ResourceManager
+INFO  2016-10-04 00:41:43,929 [main] org.mule.module.http.internal.listener.DefaultHttpListenerConfig: Listening for requests on https://0.0.0.0:8082
+INFO  2016-10-04 00:41:43,934 [main] org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 00:41:43,938 [main] org.mule.lifecycle.AbstractLifecycleManager: Starting model: _muleSystemModel
+INFO  2016-10-04 00:41:43,941 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: proxy
+INFO  2016-10-04 00:41:43,977 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: __intercepted_chain_flow_proxy-config
+INFO  2016-10-04 00:41:43,977 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6cd2cb2
+INFO  2016-10-04 00:41:43,990 [main] com.mulesoft.module.proxy.raml.RamlProxyConfiguration: 
+********************************************************************************
+* APIKit Console URL: https://127.0.0.1:8082/console                           *
+********************************************************************************
+INFO  2016-10-04 00:41:43,990 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: console
+INFO  2016-10-04 00:41:43,997 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: __intercepted_chain_flow_proxy-config
+INFO  2016-10-04 00:41:44,081 [main] org.mule.module.management.agent.WrapperManagerAgent: This JVM hasn't been launched by the wrapper, the agent will not run.
+INFO  2016-10-04 00:41:44,113 [main] org.mule.DefaultMuleContext: 
+**********************************************************************
+* Application: calculator-v1.0-3.8.x                                 *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+ERROR 2016-10-04 00:41:56,554 [[calculator-v1.0-3.8.x].https-lc-0.0.0.0-8082.worker.01] org.mule.module.http.internal.listener.grizzly.MuleSslFilter: SSL handshake error: no cipher suites in common
+ERROR 2016-10-04 00:41:56,601 [[calculator-v1.0-3.8.x].https-lc-0.0.0.0-8082.worker.01] org.mule.module.http.internal.listener.grizzly.MuleSslFilter: SSL handshake error: no cipher suites in common
+INFO  2016-10-04 01:52:39,187 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'calculator-v1.0-3.8.x'                 +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:52:39,503 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:52:39,766 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:52:39,828 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:52:45,379 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2016-10-04 01:52:45,515 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Starting discovery of extensions
+INFO  2016-10-04 01:52:45,738 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Discovered 1 extensions
+INFO  2016-10-04 01:52:45,745 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Registering extension validation (version 3.8)
+INFO  2016-10-04 01:52:45,837 [main] org.mule.config.spring.MuleArtifactContext: Refreshing org.mule.config.spring.MuleArtifactContext@6e8a9c30: startup date [Tue Oct 04 01:52:45 IST 2016]; root of context hierarchy
+INFO  2016-10-04 01:52:47,964 [main] com.mulesoft.gateway.config.spring.placeholder.ExpressionLanguagePlaceholderConfigurer: Loading properties file from class path resource [config.properties]
+INFO  2016-10-04 01:52:47,993 [main] com.mulesoft.gateway.config.spring.placeholder.ExpressionLanguagePlaceholderConfigurer: Loading properties file from class path resource [config.properties]
+INFO  2016-10-04 01:52:48,022 [main] org.mule.config.spring.processors.NoDevkitInjectorProcessor: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+WARN  2016-10-04 01:52:49,227 [main] org.mule.module.ognl.expression.OgnlExpressionEvaluator: OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+INFO  2016-10-04 01:52:49,953 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising model: _muleSystemModel
+INFO  2016-10-04 01:52:49,956 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: proxy
+INFO  2016-10-04 01:52:49,957 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=404, exceptions=[class org.mule.module.apikit.exception.NotFoundException]}
+INFO  2016-10-04 01:52:49,962 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=405, exceptions=[class org.mule.module.apikit.exception.MethodNotAllowedException]}
+INFO  2016-10-04 01:52:49,963 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=504, exceptions=[class java.util.concurrent.TimeoutException]}
+INFO  2016-10-04 01:52:50,008 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: console
+INFO  2016-10-04 01:52:50,008 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@52ecc989
+INFO  2016-10-04 01:52:50,055 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-tx-log/tx2.log
+INFO  2016-10-04 01:52:50,068 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-xa-tx-log/tx2.log
+INFO  2016-10-04 01:52:51,034 [main] com.mulesoft.module.proxy.raml.RamlProxyConfiguration: Building resource URI cache...
+INFO  2016-10-04 01:52:51,387 [main] org.mule.config.spring.SpringXmlConfigurationBuilder: Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator-v1.0-3.8.x/proxy.xml'}]"
+INFO  2016-10-04 01:52:51,388 [main] org.mule.config.builders.AutoConfigurationBuilder: Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator-v1.0-3.8.x/proxy.xml'}]"
+INFO  2016-10-04 01:52:54,415 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'calculator-v1.0-3.8.x'                     +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:52:54,418 [main] org.mule.util.queue.QueueXaResourceManager: Starting ResourceManager
+INFO  2016-10-04 01:52:54,418 [main] org.mule.util.queue.QueueXaResourceManager: Started ResourceManager
+INFO  2016-10-04 01:52:54,493 [main] org.mule.module.http.internal.listener.DefaultHttpListenerConfig: Listening for requests on http://0.0.0.0:8082
+INFO  2016-10-04 01:52:54,497 [main] org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:52:54,500 [main] org.mule.lifecycle.AbstractLifecycleManager: Starting model: _muleSystemModel
+INFO  2016-10-04 01:52:54,502 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: proxy
+INFO  2016-10-04 01:52:54,521 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: __intercepted_chain_flow_proxy-config
+INFO  2016-10-04 01:52:54,521 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@134d7ffa
+INFO  2016-10-04 01:52:54,531 [main] com.mulesoft.module.proxy.raml.RamlProxyConfiguration: 
+********************************************************************************
+* APIKit Console URL: http://127.0.0.1:8082/console                            *
+********************************************************************************
+INFO  2016-10-04 01:52:54,531 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: console
+INFO  2016-10-04 01:52:54,535 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: __intercepted_chain_flow_proxy-config
+INFO  2016-10-04 01:52:54,583 [main] org.mule.module.management.agent.WrapperManagerAgent: This JVM hasn't been launched by the wrapper, the agent will not run.
+INFO  2016-10-04 01:52:54,610 [main] org.mule.DefaultMuleContext: 
+**********************************************************************
+* Application: calculator-v1.0-3.8.x                                 *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+INFO  2016-10-04 01:53:00,545 [Thread-2] com.mulesoft.module.policies.lifecyle.PolicyRegistryLifecycleManager: Policy external-oauth2-access-token-enforcement-78464.xml was correctly applied
+INFO  2016-10-04 01:54:34,800 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'calculator-v1.0-3.8.x'                 +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:54:35,123 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:54:35,398 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:54:35,461 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:54:40,986 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2016-10-04 01:54:41,120 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Starting discovery of extensions
+INFO  2016-10-04 01:54:41,303 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Discovered 1 extensions
+INFO  2016-10-04 01:54:41,303 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Registering extension validation (version 3.8)
+INFO  2016-10-04 01:54:41,366 [main] org.mule.config.spring.MuleArtifactContext: Refreshing org.mule.config.spring.MuleArtifactContext@6e8a9c30: startup date [Tue Oct 04 01:54:41 IST 2016]; root of context hierarchy
+INFO  2016-10-04 01:54:43,371 [main] com.mulesoft.gateway.config.spring.placeholder.ExpressionLanguagePlaceholderConfigurer: Loading properties file from class path resource [config.properties]
+INFO  2016-10-04 01:54:43,398 [main] com.mulesoft.gateway.config.spring.placeholder.ExpressionLanguagePlaceholderConfigurer: Loading properties file from class path resource [config.properties]
+INFO  2016-10-04 01:54:43,430 [main] org.mule.config.spring.processors.NoDevkitInjectorProcessor: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+WARN  2016-10-04 01:54:44,634 [main] org.mule.module.ognl.expression.OgnlExpressionEvaluator: OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+INFO  2016-10-04 01:54:45,361 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising model: _muleSystemModel
+INFO  2016-10-04 01:54:45,365 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: proxy
+INFO  2016-10-04 01:54:45,366 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=404, exceptions=[class org.mule.module.apikit.exception.NotFoundException]}
+INFO  2016-10-04 01:54:45,372 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=405, exceptions=[class org.mule.module.apikit.exception.MethodNotAllowedException]}
+INFO  2016-10-04 01:54:45,372 [main] org.mule.module.apikit.MappingExceptionListener: Initialising exception listener: MappingExceptionListener{statusCode=504, exceptions=[class java.util.concurrent.TimeoutException]}
+INFO  2016-10-04 01:54:45,401 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: console
+INFO  2016-10-04 01:54:45,401 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@52ecc989
+INFO  2016-10-04 01:54:45,432 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-tx-log/tx2.log
+INFO  2016-10-04 01:54:45,450 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator-v1.0-3.8.x/queue-xa-tx-log/tx2.log
+INFO  2016-10-04 01:54:46,472 [main] com.mulesoft.module.proxy.raml.RamlProxyConfiguration: Building resource URI cache...
+INFO  2016-10-04 01:54:46,795 [main] org.mule.config.spring.SpringXmlConfigurationBuilder: Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator-v1.0-3.8.x/proxy.xml'}]"
+INFO  2016-10-04 01:54:46,795 [main] org.mule.config.builders.AutoConfigurationBuilder: Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator-v1.0-3.8.x/proxy.xml'}]"
+INFO  2016-10-04 01:54:49,819 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'calculator-v1.0-3.8.x'                     +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:54:49,821 [main] org.mule.util.queue.QueueXaResourceManager: Starting ResourceManager
+INFO  2016-10-04 01:54:49,821 [main] org.mule.util.queue.QueueXaResourceManager: Started ResourceManager
+INFO  2016-10-04 01:54:49,878 [main] org.mule.module.http.internal.listener.DefaultHttpListenerConfig: Listening for requests on http://0.0.0.0:8082
+INFO  2016-10-04 01:54:49,882 [main] org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:54:49,886 [main] org.mule.lifecycle.AbstractLifecycleManager: Starting model: _muleSystemModel
+INFO  2016-10-04 01:54:49,888 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: proxy
+INFO  2016-10-04 01:54:49,904 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: __intercepted_chain_flow_proxy-config
+INFO  2016-10-04 01:54:49,905 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@134d7ffa
+INFO  2016-10-04 01:54:49,912 [main] com.mulesoft.module.proxy.raml.RamlProxyConfiguration: 
+********************************************************************************
+* APIKit Console URL: http://127.0.0.1:8082/console                            *
+********************************************************************************
+INFO  2016-10-04 01:54:49,912 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: console
+INFO  2016-10-04 01:54:49,917 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: __intercepted_chain_flow_proxy-config
+INFO  2016-10-04 01:54:49,966 [main] org.mule.module.management.agent.WrapperManagerAgent: This JVM hasn't been launched by the wrapper, the agent will not run.
+INFO  2016-10-04 01:54:49,996 [main] org.mule.DefaultMuleContext: 
+**********************************************************************
+* Application: calculator-v1.0-3.8.x                                 *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+INFO  2016-10-04 01:54:50,822 [main] com.mulesoft.module.policies.lifecyle.PolicyRegistryLifecycleManager: Policy external-oauth2-access-token-enforcement-78464.xml was correctly applied

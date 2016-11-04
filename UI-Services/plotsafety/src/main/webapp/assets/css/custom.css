@@ -1,0 +1,79 @@
+.clickable {
+	cursor: pointer;
+}
+
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+
+.btn-file input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
+}
+
+.tag {
+	font-size: 14px;
+	padding: .3em .4em .4em;
+	margin: 0 .1em;
+}
+
+.tag a {
+	color: #bbb;
+	cursor: pointer;
+	opacity: 0.6;
+}
+
+.tag a:hover {
+	opacity: 1.0
+}
+
+.tag .remove {
+	vertical-align: bottom;
+	top: 0;
+}
+
+.tag a {
+	margin: 0 0 0 .3em;
+}
+
+.tag a .glyphicon-white {
+	color: #fff;
+	margin-bottom: 2px;
+}
+
+.file-delete {
+	text-decoration: line-through;
+	color: red;
+}
+
+.dataTables_info,.dataTables_length {
+	margin-left: 2%;
+}
+
+.dataTables_filter,div#customer_paginate {
+	margin-right: 2%;
+}
+
+.text-red {
+	color: red;
+}
+
+.text-green {
+	color: green;
+}
+
+body {
+	font-size: 13px;
+}

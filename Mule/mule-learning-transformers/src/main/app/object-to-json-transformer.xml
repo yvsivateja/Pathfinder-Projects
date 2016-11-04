@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <mulexml:xml-to-object-transformer returnClass="mule.learning.beans.Bottle" doc:name="XML to Object" name="json_to_bottle">
+            <mulexml:alias name="bottle" class="mule.learning.beans.Bottle"/>
+        </mulexml:xml-to-object-transformer>
+    
+    <flow name="object-to-json-transformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/objectToJson" doc:name="HTTP"/>
+        
+        <transformer ref="json_to_bottle" doc:name="Transformer Reference"/>
+        <!-- By the time control send back the response here, it tries to convert the Bottle object to json implicitly -->
+    </flow>
+    <flow name="object-to-json-transformerFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/objectToJsonExplicit" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="mule.learning.beans.Bottle" doc:name="XML to Object">
+            <mulexml:alias name="bottle" class="mule.learning.beans.Bottle"/>
+        </mulexml:xml-to-object-transformer>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+</mule>

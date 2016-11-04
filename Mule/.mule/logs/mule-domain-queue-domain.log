@@ -1,0 +1,53 @@
+INFO  2016-10-01 17:11:59,995 [main] org.mule.module.launcher.domain.DefaultMuleDomain: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ New domain 'queue-domain'                                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-01 17:11:59,997 [main] org.mule.module.launcher.domain.DefaultMuleDomain: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing domain 'queue-domain'                       +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-01 17:12:00,286 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2016-10-01 17:12:00,586 [main] org.mule.config.spring.MuleDomainContext: Refreshing org.mule.config.spring.MuleDomainContext@2a5b3fee: startup date [Sat Oct 01 17:12:00 IST 2016]; root of context hierarchy
+INFO  2016-10-01 17:12:02,731 [main] org.mule.config.spring.processors.ContextExclusiveInjectorProcessor: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  2016-10-01 17:12:03,894 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising connector: sharedVMConnector
+INFO  2016-10-01 17:12:04,080 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/queue-domain/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/queue-domain/queue-tx-log/tx2.log
+INFO  2016-10-01 17:12:04,142 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/queue-domain/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/queue-domain/queue-xa-tx-log/tx2.log
+INFO  2016-10-01 17:12:04,935 [main] org.mule.config.spring.SpringXmlDomainConfigurationBuilder: Configured Mule using "org.mule.config.spring.SpringXmlDomainConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='mule-domain-config.xml'}]"
+INFO  2016-10-01 17:12:04,940 [main] org.mule.util.queue.QueueXaResourceManager: Starting ResourceManager
+INFO  2016-10-01 17:12:04,940 [main] org.mule.util.queue.QueueXaResourceManager: Started ResourceManager
+INFO  2016-10-01 17:12:04,968 [main] org.mule.transport.vm.VMConnector: Connected: VMConnector
+{
+  name=sharedVMConnector
+  lifecycle=initialise
+  this=26d820eb
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[vm]
+  serviceOverrides=<none>
+}
+
+INFO  2016-10-01 17:12:04,968 [main] org.mule.transport.vm.VMConnector: Starting: VMConnector
+{
+  name=sharedVMConnector
+  lifecycle=initialise
+  this=26d820eb
+  numberOfConcurrentTransactedReceivers=4
+  createMultipleTransactedReceivers=true
+  connected=true
+  supportedProtocols=[vm]
+  serviceOverrides=<none>
+}
+
+INFO  2016-10-01 17:12:04,969 [main] org.mule.lifecycle.AbstractLifecycleManager: Starting connector: sharedVMConnector
+INFO  2016-10-01 17:12:04,989 [main] org.mule.module.management.agent.WrapperManagerAgent: This JVM hasn't been launched by the wrapper, the agent will not run.
+INFO  2016-10-01 17:12:05,004 [main] org.mule.module.management.agent.AbstractJmxAgent: Registered Connector Service with name Mule.queue-domain:type=Connector,name="sharedVMConnector.1"
+INFO  2016-10-01 17:12:05,009 [main] org.mule.DefaultMuleContext: 
+**********************************************************************
+* Application: queue-domain                                          *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Wrapper Manager                                                  *
+**********************************************************************

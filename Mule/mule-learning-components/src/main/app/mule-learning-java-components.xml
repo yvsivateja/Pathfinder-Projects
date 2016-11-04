@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+    <spring:beans>
+        <spring:bean id="address" class="com.learning.beans.Address">
+            <spring:property name="street" value="Mahatma Gandhi Street"/>
+            <spring:property name="city" value="Hyderabad"/>
+        </spring:bean>
+        <spring:bean id="simpleJavaComponentSingleton" class="com.learning.components.SimpleJavaComponent">
+            <spring:property name="address" ref="address"/>
+        </spring:bean>
+        <spring:bean id="simpleJavaComponentPrototype" class="com.learning.components.SimpleJavaComponent" scope="prototype">
+            <spring:property name="address" ref="address"/>
+        </spring:bean>
+    </spring:beans>
+    
+    <append-string-transformer message="before " name="preAppender" doc:name="Append String"/>
+    <append-string-transformer message=" after" name="postAppender" doc:name="Append String"/>
+    
+    <interceptor-stack name="commonInterceptors"> 
+    	<logging-interceptor />
+    	<timer-interceptor />
+    </interceptor-stack>
+    
+    <flow name="mule-learning-java-components-prototype">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/simplejcp" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component  doc:name="Java" class="com.learning.components.SimpleJavaComponent" />
+    </flow>
+    
+     <flow name="mule-learning-java-components-singleton">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/simplejcs" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component  doc:name="Java">
+            <singleton-object class="com.learning.components.SimpleJavaComponent">
+                <property key="address" value-ref="address" value=""/>
+            </singleton-object>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-spring-singleton">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/springjcs" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component doc:name="Java">
+            <spring-object bean="simpleJavaComponentSingleton"/>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-spring-prototype">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/springjcp" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component doc:name="Java">
+            <spring-object bean="simpleJavaComponentPrototype"/>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-spring-noargentry">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/noarg" doc:name="HTTP"/>
+        <component doc:name="Java">
+        	<no-arguments-entry-point-resolver />
+            <spring-object bean="simpleJavaComponentSingleton"/>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-spring-noargenty-np">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/np" doc:name="HTTP"/>
+        <component doc:name="Java">
+            <spring-object bean="simpleJavaComponentSingleton"/>
+        </component>
+    </flow>
+     <flow name="mule-learning-java-components-callable">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/callable" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component class="com.learning.components.MyCallableComponent" doc:name="Java"/>
+    </flow>
+     <flow name="mule-learning-java-components-method">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/method" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component class="com.learning.components.MyMethodEntryPointResolver" doc:name="Java">
+        	<method-entry-point-resolver>
+        		<include-entry-point method="printPerson"/>
+        	</method-entry-point-resolver>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-property">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/property" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <set-variable variableName="methodToInvoke" value="changePerson" doc:name="Variable" />
+        <component class="com.learning.components.MyMethodEntryPointResolver" doc:name="Java">
+        	<property-entry-point-resolver acceptVoidMethods="true" property="methodToInvoke"/>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-reflection">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/reflection" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Address" doc:name="XML to Object">
+            <mulexml:alias name="myAddress" class="com.learning.beans.Address"/>
+        </mulexml:xml-to-object-transformer>
+        <component class="com.learning.components.MyMethodEntryPointResolver" doc:name="Java">
+        	<reflection-entry-point-resolver acceptVoidMethods="true" />
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-annotated">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/annot" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component class="com.learning.components.MyAnnotatedEntryPointResolver" doc:name="Java" />
+    </flow>
+    
+    <!-- 
+		initialise :
+			The first lifecycle method called once any injectors on the component have been called. This means any properties on the component are set before the initialize lifecycle is called.
+			org.mule.api.lifecycle.Initialisable
+			javax.annotation.PostConstruct
+		start : 
+			This is called when the MuleContext is started.
+			org.mule.api.lifecycle.Startable
+		 
+		stop : 
+			This is called when the MuleContext is stopped.
+			org.mule.api.lifecycle.Stoppable
+		 
+		dispose : 
+			Called as the object is being disposed off. Typically this happens because either the MuleContext is shutting down.
+			org.mule.api.lifecycle.Disposible
+			javax.annotation.PreDestroy
+     -->
+    <flow name="mule-learning-java-components-Lifecycle">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/lifecycle" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <!-- As the below component is singleton, it is registered while mule server starts.
+        Hence initialise() and start() lifecycle methods are called while mule server is starting. -->
+        <component doc:name="Java">
+        	<method-entry-point-resolver>
+        		<include-entry-point method="doSomething" />
+        	</method-entry-point-resolver>
+        	<singleton-object class="com.learning.components.LifecycleEnabledComponent" />
+        </component>
+        <!-- Following is prototype component. It doesn't get registered when mule server starts.
+        Hence all lifecycle methods are called once per each request to this component. -->
+        <component class="com.learning.components.LifecycleEnabledComponent" doc:name="Java">
+        	<method-entry-point-resolver>
+        		<include-entry-point method="doSomething" />
+        	</method-entry-point-resolver>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-bootstrapped">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/bootstrapped" doc:name="HTTP"/>
+        <mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component doc:name="Java">
+        	<!-- This component is bootstrapped from  registry-bootstrap.properties-->
+        	<spring-object bean="mycomp"/>
+        </component>
+        <set-payload value="#[null]" doc:name="Set Payload"/>
+         <component doc:name="Java">
+         	<method-entry-point-resolver>
+        		<include-entry-point method="beginComputer" />
+        	</method-entry-point-resolver>
+        	<!-- This component is bootstrapped from  registry-bootstrap.properties-->
+        	<spring-object bean="object.1"/>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-components-controllable">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/control" doc:name="HTTP"/>
+    	<mulexml:xml-to-object-transformer returnClass="com.learning.beans.Person" doc:name="XML to Object">
+            <mulexml:alias name="person" class="com.learning.beans.Person"/>
+        </mulexml:xml-to-object-transformer>
+        <component class="com.learning.components.ControllableComponent" doc:name="Java"/>
+        
+    </flow>
+    <flow name="mule-learning-java-componentsFlow">
+        <vm:inbound-endpoint exchange-pattern="request-response" path="tempqueue" doc:name="VM"/>
+        <expression-component doc:name="Expression"><![CDATA[payload.setName('rahul');]]></expression-component>
+    </flow>
+    <flow name="mule-learning-java-componentsFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/httpService" doc:name="HTTP"/>
+        <expression-component doc:name="Expression"><![CDATA[payload+= ' done';]]></expression-component>
+    </flow>
+    <flow name="mule-learning-java-componentsFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/bounded" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <component class="com.learning.components.BoundedComponent" doc:name="Java">
+        	<binding interface="com.learning.services.AppenderService" method="callVMService" >
+        		<!-- You can ignore the error appear in the following line in studio -->
+        		<vm:outbound-endpoint exchange-pattern="request-response" path="appendpqueue" />
+        	</binding>
+        	<binding interface="com.learning.services.AppenderService" method="callHttpService" >
+        		<!-- You can ignore the error appear in the following line in studio -->
+        		<http:outbound-endpoint address="http://localhost:9876/mulelearning/httpService" method="POST" transformer-refs="preAppender" responseTransformer-refs="postAppender" >
+        			<response>
+        				<expression-component doc:name="Expression"><![CDATA[payload+= ' done';]]></expression-component>
+        			</response>
+        		</http:outbound-endpoint>
+        	</binding>
+        </component>
+    </flow>
+    <flow name="mule-learning-java-componentsFlow-another">
+        <vm:inbound-endpoint exchange-pattern="request-response" path="appendpqueue" doc:name="VM"/>
+        <expression-component doc:name="Expression"><![CDATA[payload+=' rahul';]]></expression-component>
+    </flow>
+    
+    <flow name="mule-learning-java-components-interceptor">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/intercepted" doc:name="HTTP"/>
+       <object-to-string-transformer doc:name="Object to String"/>
+       <component doc:name="Java">
+            <!-- we have observed that all custom interceptors can either implement AbstractEnvelopeInterceptor or 
+            	all custom intercepts implement interceptor interface. Both are not possible at a time.
+             -->
+        	<!-- <custom-interceptor class="com.learning.interceptors.GeneralInterceptor" /> -->
+        	<custom-interceptor class="com.learning.interceptors.GeneralAbstractEnvelopeInterceptor"/>
+        	<interceptor-stack ref="commonInterceptors"/>
+        	<no-arguments-entry-point-resolver />
+        	
+        	<prototype-object class="com.learning.components.SimpleJavaComponent"/>
+        </component>
+    </flow>
+    
+</mule>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+    
+    <mulexml:namespace-manager includeConfigNamespaces="true">
+    	<mulexml:namespace prefix="b" uri="http://host:2005/ns/"/>
+  	</mulexml:namespace-manager>
+    <flow name="xml-namespace-managerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/namespaceXpath" doc:name="HTTP"/>
+        <mulexml:dom-to-xml-transformer />
+        <set-payload value="#[xpath3('//b:dob',payload,'STRING')]" doc:name="Variable" />
+    </flow>
+    
+    <flow name="xml-namesace-manager-inline">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/namespaceXpathInline" doc:name="HTTP"/>
+        <mulexml:dom-to-xml-transformer doc:name="DOM to XML"/>
+        <!-- namespaces can be declared inline as shown below -->
+        <mulexml:xpath-extractor-transformer expression="/e:book/title" resultType="STRING">
+        	<mulexml:namespace prefix="e" uri="http://www.elite.com/2005/"/>
+        </mulexml:xpath-extractor-transformer>
+    </flow>
+</mule>

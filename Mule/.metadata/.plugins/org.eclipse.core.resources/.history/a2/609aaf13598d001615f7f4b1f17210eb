@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <flow name="mule-learning-dataweaveFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/ouo" metadata:id="ee759623-107e-4f15-b3e6-0da79d335aa7" doc:name="HTTP"/>
+        <dw:transform-message metadata:id="ed4efbdc-d621-4cc9-913a-789696c75d78" doc:name="Transform Message">
+            <dw:input-payload mimeType="application/xml" doc:sample="/home/rahul/Dev/Mule/Metadata/order.xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	order: {
+		id: payload.order.id,
+		state: payload.order.state,
+		size: payload.order.size unless payload.order.state == 'TX' otherwise 'XL',
+		price: "\$" ++ (payload.order.price as :string)
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="mule-learning-dataweaveFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/map" doc:name="HTTP"/>
+        <dw:transform-message metadata:id="1d37a986-469b-4788-a205-971a32080f7a" doc:name="Transform Message">
+            <dw:input-payload doc:sample="/home/rahul/Dev/Mule/Metadata/order.xml" mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%var DISC = 0.98
+%output application/json
+---
+{
+	orders: payload.orders.*order map ((order , indexOfOrder) -> {
+		id: order.id,
+		state: order.state,
+		size: order.size,
+		price: order.price as :string,
+		index : indexOfOrder
+	})
+}
+]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="mule-learning-dataweaveFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/xml" metadata:id="11ecd813-560a-49dc-bd28-a6586ddb915e" doc:name="HTTP"/>
+        <dw:transform-message metadata:id="6029f968-aab8-4865-9200-c1052fa956ec" doc:name="Transform Message">
+            <dw:input-payload doc:sample="/home/rahul/Dev/Mule/Metadata/order.json" mimeType="application/json"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/xml
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    <flow name="mule-learning-dataweaveFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/func" doc:name="HTTP"/>
+        <dw:transform-message metadata:id="125fc6ee-de83-4d46-850a-b66eda7f8dff" doc:name="Transform Message">
+            <dw:input-payload doc:sample="/home/rahul/Dev/Mule/Metadata/order.xml" mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+%var price = (order)-> order.price*0.98
+%function pricefun(order) order.price*0.95
+---
+{
+	order: {
+		id: payload.order.id,
+		state: payload.order.state,
+		size: payload.order.size,
+		price: price(payload.order)
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    
+    <flow name="mule-learning-dataweaveFlow4">
+    	<http:listener config-ref="HTTP_Listener_Configuration" path="/var" doc:name="HTTP"/>
+        <dw:transform-message metadata:id="125fc6ee-de83-4d46-850a-b66eda7f8dff" doc:name="Transform Message">
+            <dw:input-payload doc:sample="/home/rahul/Dev/Mule/Metadata/order.xml" mimeType="application/xml"/>
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+{
+	order: {
+		id: [1,2,payload.order.id as :number,4],
+		state: payload.order.state,
+		size: payload.order.size,
+		price: using(o=payload.order.price) o*0.98,
+		entry: using (firstName = "Annie", lastName = "Point") {
+	  		person: using (user = firstName, gender = "male") {
+	    		name: user,
+	    		gender: gender
+	  		},
+  			fn: upper firstName, 
+  			ln: lastName 
+}
+	}
+}]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+</mule>

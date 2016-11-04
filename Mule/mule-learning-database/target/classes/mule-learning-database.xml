@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <db:generic-config name="Postgres_Database_Configuration" url="jdbc:mysql://localhost:3306/mule_test?user=root&amp;password=root" driverClassName="com.mysql.jdbc.Driver" doc:name="Generic Database Configuration"/>
+    
+    <db:template-query name="Template_Query" doc:name="Template Query">
+        <db:parameterized-query><![CDATA[select * from person where id = :id and name = :name]]></db:parameterized-query>
+        <db:in-param name="id" type="BIGINT" defaultValue="#[sessionVars.id]"/>
+    </db:template-query>
+    
+    <db:template-query name="Template_Query1" doc:name="Template Query">
+        <db:dynamic-query><![CDATA[select * from #[flowVars.tableName] where id = #[sessionVars.id] and name = '#[flowVars.name]']]></db:dynamic-query>
+    </db:template-query>
+    
+    <spring:beans>
+        <spring:bean id="dbcp" name="dbcp" class="org.apache.commons.dbcp2.BasicDataSource">
+            <spring:property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+            <spring:property name="url" value="jdbc:mysql://localhost:3306/mule_test"/>
+            <spring:property name="username" value="root"/>
+            <spring:property name="password" value="root"/>
+        </spring:bean>
+    </spring:beans>
+    <db:generic-config name="Generic_Database_Configuration" dataSource-ref="dbcp" doc:name="Generic Database Configuration"/>
+    
+    <!-- 
+    Parameterized (Recommended) - 
+    	Mule replaces all Mule Expression Language (MEL) expressions inside a query with "?" to create a prepared statement, 
+    	then evaluates the MEL expressions using the current event so as to obtain the value for each parameter. 
+    Relative to dynamic queries, parameterized queries offer the following advantages:
+		Security - using parameterized query statements prevents SQL injection
+		Performance - where queries are executed multiple times, using parameterized query facilitates faster repetitions of statement execution
+		Type-management: using parameterized query allows the database driver to automatically manage the types of variables designated as parameters, and, for some types, provides automatic type conversion. For example, in the statement insert into employees where name = [message.payload.name] Mule maps the value for [message.payload.name] to the type of variable of the name column in the database. Furthermore, you do not need to add quotations within statements, such as ‘3’ instead of 3, or ‘string’ instead of string.
+    -->
+    <flow name="mule-learning-databaseFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/parameterized" doc:name="HTTP"/>
+        <set-variable value="sai" variableName="name" doc:name="Variable" />
+        <set-session-variable variableName="id" value="1" doc:name="Session Variable"/>
+        <db:select config-ref="Postgres_Database_Configuration" doc:name="Database">
+            <db:parameterized-query><![CDATA[select * from person where id = #[sessionVars.id] and name = #[flowVars.name]]]></db:parameterized-query>
+        </db:select>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    
+    <!-- 
+    	Mule replaces all MEL expressions in the query with the result of the expression evaluation, then sends the result to the database. As such, you are responsible for making sure that any string in your query statement is interpretable by the database (such as quoting strings, data formatting, etc.)
+		The most important disadvantage of using dynamic query statements is security as it leaves the statement open for SQL injection, potentially compromising the data in your database. This risk can be mitigated by for example adding filters on your flow before the DB connector.
+    	Relative to parameterized queries, dynamic queries offer the following advantages:
+			flexibility - you have ultimate flexibility over the SQL statement. For example, all of the following are valid dynamic query statements:
+				select * from #[tablename] where id = 1;
+				insert into #[message.payload.restOfInsertStatement];
+				#[flowVars[‘deleteStatement’]]
+			performance - if a statement is executed only once, Mule can execute a dynamic SQL slightly faster relative to a parameterized query statement
+    -->
+    <flow name="mule-learning-databaseFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/dynamic" doc:name="HTTP"/>
+        <set-variable variableName="dbin" value="#[['name':'sai','tableName':'person','id':1]]" doc:name="Variable" />
+        <!-- By default source attribute is set to #[payload] which means parameters against are resolved against actual payload object.
+        We can change the source attribute so that this will be new payload in the context of running queries. 
+        For example in the below query, source is set to dbin invocation variable and hence this acts as payload for queries. Hence,
+        in the query #[payload['tableName']] is executed against dbin (which means dbin is the payload in the context of this db operation) -->
+        <db:select config-ref="Postgres_Database_Configuration" doc:name="Database" source="#[flowVars.dbin]" target="#[variable:age]">
+            <db:dynamic-query><![CDATA[select * from #[payload['tableName']] where id = #[payload['id']] and name = '#[payload['name']]']]></db:dynamic-query>
+        </db:select>
+        <!-- As we are using target attribute in above select configuration, actual result of query is used to enrich the result of target. 
+        Payload will be null here-->
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <!-- As we configured select to enrich the age invocation variable, the following contains the entire db result -->
+        <logger message="#[age]" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mule-learning-databaseFlow6">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/bulkInsert" doc:name="HTTP"/>
+        <set-variable variableName="dbin" value="#[[[67,'jnan',89],[45,'ros',25],[34,'bob',245]]]" doc:name="Variable" />
+        <!-- 
+        	Bulk Mode - Enable to submit collections of data with one query, as opposed to executing one query for every parameter set in a collection. Enabling bulk mode improves the performance of your applications as it reduces the number of individual query executions.
+			Bulk mode requires a parameterized query with at least one parameter.
+			If you set bulk mode without a parameterized query it won’t result in a single query in bulk mode, but rather numerous single queries, which has a much lower performance.
+ 		-->
+        <db:insert config-ref="Postgres_Database_Configuration" doc:name="Database" source="#[flowVars.dbin]" target="#[variable:age]" bulkMode="true">
+            <db:parameterized-query><![CDATA[insert into person(id,name,age) values (#[payload[0]],#[payload[1]],#[payload[2]])]]></db:parameterized-query>
+        </db:insert>
+        <!-- As we are using target attribute in above select configuration, actual result of query is used to enrich the result of target. 
+        Payload will be null here-->
+        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <!-- As we configured select to enrich the age invocation variable, the following contains the entire db result -->
+        <logger message="#[age]" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mule-learning-databaseFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/templateParam" doc:name="HTTP"/>
+        <set-variable value="sai" variableName="name" doc:name="Variable" />
+        <set-variable value="person" variableName="tableName" doc:name="Variable" />
+        <set-session-variable value="1" variableName="id" doc:name="Session Variable" />
+        <db:select config-ref="Postgres_Database_Configuration" doc:name="Database">
+            <db:template-query-ref name="Template_Query"/>
+            <db:in-param name="name" type="VARCHAR" value="#[flowVars.name]"/>
+        </db:select>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    
+    <flow name="mule-learning-databaseFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/templateDynamic" doc:name="HTTP"/>
+        <set-variable value="sai" variableName="name" doc:name="Variable" />
+        <set-variable value="person" variableName="tableName" doc:name="Variable" />
+        <set-session-variable value="1" variableName="id" doc:name="Session Variable" />
+        <db:select config-ref="Postgres_Database_Configuration" doc:name="Database" >
+            <db:template-query-ref name="Template_Query1"/>
+        </db:select>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload]]></dw:set-payload>
+        </dw:transform-message>
+    </flow>
+    
+    <flow name="mule-learning-databaseFlow4">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/ddl" doc:name="HTTP"/>
+        <set-variable value="app_user" variableName="tableName" doc:name="Variable" />
+        <set-variable variableName="nameSize" value="40" doc:name="Variable"/>
+        <set-variable variableName="enType" value="integer" doc:name="Variable"/>
+        <db:execute-ddl config-ref="Generic_Database_Configuration" doc:name="Database">
+            <db:dynamic-query><![CDATA[CREATE TABLE IF NOT EXISTS #[tableName] (
+  username varchar(#[nameSize]) NOT NULL,  
+  password varchar(450) NOT NULL,  
+  enabled #[enType] NOT NULL DEFAULT '1',  
+  PRIMARY KEY (username)  
+)]]></db:dynamic-query>
+        <!-- When using DDL, you can only make dynamic queries (which may or may not have MEL expressions).  -->
+        </db:execute-ddl>
+    </flow>
+    
+    <flow name="mule-learning-databaseFlow5">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/bulk" doc:name="HTTP"/>
+        <set-variable value="567" variableName="id" doc:name="Variable" />
+        <set-variable variableName="name" value="Arun Rahul" doc:name="Variable"/>
+        <set-variable variableName="age" value="29" doc:name="Variable"/>
+        <!-- You cannot perform select operations as part of a bulk operation. You can only use insert, delete, and update. -->
+        <db:bulk-execute config-ref="Postgres_Database_Configuration" doc:name="Database"><![CDATA[delete from person where id = 34;
+insert into person values(#[id],'#[name]',#[age]);
+update person set age=456363 where id = #[id];]]>
+        </db:bulk-execute>
+        <logger message="#[payload[0]]....#[payload[1]]....#[payload[2]]" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+</mule>

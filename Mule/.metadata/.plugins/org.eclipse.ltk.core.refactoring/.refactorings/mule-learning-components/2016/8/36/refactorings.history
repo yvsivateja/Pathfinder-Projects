@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Person.java&apos; to &apos;mule-learning-scopes/src/main/java/com.learning&apos;&#x0A;- Original project: &apos;mule-learning-components&apos;&#x0A;- Destination element: &apos;mule-learning-scopes/src/main/java/com.learning&apos;&#x0A;- Original element: &apos;com.learning.beans.Person.java&apos;" description="Copy compilation unit" destination="=mule-learning-scopes/src\/main\/java&lt;com.learning" element1="/src\/main\/java&lt;com.learning.beans{Person.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1472448930661" units="1" version="1.0"/>
+</session>

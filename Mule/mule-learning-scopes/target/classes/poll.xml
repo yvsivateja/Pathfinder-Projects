@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:twitter="http://www.mulesoft.org/schema/mule/twitter" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/twitter http://www.mulesoft.org/schema/mule/twitter/current/mule-twitter.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <twitter:config name="Twitter__Configuration" accessKey="400759219-cVxzDVEYMqgwAgGDukpZGXIGGyRqyRnW8W4i1Umb" accessSecret="qzMlLM7yDADwCrlIyPU1fgeV0g6pyokxMaHuJ1rlrbKxi" consumerKey="skPW9KKOFb11MBpoZdNTfkUFw" consumerSecret="lJgaZ40j82zP92kdEEJLpNeH8T8aZiJ70ehXQvZxso4NicpHqy" doc:name="Twitter: Configuration"/>
+    <flow name="pollFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/twitter" doc:name="HTTP"/>
+        <twitter:get-user-timeline-by-screen-name config-ref="Twitter__Configuration" screenName="KentBeck" doc:name="Twitter"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <foreach doc:name="For Each">
+            <logger message="#[payload.text]" level="INFO" doc:name="Logger"/>
+        </foreach>
+    </flow>
+    <!-- <flow name="pollFlow1" processingStrategy="synchronous">
+        <poll doc:name="Poll">
+            <fixed-frequency-scheduler frequency="1000"/>
+            <watermark variable="lastAccessed" default-expression="-1" selector="FIRST" selector-expression="#[payload.id]"/>
+            <twitter:get-user-timeline-by-screen-name config-ref="Twitter__Configuration" screenName="KentBeck" sinceId="#[flowVars.lastAccessed]" doc:name="Twitter"/>
+        </poll>
+        <choice doc:name="Choice">
+            <when expression="#[payload.size() != 0]">
+                <foreach doc:name="For Each">
+                    <logger message="#[payload.text]" level="INFO" doc:name="Logger"/>
+                </foreach>
+            </when>
+            <otherwise>
+            	<logger level="INFO" message="Nothing returned" doc:name="Logger"/>
+            </otherwise>
+        </choice>
+    </flow> -->
+</mule>

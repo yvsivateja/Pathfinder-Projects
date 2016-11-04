@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;calculator-v1.0-3.8.x&apos;&#x0A;- Original project: &apos;calculator-v1.0-3.8.x&apos;&#x0A;- Original element: &apos;keystore.jks&apos;" description="Delete element" element1="src/main/resources/keystore.jks" elements="0" flags="589830" id="org.eclipse.jdt.ui.delete" resources="1" stamp="1475523472779" subPackages="false" version="1.0"/>
+</session>

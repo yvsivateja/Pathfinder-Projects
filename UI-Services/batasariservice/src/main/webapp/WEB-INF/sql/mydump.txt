@@ -1,0 +1,313 @@
+-- MySQL dump 10.13  Distrib 5.1.73, for Win32 (ia32)
+--
+-- Host: localhost    Database: batasari
+-- ------------------------------------------------------
+-- Server version	5.1.73-community
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `company`
+--
+
+DROP TABLE IF EXISTS `company`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `company` (
+  `companyid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `companyname` varchar(45) NOT NULL DEFAULT '',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `expirydate` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `address1` text,
+  `address2` text,
+  `address3` text,
+  `city` varchar(45) DEFAULT NULL,
+  `country` varchar(45) DEFAULT NULL,
+  `state` varchar(45) DEFAULT NULL,
+  `notes` text,
+  PRIMARY KEY (`companyid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `company`
+--
+
+LOCK TABLES `company` WRITE;
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+INSERT INTO `company` VALUES (1,'TCS',1,'0000-00-00 00:00:00','synergy park','gachibowli','serlingampally','hyderabad','india','Telangana','Blah\r\nBlah'),(2,'CTC',1,'0000-00-00 00:00:00','Raheja','Mindspace','302','Hyd','India','Telangana','Its not Cost to company\r\nBlah2'),(3,'Batasari',0,'0000-00-00 00:00:00','sivateja','sivateja','test','test','test','test,test','test');
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `employee` (
+  `employeeid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `employeename` varchar(45) NOT NULL DEFAULT '',
+  `age` varchar(45) DEFAULT NULL,
+  `sex` char(2) DEFAULT NULL,
+  `phone` varchar(45) DEFAULT NULL,
+  `emailid` varchar(45) DEFAULT NULL,
+  `notes` text,
+  `companyid` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`employeeid`),
+  UNIQUE KEY `employeename_unique` (`employeename`,`companyid`) USING BTREE,
+  KEY `FK_employee_company` (`companyid`),
+  CONSTRAINT `FK_employee_company` FOREIGN KEY (`companyid`) REFERENCES `company` (`companyid`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (1,'Siva Teja','25','M','Siva Teja','M','Blah Blah',1,1),(2,'Siva Teja2','252','M','Siva Teja2',NULL,NULL,2,1),(3,'sivateja','test','F','sivateja',NULL,NULL,3,1),(4,'Keerthi','25','F','Keerthi','basakeerthi@gmail.com',NULL,1,1);
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role` (
+  `roleid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `rolename` varchar(45) NOT NULL DEFAULT '',
+  `status` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `isdefault` tinyint(1) unsigned DEFAULT NULL,
+  `companyid` int(10) unsigned NOT NULL DEFAULT '0',
+  `isdisplayed` tinyint(1) unsigned NOT NULL DEFAULT '1',
+  PRIMARY KEY (`roleid`),
+  UNIQUE KEY `rolename_unique` (`rolename`,`companyid`) USING BTREE,
+  KEY `FK_role_company` (`companyid`),
+  CONSTRAINT `FK_role_company` FOREIGN KEY (`companyid`) REFERENCES `company` (`companyid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role`
+--
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'SuperAdmin',1,0,1,1),(2,'DefaultRole',1,1,1,0),(3,'Manager',1,0,1,1),(6,'Test Role',1,0,1,1);
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `rolesacl`
+--
+
+DROP TABLE IF EXISTS `rolesacl`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `rolesacl` (
+  `rolesaclid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `roleid` int(10) unsigned NOT NULL DEFAULT '0',
+  `cancreate` tinyint(1) NOT NULL DEFAULT '0',
+  `canupdate` tinyint(1) NOT NULL DEFAULT '0',
+  `candelete` tinyint(1) NOT NULL DEFAULT '0',
+  `canview` tinyint(1) NOT NULL DEFAULT '0',
+  `module` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`rolesaclid`),
+  KEY `FK_rolesacl_role` (`roleid`),
+  CONSTRAINT `FK_rolesacl_role` FOREIGN KEY (`roleid`) REFERENCES `role` (`roleid`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `rolesacl`
+--
+
+LOCK TABLES `rolesacl` WRITE;
+/*!40000 ALTER TABLE `rolesacl` DISABLE KEYS */;
+INSERT INTO `rolesacl` VALUES (1,1,1,1,1,1,'Company'),(2,3,0,0,0,0,'Company'),(3,1,1,1,1,1,'Employee'),(4,3,1,1,1,1,'Employee'),(5,6,0,0,0,1,'COMPANY'),(6,6,0,0,1,1,'EMPLOYEE'),(7,6,0,0,1,0,'USERS'),(8,6,1,1,0,0,'ROLES');
+/*!40000 ALTER TABLE `rolesacl` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
+  `userid` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(45) NOT NULL DEFAULT '',
+  `password` varchar(45) NOT NULL DEFAULT '',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `companyid` int(10) unsigned NOT NULL DEFAULT '0',
+  `employeeid` int(10) unsigned NOT NULL DEFAULT '0',
+  PRIMARY KEY (`userid`),
+  UNIQUE KEY `companyusername_unique` (`username`,`companyid`) USING BTREE,
+  KEY `FK_user_company` (`companyid`),
+  KEY `FK_user_employee` (`employeeid`),
+  CONSTRAINT `FK_user_company` FOREIGN KEY (`companyid`) REFERENCES `company` (`companyid`),
+  CONSTRAINT `FK_user_employee` FOREIGN KEY (`employeeid`) REFERENCES `employee` (`employeeid`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'sivateja','sivateja',1,1,1);
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER insert_default_role_to_user AFTER INSERT ON user
+FOR EACH ROW BEGIN
+DECLARE default_role_id INTEGER;
+SET default_role_id := (select roleid from role where `default` = true LIMIT 1);
+INSERT INTO userrole values(NEW.userid,default_role_id,1);
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `userrole`
+--
+
+DROP TABLE IF EXISTS `userrole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `userrole` (
+  `userid` int(10) unsigned NOT NULL DEFAULT '0',
+  `roleid` int(10) unsigned NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`roleid`,`userid`,`status`),
+  KEY `FK_userrole_user` (`userid`),
+  CONSTRAINT `FK_userrole_role` FOREIGN KEY (`roleid`) REFERENCES `role` (`roleid`),
+  CONSTRAINT `FK_userrole_user` FOREIGN KEY (`userid`) REFERENCES `user` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userrole`
+--
+
+LOCK TABLES `userrole` WRITE;
+/*!40000 ALTER TABLE `userrole` DISABLE KEYS */;
+INSERT INTO `userrole` VALUES (1,1,1),(1,2,1),(1,3,1);
+/*!40000 ALTER TABLE `userrole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `userrolespermissionsview`
+--
+
+DROP TABLE IF EXISTS `userrolespermissionsview`;
+/*!50001 DROP VIEW IF EXISTS `userrolespermissionsview`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `userrolespermissionsview` (
+ `username` tinyint NOT NULL,
+  `userid` tinyint NOT NULL,
+  `employeeid` tinyint NOT NULL,
+  `companyid` tinyint NOT NULL,
+  `rolename` tinyint NOT NULL,
+  `roleid` tinyint NOT NULL,
+  `module` tinyint NOT NULL,
+  `cancreate` tinyint NOT NULL,
+  `canupdate` tinyint NOT NULL,
+  `candelete` tinyint NOT NULL,
+  `canview` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `userrolesview`
+--
+
+DROP TABLE IF EXISTS `userrolesview`;
+/*!50001 DROP VIEW IF EXISTS `userrolesview`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE TABLE `userrolesview` (
+ `username` tinyint NOT NULL,
+  `rolename` tinyint NOT NULL,
+  `status` tinyint NOT NULL
+) ENGINE=MyISAM */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `userrolespermissionsview`
+--
+
+/*!50001 DROP TABLE IF EXISTS `userrolespermissionsview`*/;
+/*!50001 DROP VIEW IF EXISTS `userrolespermissionsview`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `userrolespermissionsview` AS select `u`.`username` AS `username`,`u`.`userid` AS `userid`,`u`.`employeeid` AS `employeeid`,`u`.`companyid` AS `companyid`,`r`.`rolename` AS `rolename`,`r`.`roleid` AS `roleid`,`racl`.`module` AS `module`,`racl`.`cancreate` AS `cancreate`,`racl`.`canupdate` AS `canupdate`,`racl`.`candelete` AS `candelete`,`racl`.`canview` AS `canview` from (((`user` `u` join `userrole` `ur` on((`ur`.`userid` = `u`.`userid`))) join `role` `r` on((`r`.`roleid` = `ur`.`roleid`))) join `rolesacl` `racl` on((`racl`.`roleid` = `r`.`roleid`))) order by `r`.`rolename`,`racl`.`module` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `userrolesview`
+--
+
+/*!50001 DROP TABLE IF EXISTS `userrolesview`*/;
+/*!50001 DROP VIEW IF EXISTS `userrolesview`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8 */;
+/*!50001 SET character_set_results     = utf8 */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `userrolesview` AS select `u`.`username` AS `username`,`r`.`rolename` AS `rolename`,`u`.`status` AS `status` from ((`user` `u` join `userrole` `ur` on((`ur`.`userid` = `u`.`userid`))) join `role` `r` on((`ur`.`roleid` = `r`.`roleid`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2014-08-05  8:23:53

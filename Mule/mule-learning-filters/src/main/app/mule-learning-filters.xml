@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:test="http://www.mulesoft.org/schema/mule/test"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/test http://www.mulesoft.org/schema/mule/test/current/mule-test.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <spring:beans>
+        <spring:bean id="person" name="personBean" class="mule.learning.beans.Person">
+            <spring:property name="name" value="sai baba"/>
+            <spring:property name="age" value="100000"/>
+        </spring:bean>
+    </spring:beans>
+    <flow name="mule-learning-filtersFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/xpathFilter" doc:name="HTTP"/>
+        <mulexml:dom-to-xml-transformer doc:name="DOM to XML"/>
+        <mulexml:xpath-filter pattern="/e:book/title" expectedValue="myvar" >
+      		<mulexml:namespace prefix="e" uri="http://www.elite.com/2005/"/>
+    	</mulexml:xpath-filter>
+    	<set-payload value="matched" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-filtersFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/exceptionFilter" doc:name="HTTP"/>
+        <choice doc:name="Decide http method">
+            <when expression="#[message.inboundProperties.'http.method' == 'POST']">
+            	<logger level="INFO" message="in post" doc:name="Logger"/>
+                <scripting:component doc:name="Script">
+                    <scripting:script engine="Groovy"><![CDATA[throw new java.lang.RuntimeException('runtime');]]></scripting:script>
+                </scripting:component>
+            </when>
+            <otherwise>
+                <scripting:component doc:name="Script">
+                    <scripting:script engine="Groovy"><![CDATA[throw new java.lang.Exception('runtime');]]></scripting:script>
+                </scripting:component>
+            </otherwise>
+        </choice>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-payload value="payload due to exception" doc:name="Set Payload"/>
+            <logger level="INFO" doc:name="Logger" message="#[groovy:message.getExceptionPayload().getException().getClass()]"/>
+            <logger message="#[exception.causedBy(java.lang.RuntimeException)]" level="INFO" doc:name="Logger"/>
+            <exception-type-filter expectedType="java.lang.Exception" doc:name="Exception"/>
+            <set-payload value="payload due to runtime exception" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jsonschemavalidator" doc:name="HTTP"/>
+        <json:validate-schema schemaLocation="person-json-schema.json" doc:name="Validate JSON Schema"/>
+        <set-payload value="valid schema" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-filtersFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/messageFilter" doc:name="HTTP"/>
+        <message-filter doc:name="Message" onUnaccepted="defaultUnacceptance">
+            <message-property-filter pattern="http.method=POST" caseSensitive="false" scope="inbound"/>
+        </message-filter>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow4">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/messagePropertyFilter" doc:name="HTTP"/>
+        <message-property-filter pattern="http.method=POST" caseSensitive="false" scope="inbound" doc:name="Message Property"/>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow5">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/regexFilter" doc:name="HTTP"/>
+        <set-payload value="before filter" doc:name="Set Payload"/>
+        <regex-filter pattern="^(sai)" doc:name="Regex"/>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+     <flow name="mule-learning-filtersFlow6">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/wildcardFilter" doc:name="HTTP"/>
+        <wildcard-filter pattern="sai*" caseSensitive="false" doc:name="Wildcard"/>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow7">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/payloadTypeFilter" doc:name="HTTP"/>
+        <set-payload value="some string" doc:name="Set Payload"/>
+        <payload-type-filter expectedType="java.lang.String" doc:name="Payload"/>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow8">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/logicFilter" doc:name="HTTP"/>
+        <and-filter doc:name="And">
+            <not-filter>
+                <expression-filter expression="#[message.inboundProperties.'http.method'.equalsIgnoreCase('GET')]"/>
+            </not-filter>
+            <or-filter>
+                <regex-filter pattern="^(sai)"/>
+                <wildcard-filter pattern="*baba" caseSensitive="true"/>
+            </or-filter>
+        </and-filter>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+     <flow name="mule-learning-filtersFlow9">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customFilter" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <custom-filter class="mule.learning.filters.CustomFilter" doc:name="Custom">
+            <spring:property name="person" ref="person"/>
+        </custom-filter>
+        <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+     <flow name="mule-learning-filtersFlow10">
+       <http:listener config-ref="HTTP_Listener_Configuration" path="/idempotentFilter" doc:name="HTTP"/>
+       <flow-ref name="service1" doc:name="service1"/>
+       <flow-ref name="service2" doc:name="service2"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow11">
+       <http:listener config-ref="HTTP_Listener_Configuration" path="/idempotentFilterCustomId" doc:name="HTTP"/>
+      <idempotent-message-filter onUnaccepted="defaultUnacceptance" idExpression="#[xpath3('//id')]" doc:name="Idempotent Message">
+            <in-memory-store name="myinst" maxEntries="10" entryTTL="600" expirationInterval="1000000"/>
+      </idempotent-message-filter>
+      <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow12">
+      <http:listener config-ref="HTTP_Listener_Configuration" path="/idempotentFilterManaged" doc:name="HTTP"/>
+      <logger level="INFO" message="${mule.working.dir} -- #[app.workDir]" doc:name="Logger"/>
+      <idempotent-message-filter onUnaccepted="defaultUnacceptance" idExpression="#[xpath3('//id')]" doc:name="Idempotent Message">
+            <managed-store storeName="mymanagedstore" entryTTL="200"/>
+      </idempotent-message-filter>
+      <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-filtersFlow13">
+      <http:listener config-ref="HTTP_Listener_Configuration" path="/idempotentFilterPersistent" doc:name="HTTP"/>
+      <logger level="INFO" message="#[server.tmpDir]" doc:name="Logger"/>
+      <idempotent-message-filter onUnaccepted="defaultUnacceptance" idExpression="#[xpath3('//id')]" doc:name="Idempotent Message">
+            <simple-text-file-store entryTTL="200"/>
+      </idempotent-message-filter>
+      <set-payload value="accepted" doc:name="Set Payload"/>
+    </flow>
+    
+    <sub-flow name="service1">
+    	<flow-ref name="deepservice" doc:name="deepservice"/>
+    </sub-flow>
+    
+     <sub-flow name="service2">
+    	<flow-ref name="deepservice" doc:name="deepservice"/>
+    </sub-flow>
+    
+     <sub-flow name="deepservice">
+     <!-- By default filter is evaluated using #[message:id]. This uses default persistent object store -->
+        <idempotent-message-filter doc:name="Idempotent Message" onUnaccepted="defaultUnacceptance" />
+    	<logger level="INFO" message="accepted" doc:name="Logger"/>
+     </sub-flow>
+    
+    <flow name="defaultUnacceptance">
+        <set-payload value="redirected after filter unaccapted" doc:name="Set Payload"/>
+    </flow>
+    
+</mule>

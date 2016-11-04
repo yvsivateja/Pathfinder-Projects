@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <flow name="scatter-gatherFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/scatterGather" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <scatter-gather doc:name="Scatter-Gather">
+        	<flow-ref name="scatter-gatherFlow1" doc:name="scatter-gatherFlow1"/>
+        	<flow-ref name="scatter-gatherFlow4" doc:name="scatter-gatherFlow4"/>
+        	<flow-ref name="scatter-gatherFlow5" doc:name="scatter-gatherFlow5"/>
+        </scatter-gather>
+        <logger level="INFO" message="" />
+        <logger level="INFO" doc:name="Logger" message="#[payload:java.lang.String]"/>
+        <set-payload value="{&quot;first&quot;:#[payload[0]:java.lang.String],&quot;second&quot;:#[payload[1]:java.lang.String],&quot;third&quot;:#[payload[2]:java.lang.String]}" doc:name="Set Payload"/>
+    </flow>
+    
+    <!-- If any route fails (any exception is thrown as a result of invoking that route), mule will throw a ComositeRoutingException -->
+    <flow name="scatter-gatherFlow_exception">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/scatterGatherException" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <flow-ref name="scatter-gatherFlow1" doc:name="Flow Reference"/>
+            <flow-ref name="scatter-gatherFlow2" doc:name="scatter-gatherFlow2"/>
+            <flow-ref name="scatter-gatherFlow3" doc:name="scatter-gatherFlow3"/>
+        	<flow-ref name="scatter-gatherFlow4" doc:name="Flow Reference"/>
+        	<flow-ref name="scatter-gatherFlow5" doc:name="Flow Reference"/>
+        </scatter-gather>
+        <logger level="INFO" message="#[payload]" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+        	<logger level="INFO" doc:name="Logger"/>
+        	<logger level="INFO" doc:name="Logger" message="#[groovy:message.getExceptionPayload().getRootException()]"/>
+        	<!-- Actual exception is of type org.mule.routing.CompositeRoutingException -->
+        	<logger level="INFO" message="#[exception.getExceptions()]" doc:name="Logger"/>
+        </catch-exception-strategy>
+    </flow>
+    
+    <!-- If we use custom aggregation strategy, if any route fails (any exception is thrown as a result of invoking that route), mule will not throw any Exception  -->
+     <flow name="scatter-gatherFlow_exception_cutom">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/scatterGatherAggregation" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <custom-aggregation-strategy class="mule.learning.aggregators.CustomAggregator"/>
+            <flow-ref name="scatter-gatherFlow1" doc:name="Flow Reference"/>
+            <flow-ref name="scatter-gatherFlow2" doc:name="Flow Reference"/>
+            <flow-ref name="scatter-gatherFlow3" doc:name="Flow Reference"/>
+        	<flow-ref name="scatter-gatherFlow4" doc:name="Flow Reference"/>
+        	<flow-ref name="scatter-gatherFlow5" doc:name="Flow Reference"/>
+        </scatter-gather>
+        <logger level="INFO" message="#[payload]" doc:name="Logger"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        
+    </flow>
+    
+    <flow name="scatter-gatherFlow1">
+        <logger level="INFO" message="in service1" doc:name="Logger"/>
+        <append-string-transformer message=" sgflow1" doc:name="Append String"/>
+    </flow>
+    <flow name="scatter-gatherFlow2">
+        <logger level="INFO" message="in service2" doc:name="Logger"/>
+        <scripting:transformer doc:name="Script">
+            <scripting:script engine="Groovy"><![CDATA[throw new java.lang.RuntimeException('Exception from sgflow2');]]></scripting:script>
+        </scripting:transformer>
+    </flow>
+     <flow name="scatter-gatherFlow3">
+        <logger level="INFO" message="in service3" doc:name="Logger"/>
+        <append-string-transformer message=" sgflow3" doc:name="Append String"/>
+        <scripting:transformer doc:name="Script">
+            <scripting:script engine="Groovy"><![CDATA[throw new java.lang.Exception('Exception from sgflow3');]]></scripting:script>
+        </scripting:transformer>
+    </flow>
+     <flow name="scatter-gatherFlow4">
+        <logger level="INFO" message="in service4" doc:name="Logger"/>
+        <append-string-transformer message=" sgflow4" doc:name="Append String"/>
+    </flow>
+     <flow name="scatter-gatherFlow5">
+        <logger level="INFO" message="in service5" doc:name="Logger"/>
+        <append-string-transformer message=" sgflow5" doc:name="Append String"/>
+    </flow>
+</mule>

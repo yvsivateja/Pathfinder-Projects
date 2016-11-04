@@ -1,0 +1,148 @@
+INFO  2016-10-04 01:52:56,314 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app                                         +
++ 'template-gw-external-oauth2-provider-1.0.0'             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:52:56,339 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2016-10-04 01:52:56,345 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Starting discovery of extensions
+INFO  2016-10-04 01:52:56,364 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Discovered 1 extensions
+INFO  2016-10-04 01:52:56,364 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Registering extension validation (version 3.8)
+INFO  2016-10-04 01:52:56,370 [main] org.mule.config.spring.MuleArtifactContext: Refreshing org.mule.config.spring.MuleArtifactContext@28ce75ec: startup date [Tue Oct 04 01:52:56 IST 2016]; root of context hierarchy
+WARN  2016-10-04 01:52:56,780 [main] org.mule.config.spring.util.SpringXMLUtils: Id (_muleSecurityManager) and name (single-user-security-manager) differ for mule-ss:security-manager{id=_muleSecurityManager, name=single-user-security-manager, mule-ss=http://www.mulesoft.org/schema/mule/spring-security}
+INFO  2016-10-04 01:52:56,996 [main] org.springframework.security.core.SpringSecurityCoreVersion: You are running with Spring Security Core 4.0.1.RELEASE
+INFO  2016-10-04 01:52:57,019 [main] org.springframework.security.config.SecurityNamespaceHandler: Spring Security 'config' module version is 4.0.1.RELEASE
+INFO  2016-10-04 01:52:57,216 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [common.properties]
+INFO  2016-10-04 01:52:57,218 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [mule.dev.properties]
+INFO  2016-10-04 01:52:57,227 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [common.properties]
+INFO  2016-10-04 01:52:57,229 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [mule.dev.properties]
+INFO  2016-10-04 01:52:57,236 [main] org.mule.config.spring.processors.NoDevkitInjectorProcessor: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  2016-10-04 01:52:57,672 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising model: _muleSystemModel
+INFO  2016-10-04 01:52:57,674 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: validateTokenFlow
+INFO  2016-10-04 01:52:57,674 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@56b751b1
+INFO  2016-10-04 01:52:57,692 [main] org.mule.processor.SedaStageLifecycleManager: Initialising service: validateTokenFlow.stage1
+INFO  2016-10-04 01:52:57,711 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-tx-log/tx2.log
+INFO  2016-10-04 01:52:57,722 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-xa-tx-log/tx2.log
+INFO  2016-10-04 01:52:57,793 [main] org.mule.lifecycle.AbstractLifecycleManager: Disposing RegistryBroker
+INFO  2016-10-04 01:52:57,795 [main] org.mule.construct.FlowConstructLifecycleManager: Disposing flow: validateTokenFlow
+INFO  2016-10-04 01:52:57,796 [main] org.mule.processor.SedaStageLifecycleManager: Disposing service: validateTokenFlow.stage1
+INFO  2016-10-04 01:52:57,799 [main] org.mule.lifecycle.AbstractLifecycleManager: Disposing model: _muleSystemModel
+INFO  2016-10-04 01:52:58,101 [main] org.mule.config.spring.MuleArtifactContext: Closing org.mule.config.spring.MuleArtifactContext@28ce75ec: startup date [Tue Oct 04 01:52:56 IST 2016]; root of context hierarchy
+ERROR 2016-10-04 01:52:58,168 [main] org.mule.module.launcher.application.DefaultMuleApplication: null
+java.security.UnrecoverableKeyException: Password verification failed
+	at sun.security.provider.JavaKeyStore.engineLoad(JavaKeyStore.java:778) ~[?:1.8.0_92]
+	at sun.security.provider.JavaKeyStore$JKS.engineLoad(JavaKeyStore.java:56) ~[?:1.8.0_92]
+	at sun.security.provider.KeyStoreDelegator.engineLoad(KeyStoreDelegator.java:224) ~[?:1.8.0_92]
+	at sun.security.provider.JavaKeyStore$DualFormatJKS.engineLoad(JavaKeyStore.java:70) ~[?:1.8.0_92]
+	at java.security.KeyStore.load(KeyStore.java:1445) ~[?:1.8.0_92]
+	at org.mule.api.security.tls.TlsConfiguration.loadKeyStore(TlsConfiguration.java:267) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.api.security.tls.TlsConfiguration.initKeyManagerFactory(TlsConfiguration.java:236) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.api.security.tls.TlsConfiguration.initialise(TlsConfiguration.java:198) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.transport.ssl.DefaultTlsContextFactory.initialise(DefaultTlsContextFactory.java:65) ~[mule-transport-ssl-3.8.0.jar:3.8.0]
+	at sun.reflect.GeneratedMethodAccessor13.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_92]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_92]
+	at org.mule.lifecycle.phases.DefaultLifecyclePhase.applyLifecycle(DefaultLifecyclePhase.java:237) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.phases.MuleContextInitialisePhase.applyLifecycle(MuleContextInitialisePhase.java:71) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleCallback.doApplyLifecycle(RegistryLifecycleCallback.java:99) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleCallback.onTransition(RegistryLifecycleCallback.java:71) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleManager.invokePhase(RegistryLifecycleManager.java:155) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleManager.fireLifecycle(RegistryLifecycleManager.java:126) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.registry.AbstractRegistry.fireLifecycle(AbstractRegistry.java:146) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:116) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:177) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:100) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:52) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory$1.configure(DefaultMuleContextFactory.java:89) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.doCreateMuleContext(DefaultMuleContextFactory.java:222) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:81) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:196) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper$2.execute(ArtifactWrapper.java:63) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.executeWithinArtifactClassLoader(ArtifactWrapper.java:136) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.init(ArtifactWrapper.java:58) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArtifactDeployer.deploy(DefaultArtifactDeployer.java:25) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.guardedDeploy(DefaultArchiveDeployer.java:324) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployArtifact(DefaultArchiveDeployer.java:345) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployPackagedArtifact(DefaultArchiveDeployer.java:163) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployPackagedArtifact(DefaultArchiveDeployer.java:268) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployPackagedArtifact(DefaultArchiveDeployer.java:83) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.deployPackedApps(DeploymentDirectoryWatcher.java:275) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.start(DeploymentDirectoryWatcher.java:150) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleDeploymentService.start(MuleDeploymentService.java:104) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleContainer.start(MuleContainer.java:170) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:15) ~[tooling-support-3.8.0.jar:?]
+INFO  2016-10-04 01:52:58,169 [main] org.mule.module.launcher.application.DefaultMuleApplication: App 'template-gw-external-oauth2-provider-1.0.0' never started, nothing to dispose of
+INFO  2016-10-04 01:54:52,435 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app                                         +
++ 'template-gw-external-oauth2-provider-1.0.0'             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:54:52,446 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising RegistryBroker
+INFO  2016-10-04 01:54:52,459 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Starting discovery of extensions
+INFO  2016-10-04 01:54:52,482 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Discovered 1 extensions
+INFO  2016-10-04 01:54:52,482 [main] org.mule.module.extension.internal.manager.DefaultExtensionManager: Registering extension validation (version 3.8)
+INFO  2016-10-04 01:54:52,487 [main] org.mule.config.spring.MuleArtifactContext: Refreshing org.mule.config.spring.MuleArtifactContext@6fc7e828: startup date [Tue Oct 04 01:54:52 IST 2016]; root of context hierarchy
+WARN  2016-10-04 01:54:52,830 [main] org.mule.config.spring.util.SpringXMLUtils: Id (_muleSecurityManager) and name (single-user-security-manager) differ for mule-ss:security-manager{id=_muleSecurityManager, name=single-user-security-manager, mule-ss=http://www.mulesoft.org/schema/mule/spring-security}
+INFO  2016-10-04 01:54:52,979 [main] org.springframework.security.core.SpringSecurityCoreVersion: You are running with Spring Security Core 4.0.1.RELEASE
+INFO  2016-10-04 01:54:52,986 [main] org.springframework.security.config.SecurityNamespaceHandler: Spring Security 'config' module version is 4.0.1.RELEASE
+INFO  2016-10-04 01:54:53,118 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [common.properties]
+INFO  2016-10-04 01:54:53,119 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [mule.dev.properties]
+INFO  2016-10-04 01:54:53,130 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [common.properties]
+INFO  2016-10-04 01:54:53,132 [main] org.springframework.context.support.PropertySourcesPlaceholderConfigurer: Loading properties file from class path resource [mule.dev.properties]
+INFO  2016-10-04 01:54:53,139 [main] org.mule.config.spring.processors.NoDevkitInjectorProcessor: JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+INFO  2016-10-04 01:54:53,652 [main] org.mule.lifecycle.AbstractLifecycleManager: Initialising model: _muleSystemModel
+INFO  2016-10-04 01:54:53,655 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: validateTokenFlow
+INFO  2016-10-04 01:54:53,655 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@2c465259
+INFO  2016-10-04 01:54:53,674 [main] org.mule.processor.SedaStageLifecycleManager: Initialising service: validateTokenFlow.stage1
+INFO  2016-10-04 01:54:53,695 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-tx-log/tx2.log
+INFO  2016-10-04 01:54:53,695 [main] org.mule.util.journal.TransactionJournal: Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/template-gw-external-oauth2-provider-1.0.0/queue-xa-tx-log/tx2.log
+INFO  2016-10-04 01:54:53,712 [main] org.mule.api.security.tls.TlsProperties: Loading configuration file: tls-default.conf
+INFO  2016-10-04 01:54:53,774 [main] org.mule.config.spring.SpringXmlConfigurationBuilder: Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/template-gw-external-oauth2-provider-1.0.0/config.xml'}, ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/template-gw-external-oauth2-provider-1.0.0/userValidation.xml'}]"
+INFO  2016-10-04 01:54:53,774 [main] org.mule.config.builders.AutoConfigurationBuilder: Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/template-gw-external-oauth2-provider-1.0.0/config.xml'}, ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/template-gw-external-oauth2-provider-1.0.0/userValidation.xml'}]"
+INFO  2016-10-04 01:54:56,778 [main] org.mule.module.launcher.application.DefaultMuleApplication: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app                                             +
++ 'template-gw-external-oauth2-provider-1.0.0'             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:54:56,781 [main] org.mule.util.queue.QueueXaResourceManager: Starting ResourceManager
+INFO  2016-10-04 01:54:56,782 [main] org.mule.util.queue.QueueXaResourceManager: Started ResourceManager
+INFO  2016-10-04 01:54:56,824 [main] org.mule.module.http.internal.listener.DefaultHttpListenerConfig: Listening for requests on http://0.0.0.0:8085
+INFO  2016-10-04 01:54:56,827 [main] org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent: 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (1) used in this application                               +
++ OAuth provider module 1.6.0 (DevKit 3.5.2 Build UNNAMED.2039.0541b23)+       +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+INFO  2016-10-04 01:54:56,830 [main] org.mule.lifecycle.AbstractLifecycleManager: Starting model: _muleSystemModel
+INFO  2016-10-04 01:54:56,832 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: validateTokenFlow
+INFO  2016-10-04 01:54:56,833 [main] org.mule.processor.SedaStageLifecycleManager: Starting service: validateTokenFlow.stage1
+INFO  2016-10-04 01:54:56,883 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: staticWebContentFlow-http___localhost_9999_www_static__
+INFO  2016-10-04 01:54:56,883 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5d98364c
+INFO  2016-10-04 01:54:56,888 [main] org.mule.processor.SedaStageLifecycleManager: Initialising service: staticWebContentFlow-http___localhost_9999_www_static__.stage1
+INFO  2016-10-04 01:54:56,888 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: staticWebContentFlow-http___localhost_9999_www_static__
+INFO  2016-10-04 01:54:56,888 [main] org.mule.processor.SedaStageLifecycleManager: Starting service: staticWebContentFlow-http___localhost_9999_www_static__.stage1
+INFO  2016-10-04 01:54:57,113 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: authorizationFlow-http___localhost_9999_authorize
+INFO  2016-10-04 01:54:57,113 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@73dd0f23
+INFO  2016-10-04 01:54:57,121 [main] org.mule.processor.SedaStageLifecycleManager: Initialising service: authorizationFlow-http___localhost_9999_authorize.stage1
+INFO  2016-10-04 01:54:57,125 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: authorizationFlow-http___localhost_9999_authorize
+INFO  2016-10-04 01:54:57,125 [main] org.mule.processor.SedaStageLifecycleManager: Starting service: authorizationFlow-http___localhost_9999_authorize.stage1
+INFO  2016-10-04 01:54:57,140 [main] org.mule.construct.FlowConstructLifecycleManager: Initialising flow: accessToken-http___localhost_9999_access_token
+INFO  2016-10-04 01:54:57,140 [main] org.mule.exception.DefaultMessagingExceptionStrategy: Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@3921e96f
+INFO  2016-10-04 01:54:57,147 [main] org.mule.processor.SedaStageLifecycleManager: Initialising service: accessToken-http___localhost_9999_access_token.stage1
+INFO  2016-10-04 01:54:57,147 [main] org.mule.construct.FlowConstructLifecycleManager: Starting flow: accessToken-http___localhost_9999_access_token
+INFO  2016-10-04 01:54:57,147 [main] org.mule.processor.SedaStageLifecycleManager: Starting service: accessToken-http___localhost_9999_access_token.stage1
+INFO  2016-10-04 01:54:57,168 [main] org.mule.module.management.agent.WrapperManagerAgent: This JVM hasn't been launched by the wrapper, the agent will not run.
+INFO  2016-10-04 01:54:57,175 [main] org.mule.DefaultMuleContext: 
+**********************************************************************
+* Application: template-gw-external-oauth2-provider-1.0.0            *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************

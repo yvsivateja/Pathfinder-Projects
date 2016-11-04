@@ -1,0 +1,52 @@
+2016-10-01 17:12:19,994 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'app2'                                  +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-01 17:12:20,003 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-10-01 17:12:20,010 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-10-01 17:12:20,030 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-10-01 17:12:20,030 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-10-01 17:12:20,035 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@b5de9ac: startup date [Sat Oct 01 17:12:20 IST 2016]; parent: org.mule.config.spring.MuleDomainContext@2a5b3fee
+2016-10-01 17:12:20,362 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-01 17:12:20,561 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-10-01 17:12:20,564 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: app2Flow
+2016-10-01 17:12:20,564 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@40a28bda
+2016-10-01 17:12:20,570 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: app2Flow.stage1
+2016-10-01 17:12:20,575 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/app2/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/app2/queue-tx-log/tx2.log
+2016-10-01 17:12:20,575 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/app2/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/app2/queue-xa-tx-log/tx2.log
+2016-10-01 17:12:20,621 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/app2/app2.xml'}]"
+2016-10-01 17:12:20,621 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/app2/app2.xml'}]"
+2016-10-01 17:12:22,737 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'app2'                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-01 17:12:22,741 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-10-01 17:12:22,741 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-10-01 17:12:22,746 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-01 17:12:22,749 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-10-01 17:12:22,750 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: app2Flow
+2016-10-01 17:12:22,750 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: app2Flow.stage1
+2016-10-01 17:12:22,759 [main] INFO  org.mule.transport.vm.VMConnector - Registering listener: app2Flow on endpointUri: vm://out
+2016-10-01 17:12:22,796 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising: 'null'. Object is: VMMessageReceiver
+2016-10-01 17:12:22,798 [main] INFO  org.mule.transport.vm.VMMessageReceiver - Connecting clusterizable message receiver
+2016-10-01 17:12:22,798 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting: 'null'. Object is: VMMessageReceiver
+2016-10-01 17:12:22,799 [main] INFO  org.mule.transport.vm.VMMessageReceiver - Starting clusterizable message receiver
+2016-10-01 17:12:22,816 [main] INFO  org.mule.module.management.agent.AbstractJmxAgent - Attempting to register service with name: Mule.app2:type=Endpoint,service="app2Flow",connector=sharedVMConnector,name="endpoint.vm.out"
+2016-10-01 17:12:22,817 [main] INFO  org.mule.module.management.agent.AbstractJmxAgent - Registered Endpoint Service with name: Mule.app2:type=Endpoint,service="app2Flow",connector=sharedVMConnector,name="endpoint.vm.out"
+2016-10-01 17:12:22,819 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: app2                                                  *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   JMX Agent                                                        *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-10-01 17:13:13,731 [[app1].HTTP_Listener_Configuration.worker.01] INFO  org.mule.api.processor.LoggerMessageProcessor - In receiver queue

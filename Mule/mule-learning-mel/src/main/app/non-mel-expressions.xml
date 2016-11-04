@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd">
+    
+    <!-- To use the custom evaluator, we have two options
+    	1) Register it as spring bean as shown below
+    	2) in classpath (typically src/main/resources) create folder META-INF/services/org/mule/config
+    	   under that folder create a file named as registry-bootstrap.properties with contents as follows
+    	   object.1=com.learning.XpathVariableEvaluator
+    	   
+    	If you are writing a jar to be consumed by some MAIN project, make sure that this META-INF/servicesorgmule/config/registry-bootstrap.properties
+    	is present at the root of the jar i.e., while creating the folder structure for jar create the above mentioned folder structure inside src/main/resources
+     	For more info look at https://docs.mulesoft.com/mule-user-guide/v/3.7/bootstrapping-the-registry
+     -->
+    <spring:beans>
+        <spring:bean class="com.learning.XpathSessionVariableEvaluator"/>
+    </spring:beans>
+
+	<flow name="mel-explor_json">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/meljson" doc:name="HTTP"/>
+        <logger level="INFO" message="#[json-node://age]" doc:name="Logger"/>
+        <logger level="INFO" message="#[json://age]" doc:name="Logger"/>
+        <foreach collection="#[json:name]" doc:name="For Each">
+            <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        </foreach>
+    </flow>
+    
+    <flow name="mel-explor_mappayload">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melmappayload" doc:name="HTTP"/>
+        <logger level="INFO" message="#[map-payload:name]" doc:name="Logger"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+    
+     <flow name="mel-explor_function">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melfunction" doc:name="HTTP"/>
+        <logger level="INFO" message="#[function:datestamp:dd-MM-yyyy]" doc:name="Logger"/>
+        <logger level="INFO" message="#[function:UUID]" doc:name="Logger"/>
+    </flow>
+    
+	<flow name="mel-explor_message">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melmessage" doc:name="HTTP"/>
+		<logger level="INFO" message="#[message:id]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:correlationId]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:correlationSequence]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:correlationGroupSize]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:replyTo]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:payload]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:encoding]" doc:name="Logger"/>
+		<logger level="INFO" message="#[message:exception]" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explor_payload">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melpayload" doc:name="HTTP"/>
+		<logger level="INFO" message="#[payload:com.learning.Person]" doc:name="Logger"/>
+		<!-- payload-type is supported only on exression filters-->
+		<expression-filter expression="#[payload-type:com.learning.Person]" doc:name="Expression"/>
+		<logger level="INFO" message="paylod is of type person" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explorregex_eval">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melregexeval" doc:name="HTTP"/>
+        <!-- regex is supported only in expression filters -->
+        <expression-filter expression="#[regex:^(sai)]" doc:name="Expression"/>
+        <logger level="INFO" message="payload starts with 'sai'" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explorwildcard_eval">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melwildcardeval" doc:name="HTTP"/>
+        <set-variable variableName="mystring" value="#['Sai Baba Malik']" doc:name="Variable" />
+         <!-- wildcard is supported only in expression filters -->
+        <expression-filter expression="#[wildcard:*baba]" doc:name="Expression"/>
+        <logger level="INFO" message="payload contains baba" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explorxpath_eval">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melxpatheval" doc:name="HTTP"/>
+        <mulexml:dom-to-xml-transformer doc:name="DOM to XML"/>
+        <logger level="INFO" message="#[xpath://fiedlInPayload]" doc:name="Logger"/>
+        <logger level="INFO" message="#[xpath-node://fiedlInPayload]" doc:name="Logger"/>
+    </flow>
+    
+    
+	 <flow name="mel-explorxpath_variable">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melvariable" doc:name="HTTP"/>
+       	<set-variable value="sai" variableName="name" doc:name="Variable" />
+        <logger level="INFO" message="#[variable:name]" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explorxpath_string">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melstring" doc:name="HTTP"/>
+       	<set-variable value="sai" variableName="name" doc:name="Variable" />
+        <logger level="INFO" message="#[string:This entire this is treated as string, name = #[flowVars.name], payload=#[payload]]" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explor_groovy">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melgroovy" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="com.learning.Person" doc:name="JSON to Object"/>
+        <logger level="INFO" message="#[groovy:payload.name]" doc:name="Logger"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+    
+     <flow name="mel-explor_header">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melheader" doc:name="HTTP"/>
+        <set-variable variableName="name" value="sai" doc:name="Variable" />
+        <set-property propertyName="age" value="25" doc:name="Property" />
+        <set-session-variable value="Male" variableName="gender" doc:name="Session Variable" />
+        <!-- header evaluator by default searches in OUTBOUND scope. We can also specify the scope explicitly. -->
+        <logger level="INFO" message="#[header:age]" doc:name="Logger"/>
+        <logger level="INFO" message="#[header:OUTBOUND:age]" doc:name="Logger"/>
+        <logger level="INFO" message="#[header:INBOUND:content-type]" doc:name="Logger"/>
+        <logger level="INFO" message="#[header:INVOCATION:name]" doc:name="Logger"/>
+        <logger level="INFO" message="#[header:SESSION:gender]" doc:name="Logger"/>
+        <set-variable variableName="headerMap" value="#[headers:INBOUND:content-type,content-length]" doc:name="Variable" />
+        <logger level="INFO" message="#[headerMap['content-type']] -------- #[headerMap['content-length']]" doc:name="Logger"/>
+   		<set-variable variableName="headerList" value="#[headers-list:INBOUND:content-type,content-length]" doc:name="Variable" />
+        <logger level="INFO" message="#[headerList[0]] -------- #[headerList[1]]" doc:name="Logger"/>
+    </flow>
+    
+    
+    <flow name="mel-explor_bean">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melbean" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="com.learning.Person" doc:name="JSON to Object"/>
+        <!-- bean evaluator considers payload as bean and execute the given method or extract the given property for the payload.
+             We can use '.' or '/' as delimeter. This is deprecated. -->
+        <logger message="#[bean:getName]" level="INFO" doc:name="Logger"/>
+        <logger message="#[bean:name]" level="INFO" doc:name="Logger"/>
+        <logger message="#[bean:name/length]" level="INFO" doc:name="Logger"/>
+        <logger message="#[bean:name.length]" level="INFO" doc:name="Logger"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+    
+    <flow name="mel-explor_attachment">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melattachment" doc:name="HTTP"/>
+        <set-variable variableName="age" value="#[attachment:age]" doc:name="Variable" />
+        <logger level="INFO" message="#[age.content]" doc:name="Logger"/>
+        <set-variable variableName="attachmentMap" value="#[attachments:name,age]" doc:name="Variable" />
+        <logger level="INFO" message="#[attachmentMap['name'].content]" doc:name="Logger"/>
+        <logger level="INFO" message="#[attachmentMap['age'].content]" doc:name="Logger"/>
+        <set-variable variableName="attachmentList" value="#[attachments-list:name,age]" doc:name="Variable" />
+        <logger level="INFO" message="#[attachmentList[0].content]" doc:name="Logger"/>
+        <logger level="INFO" message="#[attachmentList[1].content]" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explorcustomeval">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melcusteval" doc:name="HTTP"/>
+        <set-property value="#['Sai Baba Malik']" propertyName="myvar" doc:name="Property" />
+        <set-session-variable value="Bolo jai sai baba" variableName="mysesvar" doc:name="Session Variable" />
+        <!-- This evaluator is registered from registry-bootstrap.properties -->
+        <logger level="INFO" message="#[XVar://myvartag]" doc:name="Logger"/>
+        <!-- This evaluator is registered as spring bean -->
+        <logger level="INFO" message="#[XSes://mysestag]" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explor_enrich">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/melenrich" doc:name="HTTP"/>
+        <enricher  doc:name="Message Enricher">
+            <flow-ref name="mel-explor_var_appenderService" doc:name="mel-explor_var_appenderService"/>
+            <enrich source="" target="#[header:custom]"/>
+            <enrich source="" target="#[variable:newp]"/>
+        </enricher>
+        <logger message="#[newp]" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="mel-explor_var_appenderService">
+        <append-string-transformer message=" taken ... " doc:name="Append String"/>
+    </flow>
+    
+    
+</mule>

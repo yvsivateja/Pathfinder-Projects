@@ -1,0 +1,25 @@
+# keystore
+key.store.password=mule123
+key.store.key.password=mule123
+key.store.path=keystore.jks
+
+# http
+http.validate.endpoint.path=external/validate
+http.authenticate.host=http://localhost
+http.authenticate.port=8083
+http.authenticate.basePath=/auth/service
+http.authenticate.path=/mock/auth
+http.mock.provider.endpoint=/mock/auth
+
+# http listener config
+https.port=8082
+http.port=8083
+
+# oauth 
+oauth.provider.name=CustomProvider
+oauth.token.ttl=1800
+oauth.scopes=
+oauth.supported.grant.types=CLIENT_CREDENTIALS
+oauth.authorization.endpoint.path=external/authorize
+oauth.access.token.endpoint.path=external/access_token
+oauth.enable.token.refresh=true

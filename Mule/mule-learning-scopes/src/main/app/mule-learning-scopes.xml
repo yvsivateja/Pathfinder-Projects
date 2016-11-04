@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Request Configuration"/>
+    <spring:beans>
+        <spring:bean id="mysimpleobjectstore" class="org.mule.util.store.SimpleMemoryObjectStore"/>
+    </spring:beans>
+    <http:request-config name="HTTP_Request_Configuration1" host="localhost" port="3334" doc:name="HTTP Request Configuration"/>
+    <flow name="mule-learning-scopesFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/async" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="com.learning.Person" doc:name="JSON to Object"/>
+        <async doc:name="Async">
+        	<logger level="INFO" message="in async logger........#[message]" doc:name="Logger"/>
+            <expression-component doc:name="Expression"><![CDATA[payload.setName('rahul sai');]]></expression-component>
+        </async>
+        <logger level="INFO" message="in main logger........#[message]" doc:name="Logger"/>
+        <expression-component doc:name="Expression"><![CDATA[payload.setAge(35);]]></expression-component>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="mule-learning-scopesFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/forEach" doc:name="HTTP"/>
+        <logger message="#[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+        <foreach collection="#[xpath3('//item',payload,'NODESET')]" doc:name="For Each">
+            <logger level="INFO" doc:name="Logger" message="#[payload:java.lang.String]"/>
+        </foreach>
+        <logger message="#[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mule-learning-scopesFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/forEachBatch" doc:name="HTTP"/>
+        <set-variable variableName="mycol" value="#[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]]" doc:name="Variable"/>
+        <logger message="#[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+        <foreach collection="#[flowVars.mycol]" doc:name="For Each" batchSize="5">
+            <logger level="INFO" doc:name="Logger" message="#[payload[0]:java.lang.String]"/>
+        </foreach>
+        <logger message="#[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="mule-learning-scopesFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/enrich" doc:name="HTTP"/>
+        <enricher target="#[payload]" doc:name="Message Enricher">
+            <http:request config-ref="HTTP_Request_Configuration" path="service1" method="POST" doc:name="HTTP"/>
+        </enricher>
+    </flow>
+    
+    <flow name="mule-learning-scopesFlow4">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/enrichST" doc:name="HTTP"/>
+        <enricher target="#[variable:myvar]" doc:name="Message Enricher" source="#[payload.charAt(4)]">
+            <flow-ref name="myserviceflow" doc:name="myserviceflow"/>
+        </enricher>
+        <logger level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="myserviceflow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/service1" doc:name="HTTP"/>
+        <set-payload value="my new payload" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-scopesFlow5">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/untilSuccessful" doc:name="HTTP"/>
+        <until-successful maxRetries="5" doc:name="Until Successful" objectStore-ref="mysimpleobjectstore" millisBetweenRetries="600" >
+            <flow-ref name="sameexceflow" doc:name="sameexceflow"/>
+        </until-successful>
+    </flow>
+    <flow name="sameexceflow">
+        <scripting:component doc:name="Script">
+            <scripting:script engine="Groovy"><![CDATA[throw new java.lang.Exception('intentional');]]></scripting:script>
+        </scripting:component>
+        <!-- <set-payload value="new payload" doc:name="Set Payload"/> -->
+    </flow>
+    
+</mule>

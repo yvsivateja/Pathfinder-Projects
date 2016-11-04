@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:jms="http://www.mulesoft.org/schema/mule/jms" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:test="http://www.mulesoft.org/schema/mule/test"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+http://www.mulesoft.org/schema/mule/test http://www.mulesoft.org/schema/mule/test/current/mule-test.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+    <jms:activemq-connector name="Active_MQ1" brokerURL="tcp://localhost:61616" validateConnections="true" doc:name="Active MQ" />
+    <db:mysql-config name="MySQL_Configuration" url="jdbc:mysql://localhost:3306/mule_test?user=root&amp;password=root" doc:name="MySQL Configuration"/>
+    <flow name="transactionsFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/tranblock" doc:name="HTTP"/>
+        <transactional action="ALWAYS_BEGIN" doc:name="Transactional" >
+            <jms:outbound-endpoint queue="queueA" connector-ref="Active_MQ" doc:name="JMS">
+                <jms:transaction action="ALWAYS_JOIN"/>
+            </jms:outbound-endpoint>
+            <logger message="in between" level="INFO" doc:name="Logger"/>
+            <test:component doc:name="Throws custom exception" exceptionToThrow="java.lang.Exception" throwException="true"/>
+            <jms:outbound-endpoint queue="queueB" connector-ref="Active_MQ" doc:name="JMS">
+                <jms:transaction action="ALWAYS_JOIN"/>
+            </jms:outbound-endpoint>
+        </transactional>
+        <logger message="After all" level="INFO" doc:name="Logger"/>
+    </flow>
+    
+     <flow name="transactionsFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/tranblockexception" doc:name="HTTP"/>
+        <transactional action="ALWAYS_BEGIN" doc:name="Transactional" >
+            <jms:outbound-endpoint queue="queueA" connector-ref="Active_MQ" doc:name="JMS">
+                <jms:transaction action="ALWAYS_JOIN"/>
+            </jms:outbound-endpoint>
+            <logger message="in between" level="INFO" doc:name="Logger"/>
+            <test:component doc:name="Throws custom exception" exceptionToThrow="java.lang.Exception" throwException="true"/>
+            <jms:outbound-endpoint queue="queueB" connector-ref="Active_MQ" doc:name="JMS">
+                <jms:transaction action="ALWAYS_JOIN"/>
+            </jms:outbound-endpoint>
+            <rollback-exception-strategy doc:name="Rollback Exception Strategy">
+            	<logger message="exception caught" level="INFO" doc:name="Logger"/>
+            </rollback-exception-strategy>
+            <!-- if we caught exception it is considered success and hence not rollbacked. We can use rollback-exception-strategy -->
+            <!-- <catch-exception-strategy doc:name="Catch Exception Strategy">
+                <logger message="exception caught" level="INFO" doc:name="Logger"/>
+            </catch-exception-strategy> -->
+        </transactional>
+        <logger message="After all" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="transactionsFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/mrt" doc:name="HTTP"/>
+        <jms:outbound-endpoint queue="myqueue.tran" connector-ref="Active_MQ1" doc:name="JMS"/>
+    </flow>
+    <flow name="transactionsFlow3">
+        <jms:inbound-endpoint queue="myqueue.tran" connector-ref="Active_MQ1" doc:name="JMS">
+            <ee:multi-transaction action="ALWAYS_BEGIN"/>
+        </jms:inbound-endpoint>
+        <db:insert config-ref="MySQL_Configuration" doc:name="Database" transactionalAction="ALWAYS_JOIN">
+            <db:parameterized-query><![CDATA[insert into person values(1,'sai')]]></db:parameterized-query>
+        </db:insert>
+        <logger level="INFO" message="yeah huh!" doc:name="Logger"/>
+        <db:insert config-ref="MySQL_Configuration" transactionalAction="ALWAYS_JOIN" doc:name="Database">
+            <db:parameterized-query><![CDATA[insert into person values(1,'sai')]]></db:parameterized-query>
+        </db:insert>
+    </flow>
+</mule>

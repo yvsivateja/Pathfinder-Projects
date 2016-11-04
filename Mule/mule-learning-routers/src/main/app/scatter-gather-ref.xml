@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:batch="http://www.mulesoft.org/schema/mule/batch" xmlns:context="http://www.springframework.org/schema/context" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:sfdc="http://www.mulesoft.org/schema/mule/sfdc" xmlns:smtp="http://www.mulesoft.org/schema/mule/smtp" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/smtp http://www.mulesoft.org/schema/mule/smtp/current/mule-smtp.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+
+    <flow name="scatter-gatherFlow-col">
+        <http:listener config-ref="HTTP_Listener_Configuration" doc:name="Recieve HTTP request" path="/scatterGatherCol"/>
+        <scatter-gather doc:name="Scatter-Gather">
+            <custom-aggregation-strategy class="mule.learning.aggregators.ContactMergeAggregationStrategy"/>
+            <expression-component doc:name="sourceA"><![CDATA[
+java.util.ArrayList sourceA = new java.util.ArrayList();
+
+java.util.Map firstContact = new java.util.HashMap();
+firstContact.put("Id", "1");
+firstContact.put("Name", "vlado");
+firstContact.put("Email", "vlado@email.com");
+
+java.util.Map secondContact = new java.util.HashMap();
+secondContact.put("Id", "2");
+secondContact.put("Name", "michal");
+secondContact.put("Email", "michal@email.com");
+
+sourceA.add(firstContact);
+sourceA.add(secondContact);
+
+payload = sourceA;]]></expression-component>
+            <expression-component doc:name="sourceB"><![CDATA[
+java.util.ArrayList sourceB = new java.util.ArrayList();
+
+java.util.Map firstContact = new java.util.HashMap();
+firstContact.put("Id", "1");
+firstContact.put("Name", "peter");
+firstContact.put("Email", "peter@email.com");
+
+java.util.Map secondContact = new java.util.HashMap();
+secondContact.put("Id", "2");
+secondContact.put("Name", "vlado");
+secondContact.put("Email", "vlado@email.com");
+
+sourceB.add(firstContact);
+sourceB.add(secondContact);
+
+payload = sourceB;]]></expression-component>
+        </scatter-gather>
+        <logger level="INFO" message="#[payload:java.lang.String]" doc:name="Logger"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+   
+</mule>

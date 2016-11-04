@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <spring:beans>
+        <spring:bean id="invBean" class="com.learning.beans.InvokableClass"/>
+    </spring:beans>
+    <flow name="mule-learning-components-expr-comp">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/exprComp" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <expression-component doc:name="Expression"><![CDATA[payload += ' Malik';
+]]></expression-component>
+    </flow>
+    <flow name="mule-learning-componentsFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/home" doc:name="HTTP"/>
+    	<logger level="INFO" message="${app.base}--${mule.base}--${mule.home}--${app.home}" doc:name="Logger"/>
+        <http:static-resource-handler resourceBase="${app.home}/pages" defaultFile="home.html" doc:name="HTTP Static Resource Handler"/>
+    </flow>
+    <flow name="mule-learning-components-invoke">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/invoke" doc:name="HTTP"/>
+        <set-variable variableName="name" value="Rahul" doc:name="Variable"/>
+        <set-variable variableName="age" value="30" doc:name="Variable"/>
+        <invoke object-ref="invBean" method="doSomething" methodArguments="#[name],#[age]" methodArgumentTypes="java.lang.String,int" doc:name="Invoke"/>
+    </flow>
+    <flow name="mule-learning-components-scripting">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/scripting" doc:name="HTTP"/>
+        <set-variable variableName="name" value="sai" doc:name="Variable"/>
+        <scripting:component doc:name="Script">
+            <logging-interceptor/>
+            <scripting:script engine="Groovy">
+<![CDATA[println name;
+println "$name Malik";
+println age;
+println message.getInboundProperty('content-type');
+println flowVars.name;
+payload =name+" Malik";
+def name='ok';
+payload;]]>
+ <property key="age" value="30"/>
+</scripting:script>
+        </scripting:component>
+        <logger message="#[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+    </flow>
+</mule>

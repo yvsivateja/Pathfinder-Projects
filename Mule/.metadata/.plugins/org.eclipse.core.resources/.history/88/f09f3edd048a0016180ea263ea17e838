@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd ">
+    <http:listener-config name="Calculator-httpListenerConfig" host="0.0.0.0" port="8081" />
+    <apikit:config name="Calculator-config" raml="Calculator.raml" consoleEnabled="false" />
+    <flow name="Calculator-main">
+        <http:listener config-ref="Calculator-httpListenerConfig" path="/api/*" />
+        <apikit:router config-ref="Calculator-config" />
+        <exception-strategy ref="Calculator-apiKitGlobalExceptionMapping" />
+    </flow>
+    <flow name="Calculator-console">
+        <http:listener config-ref="Calculator-httpListenerConfig" path="/console/*" />
+        <apikit:console config-ref="Calculator-config" />
+    </flow>
+    <flow name="get:/greet:Calculator-config">
+        <set-payload value="{&#xA;  &quot;greet&quot; : &quot;Welcome to calculator service&quot;&#xA;}" />
+    </flow>
+    <flow name="get:/ops/{id}:Calculator-config">
+        <set-payload value="{&#xA;  &quot;operation&quot; : &quot;Addition&quot;,&#xA;  &quot;first_operand&quot; : &quot;2&quot;,&#xA;  &quot;second_operand&quot; : &quot;3&quot;,&#xA;  &quot;id&quot; : &quot;12345&quot;,&#xA;  &quot;status&quot; : &quot;success&quot;,&#xA;  &quot;result&quot; : &quot;5&quot;&#xA;}" />
+    </flow>
+    <flow name="get:/ops:Calculator-config">
+        <set-payload value="[&#xA;  {&#xA;    &quot;operation&quot; : &quot;Addition&quot;,&#xA;    &quot;first_operand&quot; : &quot;2&quot;,&#xA;    &quot;second_operand&quot; : &quot;3&quot;,&#xA;    &quot;id&quot; : &quot;12345&quot;,&#xA;    &quot;status&quot; : &quot;success&quot;,&#xA;    &quot;result&quot; : &quot;5&quot;&#xA;  },&#xA;  {&#xA;    &quot;operation&quot; : &quot;Subtraction&quot;,&#xA;    &quot;first_operand&quot; : &quot;7&quot;,&#xA;    &quot;second_operand&quot; : &quot;5&quot;,&#xA;    &quot;id&quot; : &quot;12345&quot;,&#xA;    &quot;status&quot; : &quot;success&quot;,&#xA;    &quot;result&quot; : &quot;2&quot;&#xA;  },&#xA;  {&#xA;    &quot;operation&quot; : &quot;Division&quot;,&#xA;    &quot;first_operand&quot; : &quot;20&quot;,&#xA;    &quot;second_operand&quot; : &quot;4&quot;,&#xA;    &quot;id&quot; : &quot;12345&quot;,&#xA;    &quot;status&quot; : &quot;success&quot;,&#xA;    &quot;result&quot; : &quot;5&quot;&#xA;  },&#xA;  {&#xA;    &quot;operation&quot; : &quot;Multiplication&quot;,&#xA;    &quot;first_operand&quot; : &quot;2&quot;,&#xA;    &quot;second_operand&quot; : &quot;3&quot;,&#xA;    &quot;id&quot; : &quot;12345&quot;,&#xA;    &quot;status&quot; : &quot;success&quot;,&#xA;    &quot;result&quot; : &quot;6&quot;&#xA;  }&#xA;]" />
+    </flow>
+    <flow name="post:/add:Calculator-config">
+        <set-payload value="{&#xA;  &quot;result&quot; : &quot;5&quot;,&#xA;  &quot;id&quot; : &quot;1234&quot;&#xA;}" />
+    </flow>
+    <flow name="post:/divide:Calculator-config">
+        <set-payload value="{&#xA;  &quot;result&quot; : &quot;5&quot;,                &#xA;  &quot;id&quot; : &quot;1234&quot;&#xA;}" />
+    </flow>
+    <flow name="post:/multiply:Calculator-config">
+        <set-payload value="{&#xA;  &quot;result&quot; : &quot;15&quot;,&#xA;  &quot;id&quot; : &quot;1234&quot;&#xA;}" />
+    </flow>
+    <flow name="post:/subtract:Calculator-config">
+        <set-payload value="{&#xA;  &quot;result&quot; : &quot;2&quot;,&#xA;  &quot;id&quot; : &quot;1234&quot;&#xA;}" />
+    </flow>
+    <apikit:mapping-exception-strategy name="Calculator-apiKitGlobalExceptionMapping">
+        <apikit:mapping statusCode="404">
+            <apikit:exception value="org.mule.module.apikit.exception.NotFoundException" />
+            <set-property propertyName="Content-Type" value="application/json" />
+            <set-payload value="{ &quot;message&quot;: &quot;Resource not found&quot; }" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="405">
+            <apikit:exception value="org.mule.module.apikit.exception.MethodNotAllowedException" />
+            <set-property propertyName="Content-Type" value="application/json" />
+            <set-payload value="{ &quot;message&quot;: &quot;Method not allowed&quot; }" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="415">
+            <apikit:exception value="org.mule.module.apikit.exception.UnsupportedMediaTypeException" />
+            <set-property propertyName="Content-Type" value="application/json" />
+            <set-payload value="{ &quot;message&quot;: &quot;Unsupported media type&quot; }" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="406">
+            <apikit:exception value="org.mule.module.apikit.exception.NotAcceptableException" />
+            <set-property propertyName="Content-Type" value="application/json" />
+            <set-payload value="{ &quot;message&quot;: &quot;Not acceptable&quot; }" />
+        </apikit:mapping>
+        <apikit:mapping statusCode="400">
+            <apikit:exception value="org.mule.module.apikit.exception.BadRequestException" />
+            <set-property propertyName="Content-Type" value="application/json" />
+            <set-payload value="{ &quot;message&quot;: &quot;Bad request&quot; }" />
+        </apikit:mapping>
+    </apikit:mapping-exception-strategy>
+</mule>

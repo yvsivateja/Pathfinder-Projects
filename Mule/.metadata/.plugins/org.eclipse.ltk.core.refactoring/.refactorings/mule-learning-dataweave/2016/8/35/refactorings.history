@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;mule-learning-dataweave.xml&apos; to &apos;mule-learning-dataweaver/src/main/app&apos;&#x0A;- Original project: &apos;mule-learning-dataweave&apos;&#x0A;- Destination element: &apos;mule-learning-dataweaver/src/main/app&apos;&#x0A;- Original element: &apos;mule-learning-dataweave.xml&apos;" description="Copy file" destination="=mule-learning-dataweaver/src\/main\/app" element1="src/main/app/mule-learning-dataweave.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1471773962366" units="0" version="1.0"/>
+</session>

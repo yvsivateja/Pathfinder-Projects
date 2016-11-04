@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:context="http://www.springframework.org/schema/context" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd">
+    
+    <http:listener-config name="HTTP_Listener_Configuration" host="0.0.0.0" port="8081" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    
+    <global-property name="name" value="sai" doc:name="Global Property"/>
+    <global-property name="age" value="25" doc:name="Global Property"/>
+    
+    <context:property-placeholder location="myprops.properties" />
+    
+    <flow name="helloworldFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/properties" doc:name="HTTP"/>
+        <logger level="INFO" message="${mule.home} = File system path to the home directory of the Mule server installation " doc:name="Logger"/>
+    	<logger level="INFO" message="${mule.base} = File system path to the home directory of the Mule server installation " doc:name="Logger"/>
+    	<logger level="INFO" message="#[app.name]" />
+    	<logger level="INFO" message="#[app.workDir]" />
+    	<!-- Global properties -->
+    	<logger level="INFO" message="${name}" />
+    	<logger level="INFO" message="${age}" />
+    	<!-- Environment variables can be set through Environment tab in studio.
+    		Accessing environment variables from OS or from environment variables set while running mule app in anypoint studio-->
+    	<logger level="INFO" message="${JAVA_HOME}" />
+    	<logger level="INFO" message="${GOD}" />
+    	<!-- .In anypoint studio system properties are accessed through VM arguments -->
+    	<logger level="INFO" message="${my.vm.var}" />
+    	<!-- external properties file -->
+    	<logger level="INFO" message="${id}" />
+    	<!-- mule-app.properties overrides by default -->
+    	<logger level="INFO" message="${region}" />
+    	<logger level="INFO" message="${greet}" />
+        <expression-component doc:name="Expression"><![CDATA[Properties p = System.getProperties();
+ p.list(System.out);]]></expression-component>
+    </flow>
+</mule>

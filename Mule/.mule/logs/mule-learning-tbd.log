@@ -1,0 +1,216 @@
+2016-08-13 07:20:23,585 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-tbd'                     +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:20:24,751 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-08-13 07:20:25,917 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-08-13 07:20:27,516 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-08-13 07:20:27,517 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-08-13 07:20:28,393 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@6e16b8b5: startup date [Sat Aug 13 07:20:28 IST 2016]; root of context hierarchy
+2016-08-13 07:20:42,774 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-08-13 07:20:53,623 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-08-13 07:20:58,266 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-08-13 07:20:58,295 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-tbdFlow
+2016-08-13 07:20:58,296 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@64920dc2
+2016-08-13 07:20:58,672 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-tbdFlow.stage1
+2016-08-13 07:20:58,780 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: do
+2016-08-13 07:20:58,781 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@d08edc5
+2016-08-13 07:20:58,827 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: do.stage1
+2016-08-13 07:20:59,025 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-tx-log/tx2.log
+2016-08-13 07:20:59,089 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-xa-tx-log/tx2.log
+2016-08-13 07:21:01,243 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-tbd/mule-learning-tbd.xml'}]"
+2016-08-13 07:21:01,245 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-tbd/mule-learning-tbd.xml'}]"
+2016-08-13 07:21:04,390 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-tbd'                         +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:21:04,436 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-08-13 07:21:04,445 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-08-13 07:21:05,070 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876
+2016-08-13 07:21:05,205 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:21:05,275 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-08-13 07:21:05,340 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-tbdFlow
+2016-08-13 07:21:05,367 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-tbdFlow.stage1
+2016-08-13 07:21:05,473 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: do
+2016-08-13 07:21:05,473 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: do.stage1
+2016-08-13 07:21:06,172 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-08-13 07:21:06,399 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-tbd                                     *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   JMX Agent                                                        *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-08-13 07:21:24,083 [[mule-learning-tbd].HTTP_Listener_Configuration.worker.01] INFO  org.mule.api.processor.LoggerMessageProcessor - I am in private flow
+2016-08-13 07:21:24,212 [[mule-learning-tbd].HTTP_Listener_Configuration.worker.01] INFO  org.mule.api.processor.LoggerMessageProcessor - 
+org.mule.DefaultMuleMessage
+{
+  id=707c0270-60f8-11e6-8c62-642737dce8c9
+  payload=java.lang.String
+  correlationId=<not set>
+  correlationGroup=-1
+  correlationSeq=-1
+  encoding=UTF-8
+  exceptionPayload=<not set>
+
+Message properties:
+  INVOCATION scoped properties:
+  INBOUND scoped properties:
+    accept=*/*
+    accept-encoding=gzip, deflate
+    accept-language=en-GB,en-US;q=0.8,en;q=0.6
+    cache-control=no-cache
+    connection=keep-alive
+    content-length=7
+    content-type=text/plain;charset=UTF-8
+    host=localhost:9876
+    http.listener.path=/ep
+    http.method=POST
+    http.query.params=ParameterMap{[]}
+    http.query.string=
+    http.relative.path=/ep
+    http.remote.address=/127.0.0.1:55814
+    http.request.path=/ep
+    http.request.uri=/ep
+    http.scheme=http
+    http.uri.params=ParameterMap{[]}
+    http.version=HTTP/1.1
+    origin=chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+    postman-token=3c859423-0b5f-c783-6325-40e623387df5
+    user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+  OUTBOUND scoped properties:
+    MULE_ENCODING=UTF-8
+  SESSION scoped properties:
+}
+2016-08-13 07:28:37,559 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Stopping app 'mule-learning-tbd'                         +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:28:37,596 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-tbdFlow
+2016-08-13 07:28:37,608 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-tbdFlow.stage1
+2016-08-13 07:28:37,675 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: do
+2016-08-13 07:28:37,676 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: do.stage1
+2016-08-13 07:28:37,751 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Stopping model: _muleSystemModel
+2016-08-13 07:28:37,822 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Stopped listener on http://localhost:9876
+2016-08-13 07:28:37,835 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopping ResourceManager
+2016-08-13 07:28:37,836 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopped ResourceManager
+2016-08-13 07:28:37,891 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Disposing app 'mule-learning-tbd'                        +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:28:37,908 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-08-13 07:28:37,915 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-tbdFlow
+2016-08-13 07:28:37,917 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-tbdFlow.stage1
+2016-08-13 07:28:37,934 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: do
+2016-08-13 07:28:37,935 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: do.stage1
+2016-08-13 07:28:37,960 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-08-13 07:28:39,461 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@6e16b8b5: startup date [Sat Aug 13 07:20:28 IST 2016]; root of context hierarchy
+2016-08-13 07:28:39,675 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application "mule-learning-tbd" shut down normally on: 13/8/16     *
+* 7:28 AM                                                            *
+* Up for: 0 days, 0 hours, 7 mins, 35.237 sec                        *
+**********************************************************************
+2016-08-13 07:28:41,122 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-tbd'                     +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:28:41,150 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-tbd
+2016-08-13 07:28:41,232 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-08-13 07:28:41,320 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-08-13 07:28:41,543 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-08-13 07:28:41,544 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-08-13 07:28:41,567 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@b873ae0: startup date [Sat Aug 13 07:28:41 IST 2016]; root of context hierarchy
+2016-08-13 07:28:45,393 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-08-13 07:28:47,990 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-08-13 07:28:48,002 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-tbdFlow
+2016-08-13 07:28:48,003 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@63b26bce
+2016-08-13 07:28:48,035 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-tbdFlow.stage1
+2016-08-13 07:28:48,043 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: do
+2016-08-13 07:28:48,054 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@16a59211
+2016-08-13 07:28:48,079 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: do.stage1
+2016-08-13 07:28:48,117 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-tx-log/tx2.log
+2016-08-13 07:28:48,158 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-tbd/queue-xa-tx-log/tx2.log
+2016-08-13 07:28:48,904 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-tbd/mule-learning-tbd.xml'}]"
+2016-08-13 07:28:48,907 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-tbd/mule-learning-tbd.xml'}]"
+2016-08-13 07:28:51,932 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-tbd'                         +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:28:51,947 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-08-13 07:28:51,956 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-08-13 07:28:52,117 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876
+2016-08-13 07:28:52,142 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-08-13 07:28:52,161 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-08-13 07:28:52,175 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-tbdFlow
+2016-08-13 07:28:52,176 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-tbdFlow.stage1
+2016-08-13 07:28:52,249 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: do
+2016-08-13 07:28:52,249 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: do.stage1
+2016-08-13 07:28:52,375 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-08-13 07:28:52,448 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-tbd                                     *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   JMX Agent                                                        *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-08-13 07:29:00,121 [[mule-learning-tbd].HTTP_Listener_Configuration.worker.01] INFO  org.mule.api.processor.LoggerMessageProcessor - I am in private flow
+2016-08-13 07:29:00,199 [[mule-learning-tbd].HTTP_Listener_Configuration.worker.01] INFO  org.mule.api.processor.LoggerMessageProcessor - 
+org.mule.DefaultMuleMessage
+{
+  id=807d7e50-60f9-11e6-8c62-642737dce8c9
+  payload=java.lang.String
+  correlationId=<not set>
+  correlationGroup=-1
+  correlationSeq=-1
+  encoding=UTF-8
+  exceptionPayload=<not set>
+
+Message properties:
+  INVOCATION scoped properties:
+    age=30
+  INBOUND scoped properties:
+    accept=*/*
+    accept-encoding=gzip, deflate
+    accept-language=en-GB,en-US;q=0.8,en;q=0.6
+    cache-control=no-cache
+    connection=keep-alive
+    content-length=7
+    content-type=text/plain;charset=UTF-8
+    host=localhost:9876
+    http.listener.path=/ep
+    http.method=POST
+    http.query.params=ParameterMap{[]}
+    http.query.string=
+    http.relative.path=/ep
+    http.remote.address=/127.0.0.1:55826
+    http.request.path=/ep
+    http.request.uri=/ep
+    http.scheme=http
+    http.uri.params=ParameterMap{[]}
+    http.version=HTTP/1.1
+    origin=chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop
+    postman-token=2e6f697f-16a1-12c8-fee6-6316182c2fd1
+    user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+  OUTBOUND scoped properties:
+    MULE_ENCODING=UTF-8
+    gender=male
+  SESSION scoped properties:
+    name=rahul
+}

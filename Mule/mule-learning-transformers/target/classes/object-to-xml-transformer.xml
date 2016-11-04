@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <flow name="object-to-xml-transformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/objectToXML" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" doc:name="JSON to Object"/>
+        <mulexml:object-to-xml-transformer doc:name="Object to XML">
+            <mulexml:alias name="person" class="mule.learning.beans.Person"/>
+        </mulexml:object-to-xml-transformer>
+    </flow>
+    
+    <flow name="object-to-xml-transformerFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/muleMessageToXML" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" doc:name="JSON to Object"/>
+        <!-- if we keep acceptMuleMessage attribute to true, entire mule message is converted to xml -->
+        <mulexml:object-to-xml-transformer doc:name="Object to XML" acceptMuleMessage="true" />
+    </flow>
+</mule>

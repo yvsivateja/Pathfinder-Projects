@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <http:response-builder name="Response_Builder" statusCode="400" reasonPhrase="dffdgfgfd" doc:name="Response Builder">
+        <http:header headerName="age" value="34234"/>
+    </http:response-builder>
+    <flow name="mule-learning-http-first">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/first" doc:name="HTTP"/>
+        <logger message="#[message]" level="INFO" doc:name="log MuleMessage"/>
+        <set-payload value="We are in first flow" doc:description="set payload" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-second">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/second" doc:name="HTTP"/>
+        <logger message="#[message]" level="INFO" doc:name="log MuleMessage"/>
+        <set-payload value="We are in second flow" doc:description="set payload" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-wildcards-end">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/first/*" doc:name="HTTP"/>
+        <set-payload value="Wildcard works" doc:description="set payload" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-wildcard-intermediate">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/first/*/dothing" doc:name="HTTP"/>
+        <set-payload value="Wildcard works intermediaterily too" doc:description="set payload" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-get-request">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/methods" allowedMethods="GET" doc:name="HTTP"/>
+        <set-payload value="Your got to get this" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-post-request">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/methods" allowedMethods="POST" doc:name="HTTP"/>
+        <set-payload value="Your got to post this" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-post-put-request">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/adds" allowedMethods="POST,PUT" doc:name="HTTP"/>
+        <set-payload value="Your got to post or put this" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-uri-params">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/acct/{id}/create" doc:name="HTTP"/>
+        <set-payload value="Your account with Id:#[message.inboundProperties.'http.uri.params'.id] created successfully" doc:name="Set Payload"/>
+    </flow>
+     <flow name="mule-learning-http-x-www-form-urlencoded">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/handleForm" doc:name="HTTP"/>
+        <logger level="INFO" message="#[message]" doc:name="log message" />
+        <set-payload value="Name : #[payload.name], Age : #[payload.'my.age']" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-multipart-form-data">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/handleFormUploads" doc:name="HTTP"/>
+        <logger level="INFO" message="#[message]" doc:name="log message" />
+        <set-payload value="#[message.inboundAttachments.'name'.dataSource.content]" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-http-multipart-form-data-disable-parsing">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/disableParsing" doc:name="HTTP" parseRequest="false"/>
+        <logger level="INFO" message="#[message]" doc:name="log message" />
+    </flow>
+    <flow name="mule-learning-http-properties">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/httpProperties" doc:name="HTTP" parseRequest="false"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <logger level="INFO" message="#[message.inboundProperties.'http.listener.path']" doc:name="log http listener path" />
+        <logger message="#[message.inboundProperties.'http.method']" level="INFO" doc:name="log http method"/>
+        <logger message="#[message.inboundProperties.'http.query.params'.name]" level="INFO" doc:name="log http query params"/>
+        <logger message="#[message.inboundProperties.company]" level="INFO" doc:name="log http headers"/>
+    </flow>
+    <flow name="mule-learning-http-form-data-response">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/mapResponse" doc:name="HTTP"/>
+        <set-payload value="#[['name':'sai','age':'uncountable']]" doc:name="Set Payload"/>
+    </flow>
+    
+    <flow name="mule-learning-http-multipart-form-data-response">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/multipartResponse" doc:name="HTTP"/>
+		        <expression-component doc:name="Expression"><![CDATA[ds = new org.mule.message.ds.StringDataSource('value1', 'key11', 'text/plain');
+		dh = new javax.activation.DataHandler(ds);
+		message.outboundAttachments['key1'] = dh;
+		
+		ds = new org.mule.message.ds.StringDataSource('value2','key21','text/plain');
+		dh = new javax.activation.DataHandler(ds);
+		message.outboundAttachments['key2'] = dh;]]></expression-component>
+		<set-payload value="#[null]" doc:name="nullifying the payload" />
+    </flow>
+    <flow name="mule-learning-http-headers">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customHeaders" doc:name="HTTP">
+            <http:response-builder disablePropertiesAsHeaders="true">
+                <http:header headerName="name" value="sai"/>
+                <http:headers expression="#[flowVars.successheaders]"/>
+                <http:builder ref="Response_Builder"/>
+            </http:response-builder>
+            <http:error-response-builder>
+                <http:header headerName="name" value="baba"/>
+                <http:headers expression="#[flowVars.errorheaders]"/>
+            </http:error-response-builder>
+        </http:listener>
+        
+        <set-variable variableName="successheaders" value="#[['header1':'value1','header2':'value2']]" doc:name="Variable"/>
+        <set-variable variableName="errorheaders" value="#[['header3':'value3','header4':'value4']]" doc:name="Variable"/>
+        
+        <choice doc:name="Choice">
+            <when expression="#[message.inboundProperties.'http.method'=='POST']">
+                <set-payload doc:name="Set Payload" value="I am in POST"/>
+            </when>
+            <when expression="#[message.inboundProperties.'http.method'=='GET']">
+                <scripting:component doc:name="Script">
+                    <scripting:script engine="Groovy"><![CDATA[throw new java.lang.RuntimeException("intentional");]]></scripting:script>
+                </scripting:component>
+            </when>
+        </choice>
+        <catch-exception-strategy doc:name="Catch Exception Strategy">
+            <set-payload value="An exception occurred" doc:name="Set Payload"/>
+        </catch-exception-strategy>
+    </flow>
+    <flow name="http-listener-outbound-headers">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/outboundHeaders" doc:name="HTTP">
+            <http:response-builder disablePropertiesAsHeaders="true" statusCode="500"/>
+            <http:error-response-builder disablePropertiesAsHeaders="true"/>
+        </http:listener>
+        <set-property propertyName="name" value="sai" doc:name="Property"/>
+    </flow>
+</mule>
+

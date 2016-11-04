@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:metadata="http://www.mulesoft.org/schema/mule/metadata" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+	xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <spring:beans>
+        <spring:bean id="ant" name="ant" class="mule.learning.transformers.AnnotatedTransformer" />
+        <spring:bean id="address" name="address" class="mule.learning.beans.Address">
+            <spring:property name="zipCode" value="12345" />
+            <spring:property name="state" value="Maharashtra"/>
+            <spring:property name="city" value="Shirdi"/>
+        </spring:bean>
+    </spring:beans>
+     <custom-transformer class="mule.learning.transformers.PersonToConsultantTransformer" doc:name="Java" name="perToCon"/>
+    <flow name="mule-learning-transformersFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/implicitTransformation" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" doc:name="JSON to Object"/>
+       <!-- We can also say the following -->
+       <!-- <auto-transformer returnClass="com.learning.beans.Manager" /> -->
+        <component  doc:name="Java">
+            <singleton-object class="mule.learning.components.ManagerLoggingComponent"/>
+        </component>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+    </flow>
+    <flow name="mule-learning-transformersFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/stringTransformation" doc:name="HTTP"/>
+        <component class="mule.learning.components.SimpleComponent" doc:name="Java"/>
+    </flow>
+    <flow name="mule-learning-transformersFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customImplTransformation" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" encoding="UTF-8" doc:name="JSON to Object"/>
+        <custom-transformer class="mule.learning.transformers.PersonToManagerTransformer" doc:name="Java"/>
+        <component class="mule.learning.components.ManagerLoggingComponent" doc:name="Java" />
+    </flow>
+    <flow name="mule-learning-transformersFlow4">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customImplImplicitTransformation" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" encoding="UTF-8" doc:name="JSON to Object"/>
+        <custom-transformer class="mule.learning.transformers.PersonToManagerImplicitTransformer" doc:name="Java">
+            <spring:property name="prop" value="Sai"/>
+        </custom-transformer>
+        <component class="mule.learning.components.ManagerLoggingComponent" doc:name="Java" />
+    </flow>
+    <flow name="mule-learning-transformersFlow5">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customImplDiscTransformation" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" encoding="UTF-8" doc:name="JSON to Object"/>
+        <!-- The following component is expecting Consultant object for payload.
+        Hence mule will try to search for a transformer for this conversion. As we have already registered a discoverable(a transformer that implements Discoverable interface),
+        named as PersonToConsultantTransformer (line #21), mule will convert Person object to Consultant using that transformer
+        -->
+        <component class="mule.learning.components.ConsultantLoggingComponent" doc:name="Java" />
+    </flow>
+    
+    <flow name="mule-learning-transformersFlow6">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customImplDiscBootTransformation" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Person" encoding="UTF-8" doc:name="JSON to Object"/>
+        <!-- The following component expects Employee object. We have registered EmployeeTransformer from registry-bootstrap.properties under META-INF/services/org/mule/config.
+        Mule uses that transformer for this purpose. /> -->
+        <component class="mule.learning.components.EmployeeLoggingComponent" doc:name="Java" />
+    </flow>
+    
+    
+</mule>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<policy xmlns="http://www.mulesoft.org/schema/mule/policy" xmlns:mule="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oauth2-gw="http://www.mulesoft.org/schema/mule/oauth2-gw" xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/policy http://www.mulesoft.org/schema/mule/policy/current/mule-policy.xsd http://www.mulesoft.org/schema/mule/oauth2-gw http://www.mulesoft.org/schema/mule/oauth2-gw/current/mule-oauth2-gw.xsd http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd" online="true" id="78464" policyName="External OAuth2 Access Token Enforcement" order="1">
+  <mule:processor-chain xmlns:mule="http://www.mulesoft.org/schema/mule/core" name="buildResponse">
+    <mule:set-property propertyName="http.status" value="#[_agwStatus]"/>
+    <mule:set-property propertyName="Content-Type" value="application/json"/>
+    <mule:set-payload value="#[_agwError]"/>
+  </mule:processor-chain>
+  <before>
+    <oauth2-gw:validate xmlns:oauth2-gw="http://www.mulesoft.org/schema/mule/oauth2-gw" tokenUrl="https://localhost:8085/validate" scopes="" throwOnUnaccepted="true" onUnaccepted="buildResponse"/>
+  </before>
+  <pointcut>
+    <api-platform-gw:api-pointcut xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw" apiName="Calculator" apiVersion="1.0"/>
+  </pointcut>
+</policy>

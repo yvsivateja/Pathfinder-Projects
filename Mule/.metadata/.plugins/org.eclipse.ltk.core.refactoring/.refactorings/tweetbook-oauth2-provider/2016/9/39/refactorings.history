@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;bookstore.properties&apos; to &apos;calculator/src/main/resources&apos;&#x0A;- Original project: &apos;tweetbook-oauth2-provider&apos;&#x0A;- Destination element: &apos;calculator/src/main/resources&apos;&#x0A;- Original element: &apos;bookstore.properties&apos;" description="Copy file" destination="=calculator/src\/main\/resources" element1="src/main/resources/bookstore.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1474516522839" units="0" version="1.0"/>
+</session>

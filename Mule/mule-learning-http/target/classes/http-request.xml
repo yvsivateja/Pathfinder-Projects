@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration_other" host="localhost" port="9001" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="localhost" port="9001" basePath="mulelearning" doc:name="HTTP Request Configuration"/>
+    <flow name="http-request-request-basic">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/request" doc:name="HTTP"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="service" method="POST" doc:name="HTTP"/>
+    </flow>
+     <flow name="http-request-request-x-www-form-urlencoded">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/requestFormHandling" doc:name="HTTP"/>
+        <set-payload value="#[['name':'sai','age':'12345']]" doc:name="Set Payload"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="service" method="POST" doc:name="HTTP"/>
+    </flow>
+    <flow name="http-request-request-multipart-form-data">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/requestMultipart" doc:name="HTTP"/>
+        <expression-component doc:name="Expression"><![CDATA[ds = new org.mule.message.ds.StringDataSource('value1', 'key11', 'text/plain');
+		dh = new javax.activation.DataHandler(ds);
+		message.outboundAttachments['key1'] = dh;
+		
+		ds = new org.mule.message.ds.StringDataSource('value2','key21','text/plain');
+		dh = new javax.activation.DataHandler(ds);
+		message.outboundAttachments['key2'] = dh;]]></expression-component>
+		<set-payload value="#[null]" doc:name="Set Payload"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="service" method="POST" doc:name="HTTP"/>
+    </flow>
+    <flow name="http-request-request-headers">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/requestHeaders" doc:name="HTTP"/>
+        <set-variable value="#[['p1':'value1','p2':'value2']]" variableName="myparams" doc:name="Variable" />
+        <set-variable value="#[['h1':'headervalue1','h2':'headervalue2']]" variableName="myheaders" doc:name="Variable" />
+        <http:request config-ref="HTTP_Request_Configuration" path="service/{identity}/do" method="POST" doc:name="HTTP">
+            <http:request-builder>
+                <http:query-param paramName="name" value="sai"/>
+                <http:query-params expression="#[flowVars.myparams]"/>
+                <http:uri-param paramName="identity" value="12345"/>
+                <http:header headerName="header1" value="value1"/>
+                <http:headers expression="#[flowVars.myheaders]"/>
+            </http:request-builder>
+        </http:request>
+        <logger message="#[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+    </flow>
+    <flow name="http-request-request-source-target">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/requestSourceTarget" doc:name="HTTP"/>
+        <http:request config-ref="HTTP_Request_Configuration" path="service" method="POST" source="#[flowVars.name]" target="#[flowVars.thing]" doc:name="HTTP"/>
+    	<logger level="INFO" doc:name="Logger"/>
+    </flow>
+    
+    <flow name="http-request-sample-service">
+        <http:listener config-ref="HTTP_Listener_Configuration_other" path="/service" doc:name="HTTP"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <set-payload value="I am in sample service" doc:name="Set Payload"/>
+    </flow>
+    <flow name="http-request-sample-service-rest">
+        <http:listener config-ref="HTTP_Listener_Configuration_other" path="/service/{id}/do" doc:name="HTTP"/>
+        <logger level="INFO" doc:name="Logger"/>
+        <set-payload value="I am in sample service" doc:name="Set Payload"/>
+    </flow>
+</mule>

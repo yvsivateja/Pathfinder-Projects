@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd">
+	
+	<!-- Weird : In the following two flows first one implicitly tries to convert our json to Bottle object as that is the payload expected by BottleLoggingComponent.
+	But If I write the same json thing explicityly in second flow it is generating error saying 'could not convert from json to mule.learning.beans.Bottle'.
+	But, if I comment the second flow it is working fine. No reason found yet. Hence I modified the second flow to use some other bean for the sake of example. -->
+	
+    <flow name="json-to-object-ransformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jsonToObject" doc:name="HTTP"/>
+        <component class="mule.learning.components.BottleLoggingComponent" doc:name="Java"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+    
+    <!-- Instead of that we can explicitly convert json to Object as shown below -->
+    <flow name="json-to-object-ransformerFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jsonToObjectExplicit" doc:name="HTTP"/>
+        <json:json-to-object-transformer returnClass="mule.learning.beans.Laptop" doc:name="JSON to Object"/>
+        <component class="mule.learning.components.LaptopLoggingComponent" doc:name="Java"/>
+    </flow>
+</mule>

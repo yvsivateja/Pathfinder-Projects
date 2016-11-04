@@ -1,0 +1,256 @@
+2016-10-04 12:32:13,874 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'calculator'                            +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 12:32:14,382 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 12:32:14,762 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 12:32:14,819 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 12:32:20,626 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-10-04 12:32:20,879 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-10-04 12:32:21,143 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-10-04 12:32:21,144 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-10-04 12:32:21,341 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@33db72bd: startup date [Tue Oct 04 12:32:21 IST 2016]; root of context hierarchy
+2016-10-04 12:32:23,798 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-04 12:32:26,594 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-10-04 12:32:27,690 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-10-04 12:32:27,694 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: Calculator-main
+2016-10-04 12:32:27,695 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=404, exceptions=[class org.mule.module.apikit.exception.NotFoundException]}
+2016-10-04 12:32:27,703 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=405, exceptions=[class org.mule.module.apikit.exception.MethodNotAllowedException]}
+2016-10-04 12:32:27,703 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=415, exceptions=[class org.mule.module.apikit.exception.UnsupportedMediaTypeException]}
+2016-10-04 12:32:27,703 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=406, exceptions=[class org.mule.module.apikit.exception.NotAcceptableException]}
+2016-10-04 12:32:27,703 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=400, exceptions=[class org.mule.module.apikit.exception.BadRequestException]}
+2016-10-04 12:32:27,739 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: Calculator-main.stage1
+2016-10-04 12:32:27,751 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: Calculator-console
+2016-10-04 12:32:27,751 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7e3d2ebd
+2016-10-04 12:32:27,758 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: Calculator-console.stage1
+2016-10-04 12:32:27,764 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: get:/greet:Calculator-config
+2016-10-04 12:32:27,764 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@22cb3d59
+2016-10-04 12:32:27,772 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: get:/greet:Calculator-config.stage1
+2016-10-04 12:32:27,773 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: get:/ops/{id}:Calculator-config
+2016-10-04 12:32:27,773 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@31ab1e67
+2016-10-04 12:32:27,780 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: get:/ops/{id}:Calculator-config.stage1
+2016-10-04 12:32:27,781 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: get:/ops:Calculator-config
+2016-10-04 12:32:27,781 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4fea840f
+2016-10-04 12:32:27,787 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: get:/ops:Calculator-config.stage1
+2016-10-04 12:32:27,789 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/add:Calculator-config
+2016-10-04 12:32:27,789 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5bb8e6fc
+2016-10-04 12:32:27,795 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/add:Calculator-config.stage1
+2016-10-04 12:32:27,796 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/divide:Calculator-config
+2016-10-04 12:32:27,796 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@93bf0e0
+2016-10-04 12:32:27,801 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/divide:Calculator-config.stage1
+2016-10-04 12:32:27,801 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/multiply:Calculator-config
+2016-10-04 12:32:27,801 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5f8f1712
+2016-10-04 12:32:27,805 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/multiply:Calculator-config.stage1
+2016-10-04 12:32:27,806 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/subtract:Calculator-config
+2016-10-04 12:32:27,806 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@71d55b7e
+2016-10-04 12:32:27,813 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/subtract:Calculator-config.stage1
+2016-10-04 12:32:27,843 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-tx-log/tx2.log
+2016-10-04 12:32:27,870 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-xa-tx-log/tx2.log
+2016-10-04 12:32:28,265 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-10-04 12:32:28,267 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: Calculator-main
+2016-10-04 12:32:28,267 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: Calculator-main.stage1
+2016-10-04 12:32:28,268 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: Calculator-console
+2016-10-04 12:32:28,268 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: Calculator-console.stage1
+2016-10-04 12:32:28,268 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: get:/greet:Calculator-config
+2016-10-04 12:32:28,268 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: get:/greet:Calculator-config.stage1
+2016-10-04 12:32:28,269 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: get:/ops/{id}:Calculator-config
+2016-10-04 12:32:28,269 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: get:/ops/{id}:Calculator-config.stage1
+2016-10-04 12:32:28,270 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: get:/ops:Calculator-config
+2016-10-04 12:32:28,270 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: get:/ops:Calculator-config.stage1
+2016-10-04 12:32:28,270 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: post:/add:Calculator-config
+2016-10-04 12:32:28,270 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: post:/add:Calculator-config.stage1
+2016-10-04 12:32:28,271 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: post:/divide:Calculator-config
+2016-10-04 12:32:28,271 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: post:/divide:Calculator-config.stage1
+2016-10-04 12:32:28,271 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: post:/multiply:Calculator-config
+2016-10-04 12:32:28,271 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: post:/multiply:Calculator-config.stage1
+2016-10-04 12:32:28,271 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: post:/subtract:Calculator-config
+2016-10-04 12:32:28,271 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: post:/subtract:Calculator-config.stage1
+2016-10-04 12:32:28,274 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-10-04 12:32:28,526 [main] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@33db72bd: startup date [Tue Oct 04 12:32:21 IST 2016]; root of context hierarchy
+2016-10-04 12:32:28,728 [main] ERROR org.mule.module.launcher.application.DefaultMuleApplication - null
+org.mule.module.apikit.exception.ApikitRuntimeException: Invalid API descriptor -- errors found: 1
+
+Invalid element client_credentials. [line=35, col=28]
+
+	at org.mule.module.apikit.parser.ParserWrapperV2.validate(ParserWrapperV2.java:60) ~[mule-module-apikit-3.8.0.jar:?]
+	at org.mule.module.apikit.ParserService.validateRaml(ParserService.java:94) ~[mule-module-apikit-3.8.0.jar:?]
+	at org.mule.module.apikit.AbstractConfiguration.initialise(AbstractConfiguration.java:98) ~[mule-module-apikit-3.8.0.jar:?]
+	at sun.reflect.GeneratedMethodAccessor12.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_92]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[?:1.8.0_92]
+	at org.mule.lifecycle.phases.DefaultLifecyclePhase.applyLifecycle(DefaultLifecyclePhase.java:237) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.phases.MuleContextInitialisePhase.applyLifecycle(MuleContextInitialisePhase.java:71) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleCallback.doApplyLifecycle(RegistryLifecycleCallback.java:99) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleCallback.onTransition(RegistryLifecycleCallback.java:71) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleManager.invokePhase(RegistryLifecycleManager.java:155) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.lifecycle.RegistryLifecycleManager.fireLifecycle(RegistryLifecycleManager.java:126) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.registry.AbstractRegistry.fireLifecycle(AbstractRegistry.java:146) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:116) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:177) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:100) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:52) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory$1.configure(DefaultMuleContextFactory.java:89) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.doCreateMuleContext(DefaultMuleContextFactory.java:222) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:81) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:196) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper$2.execute(ArtifactWrapper.java:63) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.executeWithinArtifactClassLoader(ArtifactWrapper.java:136) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.init(ArtifactWrapper.java:58) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArtifactDeployer.deploy(DefaultArtifactDeployer.java:25) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.guardedDeploy(DefaultArchiveDeployer.java:324) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployArtifact(DefaultArchiveDeployer.java:345) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployPackagedArtifact(DefaultArchiveDeployer.java:163) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployPackagedArtifact(DefaultArchiveDeployer.java:268) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployPackagedArtifact(DefaultArchiveDeployer.java:83) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.deployPackedApps(DeploymentDirectoryWatcher.java:275) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.start(DeploymentDirectoryWatcher.java:150) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleDeploymentService.start(MuleDeploymentService.java:104) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleContainer.start(MuleContainer.java:170) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:15) ~[tooling-support-3.8.0.jar:?]
+2016-10-04 12:32:28,729 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - App 'calculator' never started, nothing to dispose of
+2016-10-04 13:01:27,590 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'calculator'                            +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 13:01:27,973 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 13:01:28,233 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 13:01:28,298 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 13:01:34,034 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-10-04 13:01:34,166 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-10-04 13:01:34,347 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-10-04 13:01:34,347 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-10-04 13:01:34,409 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@33db72bd: startup date [Tue Oct 04 13:01:34 IST 2016]; root of context hierarchy
+2016-10-04 13:01:35,928 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-04 13:01:37,296 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-10-04 13:01:38,538 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-10-04 13:01:38,620 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-tx-log/tx2.log
+2016-10-04 13:01:38,690 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-xa-tx-log/tx2.log
+2016-10-04 13:01:40,217 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator/calculator.xml'}]"
+2016-10-04 13:01:40,218 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator/calculator.xml'}]"
+2016-10-04 13:01:43,254 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'calculator'                                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 13:01:43,260 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-10-04 13:01:43,260 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-10-04 13:01:43,336 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 13:01:43,341 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-10-04 13:01:43,422 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-10-04 13:01:43,452 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: calculator                                            *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-10-04 13:04:13,931 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'calculator'                            +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 13:04:14,298 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 13:04:14,557 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 13:04:14,622 [main] INFO  org.mule.api.security.tls.TlsProperties - Loading configuration file: tls-default.conf
+2016-10-04 13:04:20,559 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-10-04 13:04:20,708 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-10-04 13:04:20,908 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-10-04 13:04:20,908 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-10-04 13:04:21,005 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@33db72bd: startup date [Tue Oct 04 13:04:20 IST 2016]; root of context hierarchy
+2016-10-04 13:04:23,138 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-10-04 13:04:26,227 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-10-04 13:04:27,283 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-10-04 13:04:27,287 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: Calculator-main
+2016-10-04 13:04:27,289 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=404, exceptions=[class org.mule.module.apikit.exception.NotFoundException]}
+2016-10-04 13:04:27,294 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=405, exceptions=[class org.mule.module.apikit.exception.MethodNotAllowedException]}
+2016-10-04 13:04:27,295 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=415, exceptions=[class org.mule.module.apikit.exception.UnsupportedMediaTypeException]}
+2016-10-04 13:04:27,295 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=406, exceptions=[class org.mule.module.apikit.exception.NotAcceptableException]}
+2016-10-04 13:04:27,295 [main] INFO  org.mule.module.apikit.MappingExceptionListener - Initialising exception listener: MappingExceptionListener{statusCode=400, exceptions=[class org.mule.module.apikit.exception.BadRequestException]}
+2016-10-04 13:04:27,366 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: Calculator-main.stage1
+2016-10-04 13:04:27,380 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: Calculator-console
+2016-10-04 13:04:27,380 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7e3d2ebd
+2016-10-04 13:04:27,388 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: Calculator-console.stage1
+2016-10-04 13:04:27,394 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: get:/greet:Calculator-config
+2016-10-04 13:04:27,394 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@22cb3d59
+2016-10-04 13:04:27,405 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: get:/greet:Calculator-config.stage1
+2016-10-04 13:04:27,406 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: get:/ops/{id}:Calculator-config
+2016-10-04 13:04:27,406 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@31ab1e67
+2016-10-04 13:04:27,415 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: get:/ops/{id}:Calculator-config.stage1
+2016-10-04 13:04:27,416 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: get:/ops:Calculator-config
+2016-10-04 13:04:27,416 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4fea840f
+2016-10-04 13:04:27,425 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: get:/ops:Calculator-config.stage1
+2016-10-04 13:04:27,426 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/add:Calculator-config
+2016-10-04 13:04:27,426 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5bb8e6fc
+2016-10-04 13:04:27,434 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/add:Calculator-config.stage1
+2016-10-04 13:04:27,435 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/divide:Calculator-config
+2016-10-04 13:04:27,435 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@93bf0e0
+2016-10-04 13:04:27,442 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/divide:Calculator-config.stage1
+2016-10-04 13:04:27,443 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/multiply:Calculator-config
+2016-10-04 13:04:27,443 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5f8f1712
+2016-10-04 13:04:27,447 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/multiply:Calculator-config.stage1
+2016-10-04 13:04:27,449 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: post:/subtract:Calculator-config
+2016-10-04 13:04:27,449 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@71d55b7e
+2016-10-04 13:04:27,457 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: post:/subtract:Calculator-config.stage1
+2016-10-04 13:04:27,489 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-tx-log/tx2.log
+2016-10-04 13:04:27,563 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/calculator/queue-xa-tx-log/tx2.log
+2016-10-04 13:04:28,655 [main] INFO  org.mule.module.apikit.Configuration - Building resource URI cache...
+2016-10-04 13:04:29,006 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator/Calculator.xml'}]"
+2016-10-04 13:04:29,006 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/calculator/Calculator.xml'}]"
+2016-10-04 13:04:32,048 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'calculator'                                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 13:04:32,055 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-10-04 13:04:32,055 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-10-04 13:04:32,248 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://0.0.0.0:8081
+2016-10-04 13:04:32,258 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-10-04 13:04:32,267 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-10-04 13:04:32,273 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: Calculator-main
+2016-10-04 13:04:32,275 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: Calculator-main.stage1
+2016-10-04 13:04:32,300 [main] INFO  org.mule.module.apikit.Configuration - 
+********************************************************************************
+* APIKit Console URL: http://127.0.0.1:8081/console                            *
+********************************************************************************
+2016-10-04 13:04:32,301 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: Calculator-console
+2016-10-04 13:04:32,301 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: Calculator-console.stage1
+2016-10-04 13:04:32,317 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: get:/greet:Calculator-config
+2016-10-04 13:04:32,317 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: get:/greet:Calculator-config.stage1
+2016-10-04 13:04:32,324 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: get:/ops/{id}:Calculator-config
+2016-10-04 13:04:32,325 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: get:/ops/{id}:Calculator-config.stage1
+2016-10-04 13:04:32,334 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: get:/ops:Calculator-config
+2016-10-04 13:04:32,334 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: get:/ops:Calculator-config.stage1
+2016-10-04 13:04:32,344 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/add:Calculator-config
+2016-10-04 13:04:32,344 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/add:Calculator-config.stage1
+2016-10-04 13:04:32,355 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/divide:Calculator-config
+2016-10-04 13:04:32,355 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/divide:Calculator-config.stage1
+2016-10-04 13:04:32,369 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/multiply:Calculator-config
+2016-10-04 13:04:32,369 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/multiply:Calculator-config.stage1
+2016-10-04 13:04:32,377 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: post:/subtract:Calculator-config
+2016-10-04 13:04:32,377 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: post:/subtract:Calculator-config.stage1
+2016-10-04 13:04:32,518 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-10-04 13:04:32,581 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: calculator                                            *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************

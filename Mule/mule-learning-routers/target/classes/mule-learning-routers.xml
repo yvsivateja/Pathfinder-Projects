@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting" xmlns:vm="http://www.mulesoft.org/schema/mule/vm" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/vm http://www.mulesoft.org/schema/mule/vm/current/mule-vm.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Request Configuration"/>
+    <http:request-config name="HTTP_Request_Configuration_unknown" host="localhost" port="2356" basePath="mulelearning" doc:name="HTTP Request Configuration"/>
+    <flow name="mule-learning-routersFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/async" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <async doc:name="Async">
+            <flow-ref name="mule-learning-routersSub_Flow" doc:name="mule-learning-routersSub_Flow"/>
+            <http:request config-ref="HTTP_Request_Configuration" path="serviceA" method="POST" doc:name="HTTP"/>
+        </async>
+        <set-payload value="#[payload+' good']" doc:name="Set Payload"/>
+    </flow>
+    <sub-flow name="mule-learning-routersSub_Flow">
+        <set-payload value="#[payload:java.lang.String] Payload 1" doc:name="Set Payload"/>
+        <logger level="INFO" message="#[payload]" doc:name="Logger"/>
+    </sub-flow>
+    <flow name="mule-learning-routersFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/serviceA" doc:name="HTTP"/>
+        <set-payload value="#[payload:java.lang.String] ServiceA" doc:name="Set Payload"/>
+        <logger level="INFO" message="#[payload]" doc:name="Logger"/>
+    </flow>
+    <flow name="mule-learning-routersFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/firstSuccessful" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <first-successful doc:name="First Successful">
+            <http:request config-ref="HTTP_Request_Configuration" path="service1" method="POST" doc:name="HTTP"/>
+        	<http:request config-ref="HTTP_Request_Configuration_unknown" path="service3434" method="POST" doc:name="HTTP"/>
+            <http:request config-ref="HTTP_Request_Configuration" path="service2" method="POST" doc:name="HTTP"/>
+            <http:request config-ref="HTTP_Request_Configuration" path="service3" method="POST" doc:name="HTTP"/>
+        </first-successful>
+    </flow>
+    
+    <flow name="mule-learning-routersFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/firstSuccessfulWithOneWay" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <first-successful doc:name="First Successful">
+            <http:request config-ref="HTTP_Request_Configuration" path="service1" method="POST" doc:name="HTTP"/>
+        	<http:request config-ref="HTTP_Request_Configuration_unknown" path="service3434" method="POST" doc:name="HTTP"/>
+            <vm:outbound-endpoint exchange-pattern="one-way" path="deadLetterQueue" doc:name="VM"/>
+        </first-successful>
+    </flow>
+    
+    <flow name="mule-learning-routersFlow4">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/firstSuccessfFailureExpressionException" doc:name="HTTP"/>
+        <object-to-string-transformer doc:name="Object to String"/>
+        <first-successful doc:name="First Successful" failureExpression="exception-type:java.net.SocketTimeoutException">
+            <http:request config-ref="HTTP_Request_Configuration" path="service1" method="POST" doc:name="HTTP"/>
+        	<http:request config-ref="HTTP_Request_Configuration_unknown" path="service3434" method="POST" doc:name="HTTP"/>
+            <vm:outbound-endpoint exchange-pattern="one-way" path="deadLetterQueue" doc:name="VM"/>
+        </first-successful>
+    </flow>
+    
+    <flow name="deadLetterFlow">
+    	<vm:inbound-endpoint path="deadLetterQueue" exchange-pattern="one-way" doc:name="VM"/>
+    	<logger level="INFO" message="Finally reaching deadLetter" doc:name="Logger"/>
+    </flow>
+     <flow name="mule-learning-routersFlowService1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/service1" doc:name="HTTP"/>
+        <logger level="INFO" message="In service1" doc:name="Logger"/>
+        <scripting:transformer doc:name="Script">
+            <scripting:script engine="Groovy"><![CDATA[throw new java.lang.RuntimeException("Thrown intentionally");
+]]></scripting:script>
+        </scripting:transformer>
+    </flow>
+     <flow name="mule-learning-routersFlowService2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/service2" doc:name="HTTP"/>
+        <logger level="INFO" message="In service2" doc:name="Logger"/>
+        <set-payload value="#[payload:java.lang.String] Service2" doc:name="Set Payload"/>
+    </flow>
+     <flow name="mule-learning-routersFlowService3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/service3" doc:name="HTTP"/>
+        <set-payload value="#[payload:java.lang.String] Service3" doc:name="Set Payload"/>
+    </flow>
+    <flow name="mule-learning-routersFlow5">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/wiretap" doc:name="HTTP"/>
+        <wire-tap>
+        	<vm:outbound-endpoint exchange-pattern="one-way" path="addservice" doc:name="VM"/>
+        </wire-tap>
+        <append-string-transformer message=" added" doc:name="Append String"/>
+    </flow>
+    
+    <flow name="mule-learning-routersFlow7">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/processorChain" doc:name="HTTP"/>
+        <wire-tap>
+        	<processor-chain >
+        		<object-to-string-transformer />
+        		<vm:outbound-endpoint exchange-pattern="one-way" path="addservice" doc:name="VM"/>
+        	</processor-chain>
+        </wire-tap>
+        <append-string-transformer message=" added" doc:name="Append String"/>
+    </flow>
+    <flow name="mule-learning-routersFlow6">
+        <vm:inbound-endpoint exchange-pattern="one-way" path="addservice" doc:name="VM"/>
+        <logger message="in add service #[payload:java.lang.String]" level="INFO" doc:name="Logger"/>
+    </flow>
+     
+</mule>

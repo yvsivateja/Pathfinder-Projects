@@ -1,0 +1,15 @@
+com/learning/interceptors/GeneralAbstractEnvelopeInterceptor.class
+com/learning/beans/Address.class
+com/learning/beans/InvokableClass.class
+com/learning/components/BootstrappedComponent.class
+com/learning/interceptors/GeneralInterceptor.class
+com/learning/components/MyAnnotatedEntryPointResolver.class
+com/learning/components/ControllableComponent.class
+com/learning/beans/Person.class
+com/learning/components/LifecycleEnabledComponent.class
+com/learning/components/BoundedComponent.class
+com/learning/services/AppenderService.class
+com/learning/beans/Computer.class
+com/learning/components/MyMethodEntryPointResolver.class
+com/learning/components/SimpleJavaComponent.class
+com/learning/components/MyCallableComponent.class

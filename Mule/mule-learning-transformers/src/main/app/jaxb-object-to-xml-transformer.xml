@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+   
+    <flow name="jaxb-object-to-xml-transformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/jaxb-object-to-xml" doc:name="HTTP"/>
+        <mulexml:jaxb-xml-to-object-transformer jaxbContext-ref="JAXB_Context" doc:name="XML to JAXB Object"/>
+        <logger level="INFO" message="Intermediatory object : #[payload]" doc:name="Logger"/>
+        <mulexml:jaxb-object-to-xml-transformer jaxbContext-ref="JAXB_Context" doc:name="JAXB Object to XML"/>
+    	<logger level="INFO" message="Final xml : #[payload]" doc:name="Logger"/>
+    	<object-to-string-transformer doc:name="Object to String"/>
+    </flow>
+</mule>

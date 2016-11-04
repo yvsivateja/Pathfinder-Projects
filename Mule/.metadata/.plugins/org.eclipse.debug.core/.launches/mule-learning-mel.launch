@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.mule.tooling.maven.muleWithMavenLaunchType">
+<stringAttribute key="clear_data" value="NEVER"/>
+<booleanAttribute key="consoleEnabled" value="true"/>
+<stringAttribute key="launch_mule_server_version" value="org.mule.tooling.server.3.8.0.ee"/>
+<listAttribute key="mule-project-names">
+<listEntry value="mule-learning-mel"/>
+</listAttribute>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="my.proj.classpath" value="${project_classpath}"/>
+</mapAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="mule-learning-mel"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-XX:PermSize=128M -XX:MaxPermSize=256M&#10;-Dmy.vm.var=sai"/>
+<intAttribute key="remote-debug-port" value="6666"/>
+<booleanAttribute key="remote-debug-suspend" value="false"/>
+</launchConfiguration>

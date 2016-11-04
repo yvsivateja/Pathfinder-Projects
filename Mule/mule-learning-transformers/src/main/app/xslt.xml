@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+    <flow name="xsltFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/xslt" doc:name="HTTP"/>
+        <set-variable variableName="name" value="Sai" doc:name="Variable"/>
+        <set-variable variableName="age" value="25" doc:name="Variable"/>
+        <mulexml:xslt-transformer maxIdleTransformers="2" maxActiveTransformers="5" doc:name="XSLT" xsl-file="sample-xslt.xsl">
+            <mulexml:context-property key="name" value="#[name]"/>
+            <mulexml:context-property key="age" value="#[age]"/>
+        </mulexml:xslt-transformer>
+    </flow>
+</mule>

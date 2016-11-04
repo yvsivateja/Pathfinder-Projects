@@ -1,0 +1,304 @@
+#%RAML 1.0
+title: Calculator
+version: 1.0
+baseUri: http://localhost:9876/calculator/api
+
+/greet:
+  displayName: Greeting
+  get:
+    description: User receives a greeting out of here.
+    responses: 
+      200 : 
+        body: 
+          application/json:
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                  "greet": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "greet"
+                ]
+              }
+            example: |
+              {
+                "greet" : "Welcome to calculator service"
+              }
+/ops:
+  displayName: Operations
+  get:
+    description: Get all the operations that were requested till now.
+    responses:
+      200 :
+        body:
+          application/json:
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "operation": {
+                      "type": "string"
+                    },
+                    "first_operand": {
+                      "type": "string"
+                    },
+                    "second_operand": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [ "success", "failure" ]
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "first_operand",
+                    "second_operand",
+                    "id",
+                    "status",
+                    "result"
+                  ]
+                }
+              }
+            example: | 
+              [
+                {
+                  "operation" : "Addition",
+                  "first_operand" : "2",
+                  "second_operand" : "3",
+                  "id" : "12345",
+                  "status" : "success",
+                  "result" : "5"
+                },
+                {
+                  "operation" : "Subtraction",
+                  "first_operand" : "7",
+                  "second_operand" : "5",
+                  "id" : "12345",
+                  "status" : "success",
+                  "result" : "2"
+                },
+                {
+                  "operation" : "Division",
+                  "first_operand" : "20",
+                  "second_operand" : "4",
+                  "id" : "12345",
+                  "status" : "success",
+                  "result" : "5"
+                },
+                {
+                  "operation" : "Multiplication",
+                  "first_operand" : "2",
+                  "second_operand" : "3",
+                  "id" : "12345",
+                  "status" : "success",
+                  "result" : "6"
+                }
+              ]
+      500 : 
+        body: 
+          application/json:
+            example: |
+              {
+                "message" : "No requests were made yet"
+              }
+    queryParameters: 
+      op :
+        description: Filter the result based on operation.
+        required: false
+  /{id}:
+    displayName: OperationId
+    get:
+      description: Get the requested operation based on id.
+      responses:
+        200 :
+          body:
+            application/json:
+              schema: |
+                {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "properties": {
+                    "operation": {
+                      "type": "string"
+                    },
+                    "first_operand": {
+                      "type": "string"
+                    },
+                    "second_operand": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [ "success", "failure" ]
+                    },
+                    "result": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "operation",
+                    "first_operand",
+                    "second_operand",
+                    "id",
+                    "status",
+                    "result"
+                  ]
+                }
+              example: | 
+                  {
+                    "operation" : "Addition",
+                    "first_operand" : "2",
+                    "second_operand" : "3",
+                    "id" : "12345",
+                    "status" : "success",
+                    "result" : "5"
+                  }
+        500 : 
+          body: 
+            application/json:
+              example: |
+                {
+                  "message" : "No request with given Id exist"
+                }
+/add:
+  displayName: Addition
+  post:
+    description: This adds two numbers.
+    body:
+      application/json:
+        example : |
+          {
+            "a" : "2",
+            "b" : "3"
+          }
+    responses:  
+      200 :
+        body:
+          application/json:
+            schema: |
+              {
+                "$schema": "http://json-schema.org/draft-04/schema#",
+                "type": "object",
+                "properties": {
+                  "result": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "result",
+                  "id"
+                ]
+              }
+            example: |
+              {
+                "result" : "5",
+                "id" : "1234"
+              }
+      500 : 
+        body: 
+          application/json:
+            example: |
+              {
+                "message" : "Error Message"
+              }
+/subtract:
+  displayName: Subtraction
+  post:
+    description: This subtracts second number from first.
+    body:
+      application/json:
+        example : |
+          {
+            "a" : "5",
+            "b" : "3"
+          }
+    responses:  
+      200 :
+        body:
+          application/json:
+            example: |
+              {
+                "result" : "2",
+                "id" : "1234"
+              }
+      500 : 
+        body: 
+          application/json:
+            example: |
+              {
+                "message" : "Error Message"
+              }
+/divide:
+  displayName: Division
+  post:
+    description: This divides first number with second.
+    body:
+      application/json:
+        example : |
+          {
+            "a" : "15",
+            "b" : "3"
+          }
+    responses:  
+      200 :
+        body:
+          application/json:
+            example: |
+              {
+                "result" : "5",                
+                "id" : "1234"
+              }
+      500 : 
+        body: 
+          application/json:
+            example: |
+              {
+                "message" : "Error Message"
+              }
+/multiply:
+  displayName: Multiplication
+  post:
+    description: This multiplies two numbers.
+    body:
+      application/json:
+        example : |
+          {
+            "a" : "5",
+            "b" : "3"
+          }
+    responses:  
+      200 :
+        body:
+          application/json:
+            example: |
+              {
+                "result" : "15",
+                "id" : "1234"
+              }
+      500 : 
+        body: 
+          application/json:
+            example: |
+              {
+                "message" : "Error Message"
+              } 

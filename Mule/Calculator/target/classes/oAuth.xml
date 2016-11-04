@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:oauth2-provider="http://www.mulesoft.org/schema/mule/oauth2-provider" xmlns:mule-ss="http://www.mulesoft.org/schema/mule/spring-security" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ss="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-current.xsd
+http://www.mulesoft.org/schema/mule/spring-security http://www.mulesoft.org/schema/mule/spring-security/current/mule-spring-security.xsd
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+http://www.mulesoft.org/schema/mule/oauth2-provider http://www.mulesoft.org/schema/mule/oauth2-provider/current/mule-oauth2-provider.xsd">
+    
+    <context:property-placeholder location="calculator.properties" />
+    
+    <oauth2-provider:config 
+    name="Calculator_OAuth_provider_module" 
+    accessTokenEndpointPath="calculator/api/token" 
+    authorizationEndpointPath="calculator/api/authorize" 
+    supportedGrantTypes="CLIENT_CREDENTIALS"
+    host="0.0.0.0" port="8081"
+    doc:name="OAuth provider module">
+    	<oauth2-provider:clients>
+                <oauth2-provider:client clientId="${client_id}" secret="${client_secret}"
+                                        type="CONFIDENTIAL" clientName="New Client" description="Mule-powered On-line Oauth Client">
+                    <oauth2-provider:redirect-uris>
+                        <oauth2-provider:redirect-uri>http://localhost*</oauth2-provider:redirect-uri>
+                    </oauth2-provider:redirect-uris>
+                    <oauth2-provider:authorized-grant-types>
+                        <oauth2-provider:authorized-grant-type>CLIENT_CREDENTIALS</oauth2-provider:authorized-grant-type>
+                    </oauth2-provider:authorized-grant-types>
+                </oauth2-provider:client>
+        </oauth2-provider:clients>
+    </oauth2-provider:config>
+    
+    
+    
+</mule>

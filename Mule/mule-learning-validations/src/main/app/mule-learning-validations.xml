@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:email="http://www.mulesoft.org/schema/mule/email" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:validation="http://www.mulesoft.org/schema/mule/validation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/validation http://www.mulesoft.org/schema/mule/validation/current/mule-validation.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/email http://www.mulesoft.org/schema/mule/email/current/mule-email.xsd">
+    <http:listener-config name="HTTP_Listener_Configuration" host="localhost" port="9876" basePath="mulelearning" doc:name="HTTP Listener Configuration"/>
+    <flow name="mule-learning-validationsFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/validateEmail" doc:name="HTTP"/>
+        <validation:is-email  doc:name="Validation" email="#[json://email]"/>
+    </flow>
+    
+    <flow name="mule-learning-validationsFlo1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/validateEmailCustom" doc:name="HTTP"/>
+        <validation:is-email email="#[json://email]" doc:name="Validation" exceptionClass="com.learning.exceptions.InvalidEmailException" message="You gave wrong e-mail"/>
+    </flow>
+    <!-- For more validation methods to use in MEL take a look at org.mule.extension.validation.internal.el.ValidatorElContext -->
+    <flow name="mule-learning-validationsFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/validateNumber" doc:name="HTTP"/>
+        <set-variable value="#[json://price]" variableName="price" doc:name="Variable" />
+        <choice doc:name="Choice">
+            <when expression="#[validator.isNumber(price,org.mule.extension.validation.internal.validator.NumberType.DOUBLE)]">
+                <set-payload value="price is number" doc:name="Set Payload"/>
+            </when>
+            <otherwise>
+                <set-payload value="price is not a number" doc:name="Set Payload"/>
+            </otherwise>
+        </choice>
+    </flow>
+    <!-- 
+    	All validations are executed, even if all of them fail
+		If any of the validations fail, one single exception is thrown. The exception contains a multiline message in which each line corresponds to every failing validation.
+		Validators are executed sequentially using the flow’s thread, but since validators don’t cause any side effects, the order shouldn’t matter
+		Unlike the rest of the validators, the all validator does not allow you to directly customize the exception type or the message through validation:exception or exception factory elements (you can however customize the message of the inner validators).
+     -->
+    <flow name="mule-learning-validationsFlow1">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/validateMany" doc:name="HTTP"/>
+        <set-variable value="#[json://price]" variableName="price" doc:name="Variable" />
+        <validation:all doc:name="Validation">
+            <validation:validations>
+                <validation:is-email email="#[json://email]"/>
+                <validation:is-number value="#[price]" numberType="DOUBLE" message="Invalid price"/>
+            </validation:validations>
+        </validation:all>
+    </flow>
+    <flow name="mule-learning-validationsFlow3">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/customValidator" doc:name="HTTP"/>
+        <set-variable variableName="email" value="#[json://email]" doc:name="Variable"/>
+        <validation:custom-validator class="com.learning.validators.VariableValidator" doc:name="Validation"/>
+    </flow>
+    <flow name="mule-learning-validationsFlow4">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/mixedValidator" doc:name="HTTP"/>
+        <set-variable variableName="email" value="#[json://email]" doc:name="Variable"/>
+        <validation:all  doc:name="Validation">
+            <validation:validations>
+            	<validation:is-email email="#[email]"  />
+                <validation:custom-validator class="com.learning.validators.VariableValidator" />
+            </validation:validations>
+        </validation:all>
+    </flow>
+</mule>

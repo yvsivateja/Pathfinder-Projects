@@ -1,0 +1,983 @@
+2016-09-02 07:09:41,708 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-02 07:09:41,858 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-02 07:09:41,990 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-02 07:09:42,172 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-02 07:09:42,173 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-02 07:09:42,247 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@4c168660: startup date [Fri Sep 02 07:09:42 IST 2016]; root of context hierarchy
+2016-09-02 07:09:44,374 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-02 07:09:44,795 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-02 07:09:44,796 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-02 07:09:46,204 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-09-02 07:09:47,125 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-02 07:09:47,131 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-02 07:09:47,131 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@79eeff87
+2016-09-02 07:09:47,186 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-02 07:09:47,207 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-02 07:09:47,207 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@32d418a9
+2016-09-02 07:09:47,219 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-02 07:09:47,223 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-02 07:09:47,223 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5b000fe6
+2016-09-02 07:09:47,237 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-02 07:09:47,238 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-02 07:09:47,238 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5a1f778
+2016-09-02 07:09:47,248 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-02 07:09:47,249 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-02 07:09:47,249 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4d7a64ca
+2016-09-02 07:09:47,259 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-02 07:09:47,260 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-02 07:09:47,260 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7d42542
+2016-09-02 07:09:47,269 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-02 07:09:47,270 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-02 07:09:47,270 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@721d8ab5
+2016-09-02 07:09:47,281 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-02 07:09:47,302 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-02 07:09:47,310 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-02 07:09:48,008 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-02 07:09:48,008 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-02 07:09:51,044 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-02 07:09:51,050 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-02 07:09:51,050 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-02 07:09:51,147 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-02 07:09:51,156 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-02 07:09:51,167 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-02 07:09:51,169 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-02 07:09:51,170 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-02 07:09:51,177 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-02 07:09:51,177 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-02 07:09:51,180 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-02 07:09:51,180 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-02 07:09:51,184 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-02 07:09:51,184 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-02 07:09:51,189 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-02 07:09:51,189 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-02 07:09:51,194 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-02 07:09:51,194 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-02 07:09:51,198 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-02 07:09:51,198 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-02 07:09:51,273 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-02 07:09:51,324 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:00:04,910 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:00:05,345 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:00:05,737 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:00:06,297 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:00:06,297 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:00:06,577 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@4c168660: startup date [Thu Sep 08 07:00:06 IST 2016]; root of context hierarchy
+2016-09-08 07:00:11,010 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:00:11,474 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:00:11,474 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:00:12,863 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-09-08 07:00:13,781 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:00:13,791 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:00:13,791 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@79eeff87
+2016-09-08 07:00:13,845 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:00:13,858 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:00:13,858 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@32d418a9
+2016-09-08 07:00:13,863 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:00:13,865 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:00:13,865 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5b000fe6
+2016-09-08 07:00:13,875 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:00:13,876 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:00:13,877 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5a1f778
+2016-09-08 07:00:13,883 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:00:13,884 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:00:13,884 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4d7a64ca
+2016-09-08 07:00:13,891 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:00:13,892 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:00:13,892 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7d42542
+2016-09-08 07:00:13,899 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:00:13,900 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:00:13,900 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@721d8ab5
+2016-09-08 07:00:13,908 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:00:13,937 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:00:13,970 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:00:14,875 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:00:14,875 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:00:17,915 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:00:17,922 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:00:17,922 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:00:18,053 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:00:18,061 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:00:18,072 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:00:18,075 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:00:18,076 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:00:18,082 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:00:18,082 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:00:18,087 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:00:18,087 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:00:18,091 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:00:18,092 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:00:18,095 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:00:18,095 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:00:18,100 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:00:18,100 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:00:18,104 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:00:18,104 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:00:18,192 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:00:18,242 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:09:39,671 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:09:39,875 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:09:40,058 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:09:40,265 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:09:40,265 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:09:40,370 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@4c168660: startup date [Thu Sep 08 07:09:40 IST 2016]; root of context hierarchy
+2016-09-08 07:09:43,740 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:09:44,932 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:09:44,933 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:09:49,297 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-09-08 07:09:50,725 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:09:50,752 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:09:50,754 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@79eeff87
+2016-09-08 07:09:50,945 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:09:50,991 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:09:50,992 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@32d418a9
+2016-09-08 07:09:51,016 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:09:51,021 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:09:51,022 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5b000fe6
+2016-09-08 07:09:51,059 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:09:51,067 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:09:51,067 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@5a1f778
+2016-09-08 07:09:51,091 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:09:51,106 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:09:51,106 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4d7a64ca
+2016-09-08 07:09:51,120 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:09:51,122 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:09:51,122 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7d42542
+2016-09-08 07:09:51,138 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:09:51,141 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:09:51,141 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@721d8ab5
+2016-09-08 07:09:51,162 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:09:51,264 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:09:51,295 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:09:53,080 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:09:53,080 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:09:56,127 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:09:56,133 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:09:56,133 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:09:56,275 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:09:56,286 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:09:56,300 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:09:56,307 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:09:56,308 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:09:56,315 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:09:56,316 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:09:56,320 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:09:56,320 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:09:56,338 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:09:56,338 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:09:56,350 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:09:56,350 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:09:56,356 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:09:56,358 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:09:56,370 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:09:56,370 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:09:56,459 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:09:56,510 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:16:27,495 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:16:28,098 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:16:28,661 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:16:29,665 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:16:29,666 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:16:30,008 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@4c168660: startup date [Thu Sep 08 07:16:29 IST 2016]; root of context hierarchy
+2016-09-08 07:16:40,040 [main] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:16:42,254 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:16:42,255 [main] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:16:47,902 [main] WARN  org.mule.module.ognl.expression.OgnlExpressionEvaluator - OGNL module is deprecated and will be removed in Mule 4.0. Use MEL expressions instead.
+2016-09-08 07:16:51,273 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:16:51,307 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:16:51,308 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@8bd076a
+2016-09-08 07:16:51,665 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:16:51,729 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:16:51,729 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@746c411c
+2016-09-08 07:16:51,757 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:16:51,762 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:16:51,762 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7af443a3
+2016-09-08 07:16:51,780 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:16:51,783 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:16:51,783 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@574059d5
+2016-09-08 07:16:51,799 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:16:51,802 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:16:51,802 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6418e39e
+2016-09-08 07:16:51,819 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:16:51,822 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:16:51,822 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@1f87607c
+2016-09-08 07:16:51,841 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:16:51,844 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:16:51,844 [main] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@1946384
+2016-09-08 07:16:51,860 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:16:51,928 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:16:51,962 [main] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:16:54,379 [main] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:16:54,379 [main] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:16:57,567 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:16:57,617 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:16:57,617 [main] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:16:58,072 [main] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:16:58,119 [main] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:16:58,190 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:16:58,205 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:16:58,214 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:16:58,232 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:16:58,233 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:16:58,256 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:16:58,256 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:16:58,270 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:16:58,270 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:16:58,287 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:16:58,287 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:16:58,311 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:16:58,311 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:16:58,342 [main] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:16:58,342 [main] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:16:58,737 [main] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:16:59,133 [main] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:22:44,863 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Stopping app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:22:44,897 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow
+2016-09-08 07:22:44,924 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow.stage1
+2016-09-08 07:22:45,121 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow1
+2016-09-08 07:22:45,123 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:22:45,304 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow6
+2016-09-08 07:22:45,306 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:22:45,504 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow2
+2016-09-08 07:22:45,506 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:22:45,516 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow3
+2016-09-08 07:22:45,518 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:22:45,535 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow4
+2016-09-08 07:22:45,541 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:22:45,608 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow5
+2016-09-08 07:22:45,610 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:22:45,824 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Stopping model: _muleSystemModel
+2016-09-08 07:22:46,369 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Stopped listener on http://localhost:9876/mulelearning
+2016-09-08 07:22:46,376 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopping ResourceManager
+2016-09-08 07:22:46,376 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopped ResourceManager
+2016-09-08 07:22:46,434 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Disposing app 'mule-learning-database'                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:22:46,458 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:22:46,463 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow
+2016-09-08 07:22:46,490 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow.stage1
+2016-09-08 07:22:46,503 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow1
+2016-09-08 07:22:46,503 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:22:46,509 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow6
+2016-09-08 07:22:46,510 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:22:46,511 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow2
+2016-09-08 07:22:46,514 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:22:46,527 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow3
+2016-09-08 07:22:46,539 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:22:46,541 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow4
+2016-09-08 07:22:46,545 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:22:46,547 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow5
+2016-09-08 07:22:46,553 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:22:46,577 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-09-08 07:22:48,156 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@4c168660: startup date [Thu Sep 08 07:16:29 IST 2016]; root of context hierarchy
+2016-09-08 07:22:48,368 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application "mule-learning-database" shut down normally on:        *
+* 8/9/16 7:22 AM                                                     *
+* Up for: 0 days, 0 hours, 5 mins, 50.756 sec                        *
+**********************************************************************
+2016-09-08 07:23:35,921 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:23:35,953 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:23:36,012 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:23:36,078 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:23:36,318 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:23:36,320 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:23:36,404 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@1a79c1a3: startup date [Thu Sep 08 07:23:36 IST 2016]; root of context hierarchy
+2016-09-08 07:23:42,727 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:23:43,517 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:23:43,518 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:23:45,908 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:23:45,917 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:23:45,925 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@53be1e96
+2016-09-08 07:23:46,027 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:23:46,038 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:23:46,069 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@67b4a11b
+2016-09-08 07:23:46,119 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:23:46,142 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:23:46,149 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@12174f64
+2016-09-08 07:23:46,206 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:23:46,212 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:23:46,215 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@50e80aa4
+2016-09-08 07:23:46,244 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:23:46,253 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:23:46,256 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@27e21491
+2016-09-08 07:23:46,297 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:23:46,309 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:23:46,316 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@c73ca2a
+2016-09-08 07:23:46,370 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:23:46,372 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:23:46,372 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@69f3f421
+2016-09-08 07:23:46,419 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:23:46,440 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:23:46,442 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:23:47,015 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:23:47,032 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:23:50,187 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:23:50,290 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:23:50,290 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:23:50,477 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:23:50,533 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:23:50,585 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:23:50,592 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:23:50,593 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:23:50,647 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:23:50,654 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:23:50,721 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:23:50,721 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:23:50,757 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:23:50,757 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:23:50,811 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:23:50,812 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:23:50,838 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:23:50,838 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:23:50,885 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:23:50,886 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:23:51,134 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:23:51,360 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:23:56,409 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Stopping app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:23:56,413 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow
+2016-09-08 07:23:56,414 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow.stage1
+2016-09-08 07:23:56,470 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow1
+2016-09-08 07:23:56,471 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:23:56,538 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow6
+2016-09-08 07:23:56,538 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:23:56,586 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow2
+2016-09-08 07:23:56,586 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:23:56,628 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow3
+2016-09-08 07:23:56,628 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:23:56,697 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow4
+2016-09-08 07:23:56,697 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:23:56,724 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow5
+2016-09-08 07:23:56,724 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:23:56,752 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Stopping model: _muleSystemModel
+2016-09-08 07:23:56,768 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Stopped listener on http://localhost:9876/mulelearning
+2016-09-08 07:23:56,777 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopping ResourceManager
+2016-09-08 07:23:56,778 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopped ResourceManager
+2016-09-08 07:23:56,852 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Disposing app 'mule-learning-database'                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:23:56,852 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:23:56,855 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow
+2016-09-08 07:23:56,856 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow.stage1
+2016-09-08 07:23:56,868 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow1
+2016-09-08 07:23:56,868 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:23:56,870 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow6
+2016-09-08 07:23:56,870 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:23:56,871 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow2
+2016-09-08 07:23:56,871 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:23:56,872 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow3
+2016-09-08 07:23:56,872 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:23:56,873 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow4
+2016-09-08 07:23:56,873 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:23:56,874 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow5
+2016-09-08 07:23:56,874 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:23:56,879 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-09-08 07:23:57,352 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@1a79c1a3: startup date [Thu Sep 08 07:23:36 IST 2016]; root of context hierarchy
+2016-09-08 07:23:57,670 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application "mule-learning-database" shut down normally on:        *
+* 8/9/16 7:23 AM                                                     *
+* Up for: 0 days, 0 hours, 0 mins, 7.481 sec                         *
+**********************************************************************
+2016-09-08 07:27:04,159 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:27:04,230 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:27:04,231 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:27:04,277 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:27:04,377 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:27:04,666 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:27:04,672 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:27:04,711 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@3f29a794: startup date [Thu Sep 08 07:27:04 IST 2016]; root of context hierarchy
+2016-09-08 07:27:09,056 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:27:09,574 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:27:09,577 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:27:11,228 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:27:11,231 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:27:11,231 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6cbde31
+2016-09-08 07:27:11,262 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:27:11,265 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:27:11,266 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@1b6a9489
+2016-09-08 07:27:11,288 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:27:11,297 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:27:11,299 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4ad17155
+2016-09-08 07:27:11,339 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:27:11,347 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:27:11,349 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@e4a4191
+2016-09-08 07:27:11,375 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:27:11,379 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:27:11,381 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@47ae41dd
+2016-09-08 07:27:11,422 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:27:11,429 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:27:11,436 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@628ee332
+2016-09-08 07:27:11,461 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:27:11,469 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:27:11,472 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@1834a90d
+2016-09-08 07:27:11,509 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:27:11,516 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:27:11,518 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:27:11,766 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:27:11,767 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:27:14,782 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:27:14,815 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:27:14,815 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:27:14,887 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:27:14,930 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:27:15,012 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:27:15,024 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:27:15,024 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:27:15,035 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:27:15,036 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:27:15,050 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:27:15,051 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:27:15,087 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:27:15,087 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:27:15,139 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:27:15,139 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:27:15,175 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:27:15,175 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:27:15,203 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:27:15,204 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:27:15,403 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:27:15,742 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:27:18,706 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:27:20,095 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:27:20,820 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Stopping app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:27:20,834 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow
+2016-09-08 07:27:20,837 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow.stage1
+2016-09-08 07:27:20,872 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow1
+2016-09-08 07:27:20,873 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:27:20,882 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow6
+2016-09-08 07:27:20,883 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:27:20,930 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow2
+2016-09-08 07:27:20,930 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:27:21,004 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow3
+2016-09-08 07:27:21,005 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:27:21,047 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:27:21,202 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow4
+2016-09-08 07:27:21,202 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:27:21,260 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow5
+2016-09-08 07:27:21,261 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:27:21,277 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Stopping model: _muleSystemModel
+2016-09-08 07:27:21,334 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Stopped listener on http://localhost:9876/mulelearning
+2016-09-08 07:27:21,343 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopping ResourceManager
+2016-09-08 07:27:21,343 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopped ResourceManager
+2016-09-08 07:27:21,396 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Disposing app 'mule-learning-database'                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:27:21,402 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:27:21,413 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow
+2016-09-08 07:27:21,416 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow.stage1
+2016-09-08 07:27:21,419 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow1
+2016-09-08 07:27:21,419 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:27:21,420 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow6
+2016-09-08 07:27:21,420 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:27:21,421 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow2
+2016-09-08 07:27:21,421 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:27:21,434 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow3
+2016-09-08 07:27:21,435 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:27:21,436 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow4
+2016-09-08 07:27:21,436 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:27:21,446 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow5
+2016-09-08 07:27:21,452 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:27:21,486 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-09-08 07:27:21,937 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@3f29a794: startup date [Thu Sep 08 07:27:04 IST 2016]; root of context hierarchy
+2016-09-08 07:27:22,092 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application "mule-learning-database" shut down normally on:        *
+* 8/9/16 7:27 AM                                                     *
+* Up for: 0 days, 0 hours, 0 mins, 7.308 sec                         *
+**********************************************************************
+2016-09-08 07:27:23,763 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:27:23,764 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:27:24,826 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@6e16b8b5: startup date [Thu Sep 08 07:27:24 IST 2016]; root of context hierarchy
+2016-09-08 07:27:34,428 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:27:34,612 [main] ERROR org.mule.module.launcher.application.DefaultMuleApplication - null
+java.io.FileNotFoundException: /home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method) ~[?:1.8.0_92]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[?:1.8.0_92]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[?:1.8.0_92]
+	at java.io.FileInputStream.<init>(FileInputStream.java:93) ~[?:1.8.0_92]
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90) ~[?:1.8.0_92]
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188) ~[?:1.8.0_92]
+	at org.springframework.core.io.UrlResource.getInputStream(UrlResource.java:168) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:330) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:304) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:181) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.mule.config.spring.MuleArtifactContext.loadBeanDefinitions(MuleArtifactContext.java:192) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:129) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:537) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:452) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.mule.config.spring.SpringRegistry.doInitialise(SpringRegistry.java:108) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:104) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:177) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:100) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:52) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory$1.configure(DefaultMuleContextFactory.java:89) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.doCreateMuleContext(DefaultMuleContextFactory.java:222) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:81) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:196) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper$2.execute(ArtifactWrapper.java:63) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.executeWithinArtifactClassLoader(ArtifactWrapper.java:136) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.init(ArtifactWrapper.java:58) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArtifactDeployer.deploy(DefaultArtifactDeployer.java:25) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.guardedDeploy(DefaultArchiveDeployer.java:324) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployArtifact(DefaultArchiveDeployer.java:345) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployExplodedApp(DefaultArchiveDeployer.java:311) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployExplodedArtifact(DefaultArchiveDeployer.java:114) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.deployExplodedApps(DeploymentDirectoryWatcher.java:290) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.start(DeploymentDirectoryWatcher.java:151) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleDeploymentService.start(MuleDeploymentService.java:104) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleContainer.start(MuleContainer.java:170) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:15) ~[tooling-support-3.8.0.jar:?]
+2016-09-08 07:27:34,666 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - App 'mule-learning-database' never started, nothing to dispose of
+2016-09-08 07:30:23,487 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:30:23,518 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:30:23,519 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:30:23,520 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:30:23,570 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:30:23,641 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:30:23,799 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:30:23,803 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:30:23,818 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@4edd50f6: startup date [Thu Sep 08 07:30:23 IST 2016]; root of context hierarchy
+2016-09-08 07:30:25,172 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:30:25,510 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:30:25,510 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:30:28,022 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:30:28,048 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:30:28,055 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@6c003a82
+2016-09-08 07:30:28,130 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:30:28,135 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:30:28,140 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@4426da55
+2016-09-08 07:30:28,216 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:30:28,226 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:30:28,227 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@fa4903f
+2016-09-08 07:30:28,298 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:30:28,312 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:30:28,313 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@22f1cb3
+2016-09-08 07:30:28,400 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:30:28,404 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:30:28,413 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@3574faba
+2016-09-08 07:30:28,552 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:30:28,564 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:30:28,575 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@56ab3ae9
+2016-09-08 07:30:28,666 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:30:28,673 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:30:28,681 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@71cade35
+2016-09-08 07:30:28,776 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:30:28,854 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:30:28,862 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:30:29,714 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:30:29,721 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:30:32,849 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:30:32,883 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:30:32,887 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:30:33,036 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:30:33,096 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:30:33,195 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:30:33,208 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:30:33,210 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:30:33,267 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:30:33,268 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:30:33,323 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:30:33,324 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:30:33,358 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:30:33,359 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:30:33,402 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:30:33,402 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:30:33,431 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:30:33,431 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:30:33,458 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:30:33,461 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:30:33,598 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:30:33,959 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:30:54,067 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Stopping app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:30:54,077 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow
+2016-09-08 07:30:54,084 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow.stage1
+2016-09-08 07:30:54,132 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow1
+2016-09-08 07:30:54,138 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:30:54,209 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow6
+2016-09-08 07:30:54,209 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:30:54,252 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow2
+2016-09-08 07:30:54,252 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:30:54,262 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow3
+2016-09-08 07:30:54,262 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:30:54,289 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow4
+2016-09-08 07:30:54,289 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:30:54,489 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow5
+2016-09-08 07:30:54,490 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:30:54,558 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Stopping model: _muleSystemModel
+2016-09-08 07:30:54,578 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Stopped listener on http://localhost:9876/mulelearning
+2016-09-08 07:30:54,581 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopping ResourceManager
+2016-09-08 07:30:54,581 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopped ResourceManager
+2016-09-08 07:30:54,590 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Disposing app 'mule-learning-database'                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:30:54,590 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:30:54,592 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow
+2016-09-08 07:30:54,592 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow.stage1
+2016-09-08 07:30:54,594 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow1
+2016-09-08 07:30:54,594 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:30:54,595 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow6
+2016-09-08 07:30:54,595 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:30:54,596 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow2
+2016-09-08 07:30:54,596 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:30:54,597 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow3
+2016-09-08 07:30:54,597 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:30:54,598 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow4
+2016-09-08 07:30:54,598 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:30:54,599 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow5
+2016-09-08 07:30:54,599 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:30:54,604 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-09-08 07:30:54,710 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@4edd50f6: startup date [Thu Sep 08 07:30:23 IST 2016]; root of context hierarchy
+2016-09-08 07:30:54,915 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application "mule-learning-database" shut down normally on:        *
+* 8/9/16 7:30 AM                                                     *
+* Up for: 0 days, 0 hours, 0 mins, 22.57 sec                         *
+**********************************************************************
+2016-09-08 07:31:51,085 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:31:51,125 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:31:51,130 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:31:51,130 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:31:51,131 [Mule.app.deployer.monitor.1.thread.1] WARN  com.mulesoft.module.client.APIPlatformClientCoreExtension - Client ID or Client Secret were not provided. API Manager client is DISABLED for app mule-learning-database
+2016-09-08 07:31:51,145 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:31:51,210 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:31:51,322 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:31:51,322 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:31:51,338 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@72265b9e: startup date [Thu Sep 08 07:31:51 IST 2016]; root of context hierarchy
+2016-09-08 07:31:54,631 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.processors.NoDevkitInjectorProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2016-09-08 07:31:55,107 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:31:55,113 [Mule.app.deployer.monitor.1.thread.1] WARN  org.mule.expression.DefaultExpressionManager - Expression string is not an expression.  Use isExpression(String) to validate first
+2016-09-08 07:31:57,516 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising model: _muleSystemModel
+2016-09-08 07:31:57,536 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow
+2016-09-08 07:31:57,538 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@517d518
+2016-09-08 07:31:57,631 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow.stage1
+2016-09-08 07:31:57,637 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow1
+2016-09-08 07:31:57,639 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@2a31040e
+2016-09-08 07:31:57,666 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:31:57,669 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow6
+2016-09-08 07:31:57,671 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7db569be
+2016-09-08 07:31:57,691 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:31:57,694 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow2
+2016-09-08 07:31:57,696 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@43089e10
+2016-09-08 07:31:57,746 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:31:57,758 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow3
+2016-09-08 07:31:57,763 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@129db0a
+2016-09-08 07:31:57,854 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:31:57,865 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow4
+2016-09-08 07:31:57,867 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@bd5f278
+2016-09-08 07:31:57,922 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:31:57,943 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Initialising flow: mule-learning-databaseFlow5
+2016-09-08 07:31:57,948 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.exception.DefaultMessagingExceptionStrategy - Initialising exception listener: org.mule.exception.DefaultMessagingExceptionStrategy@7f5b5eba
+2016-09-08 07:31:58,023 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Initialising service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:31:58,067 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-tx-log/tx2.log
+2016-09-08 07:31:58,071 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.journal.TransactionJournal - Using files for tx logs /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx1.log and /home/rahul/Dev/Mule/Learning/Workspace/.mule/./.mule/mule-learning-database/queue-xa-tx-log/tx2.log
+2016-09-08 07:31:58,464 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.SpringXmlConfigurationBuilder - Configured Mule using "org.mule.config.spring.SpringXmlConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:31:58,479 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.builders.AutoConfigurationBuilder - Configured Mule using "org.mule.config.builders.AutoConfigurationBuilder" with configuration resource(s): "[ConfigResource{resourceName='/home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml'}]"
+2016-09-08 07:32:01,530 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Starting app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:32:01,592 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Starting ResourceManager
+2016-09-08 07:32:01,598 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Started ResourceManager
+2016-09-08 07:32:01,736 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Listening for requests on http://localhost:9876/mulelearning
+2016-09-08 07:32:01,784 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.modules.oauth2.provider.agents.DefaultSplashScreenAgent - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ DevKit Extensions (0) used in this application 
+                             +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:32:01,843 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Starting model: _muleSystemModel
+2016-09-08 07:32:01,871 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow
+2016-09-08 07:32:01,875 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow.stage1
+2016-09-08 07:32:01,910 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow1
+2016-09-08 07:32:01,910 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:32:01,955 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow6
+2016-09-08 07:32:01,956 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:32:01,993 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow2
+2016-09-08 07:32:01,994 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:32:02,018 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow3
+2016-09-08 07:32:02,018 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:32:02,080 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow4
+2016-09-08 07:32:02,081 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:32:02,096 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Starting flow: mule-learning-databaseFlow5
+2016-09-08 07:32:02,096 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Starting service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:32:02,361 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.management.agent.WrapperManagerAgent - This JVM hasn't been launched by the wrapper, the agent will not run.
+2016-09-08 07:32:02,605 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application: mule-learning-database                                *
+* OS encoding: /, Mule encoding: UTF-8                               *
+*                                                                    *
+* Agents Running:                                                    *
+*   JMX Agent                                                        *
+*   Batch module default engine                                      *
+*   DevKit Extension Information                                     *
+*   Wrapper Manager                                                  *
+**********************************************************************
+2016-09-08 07:32:12,384 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Initializing app 'mule-learning-database'                +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:32:12,620 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Stopping app 'mule-learning-database'                    +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:32:12,624 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow
+2016-09-08 07:32:12,624 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow.stage1
+2016-09-08 07:32:12,768 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow1
+2016-09-08 07:32:12,769 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:32:12,812 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow6
+2016-09-08 07:32:12,812 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:32:12,831 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow2
+2016-09-08 07:32:12,831 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:32:12,885 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow3
+2016-09-08 07:32:12,885 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:32:12,931 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow4
+2016-09-08 07:32:12,931 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:32:12,939 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Stopping flow: mule-learning-databaseFlow5
+2016-09-08 07:32:12,939 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Stopping service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:32:12,994 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Stopping model: _muleSystemModel
+2016-09-08 07:32:13,018 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.http.internal.listener.DefaultHttpListenerConfig - Stopped listener on http://localhost:9876/mulelearning
+2016-09-08 07:32:13,024 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopping ResourceManager
+2016-09-08 07:32:13,025 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.util.queue.QueueXaResourceManager - Stopped ResourceManager
+2016-09-08 07:32:13,041 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.module.launcher.application.DefaultMuleApplication - 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++ Disposing app 'mule-learning-database'                   +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2016-09-08 07:32:13,058 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:32:13,060 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow
+2016-09-08 07:32:13,060 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow.stage1
+2016-09-08 07:32:13,061 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow1
+2016-09-08 07:32:13,061 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow1.stage1
+2016-09-08 07:32:13,061 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow6
+2016-09-08 07:32:13,062 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow6.stage1
+2016-09-08 07:32:13,062 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow2
+2016-09-08 07:32:13,062 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow2.stage1
+2016-09-08 07:32:13,063 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow3
+2016-09-08 07:32:13,063 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow3.stage1
+2016-09-08 07:32:13,064 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow4
+2016-09-08 07:32:13,064 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow4.stage1
+2016-09-08 07:32:13,064 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.construct.FlowConstructLifecycleManager - Disposing flow: mule-learning-databaseFlow5
+2016-09-08 07:32:13,064 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.processor.SedaStageLifecycleManager - Disposing service: mule-learning-databaseFlow5.stage1
+2016-09-08 07:32:13,068 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing model: _muleSystemModel
+2016-09-08 07:32:13,259 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.config.spring.MuleArtifactContext - Closing org.mule.config.spring.MuleArtifactContext@72265b9e: startup date [Thu Sep 08 07:31:51 IST 2016]; root of context hierarchy
+2016-09-08 07:32:13,449 [Mule.app.deployer.monitor.1.thread.1] INFO  org.mule.DefaultMuleContext - 
+**********************************************************************
+* Application "mule-learning-database" shut down normally on:        *
+* 8/9/16 7:32 AM                                                     *
+* Up for: 0 days, 0 hours, 0 mins, 11.913 sec                        *
+**********************************************************************
+2016-09-08 07:32:13,692 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Initialising RegistryBroker
+2016-09-08 07:32:14,473 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Starting discovery of extensions
+2016-09-08 07:32:17,076 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Discovered 1 extensions
+2016-09-08 07:32:17,076 [main] INFO  org.mule.module.extension.internal.manager.DefaultExtensionManager - Registering extension validation (version 3.8)
+2016-09-08 07:32:18,624 [main] INFO  org.mule.config.spring.MuleArtifactContext - Refreshing org.mule.config.spring.MuleArtifactContext@6e16b8b5: startup date [Thu Sep 08 07:32:18 IST 2016]; root of context hierarchy
+2016-09-08 07:32:28,717 [main] INFO  org.mule.lifecycle.AbstractLifecycleManager - Disposing RegistryBroker
+2016-09-08 07:32:28,939 [main] ERROR org.mule.module.launcher.application.DefaultMuleApplication - null
+java.io.FileNotFoundException: /home/rahul/Dev/Mule/Learning/Workspace/.mule/apps/mule-learning-database/mule-learning-database.xml (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method) ~[?:1.8.0_92]
+	at java.io.FileInputStream.open(FileInputStream.java:195) ~[?:1.8.0_92]
+	at java.io.FileInputStream.<init>(FileInputStream.java:138) ~[?:1.8.0_92]
+	at java.io.FileInputStream.<init>(FileInputStream.java:93) ~[?:1.8.0_92]
+	at sun.net.www.protocol.file.FileURLConnection.connect(FileURLConnection.java:90) ~[?:1.8.0_92]
+	at sun.net.www.protocol.file.FileURLConnection.getInputStream(FileURLConnection.java:188) ~[?:1.8.0_92]
+	at org.springframework.core.io.UrlResource.getInputStream(UrlResource.java:168) ~[spring-core-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:330) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.xml.XmlBeanDefinitionReader.loadBeanDefinitions(XmlBeanDefinitionReader.java:304) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanDefinitionReader.loadBeanDefinitions(AbstractBeanDefinitionReader.java:181) ~[spring-beans-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.mule.config.spring.MuleArtifactContext.loadBeanDefinitions(MuleArtifactContext.java:192) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.springframework.context.support.AbstractRefreshableApplicationContext.refreshBeanFactory(AbstractRefreshableApplicationContext.java:129) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.obtainFreshBeanFactory(AbstractApplicationContext.java:537) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:452) ~[spring-context-4.1.6.RELEASE.jar:4.1.6.RELEASE]
+	at org.mule.config.spring.SpringRegistry.doInitialise(SpringRegistry.java:108) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.registry.AbstractRegistry.initialise(AbstractRegistry.java:104) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.createSpringRegistry(SpringXmlConfigurationBuilder.java:177) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.spring.SpringXmlConfigurationBuilder.doConfigure(SpringXmlConfigurationBuilder.java:100) ~[mule-module-spring-config-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.autoConfigure(AutoConfigurationBuilder.java:101) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AutoConfigurationBuilder.doConfigure(AutoConfigurationBuilder.java:52) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractConfigurationBuilder.configure(AbstractConfigurationBuilder.java:43) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.config.builders.AbstractResourceConfigurationBuilder.configure(AbstractResourceConfigurationBuilder.java:69) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory$1.configure(DefaultMuleContextFactory.java:89) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.doCreateMuleContext(DefaultMuleContextFactory.java:222) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.context.DefaultMuleContextFactory.createMuleContext(DefaultMuleContextFactory.java:81) ~[mule-core-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.application.DefaultMuleApplication.init(DefaultMuleApplication.java:196) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper$2.execute(ArtifactWrapper.java:63) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.executeWithinArtifactClassLoader(ArtifactWrapper.java:136) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.artifact.ArtifactWrapper.init(ArtifactWrapper.java:58) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArtifactDeployer.deploy(DefaultArtifactDeployer.java:25) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.guardedDeploy(DefaultArchiveDeployer.java:324) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployArtifact(DefaultArchiveDeployer.java:345) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployExplodedApp(DefaultArchiveDeployer.java:311) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DefaultArchiveDeployer.deployExplodedArtifact(DefaultArchiveDeployer.java:114) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.deployExplodedApps(DeploymentDirectoryWatcher.java:290) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.DeploymentDirectoryWatcher.start(DeploymentDirectoryWatcher.java:151) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleDeploymentService.start(MuleDeploymentService.java:104) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.module.launcher.MuleContainer.start(MuleContainer.java:170) ~[mule-module-launcher-3.8.0.jar:3.8.0]
+	at org.mule.tooling.server.application.ApplicationDeployer.main(ApplicationDeployer.java:15) ~[tooling-support-3.8.0.jar:?]
+2016-09-08 07:32:28,966 [main] INFO  org.mule.module.launcher.application.DefaultMuleApplication - App 'mule-learning-database' never started, nothing to dispose of

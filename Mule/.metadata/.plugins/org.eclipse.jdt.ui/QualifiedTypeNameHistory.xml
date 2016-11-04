@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="org.mule.api.annotations.expressions.Function"/>
+<fullyQualifiedTypeName name="org.mule.api.annotations.param.Payload"/>
+<fullyQualifiedTypeName name="com.learning.beans.Address"/>
+<fullyQualifiedTypeName name="org.mule.api.annotations.expressions.Lookup"/>
+<fullyQualifiedTypeName name="org.mule.api.lifecycle.Callable"/>
+<fullyQualifiedTypeName name="com.learning.beans.Person"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd">
+    <flow name="xml-to-object-transformerFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/xmlToObjectExplicit" doc:name="HTTP"/>
+        <!-- uses xstream -->
+        <mulexml:xml-to-object-transformer returnClass="mule.learning.beans.Item" doc:name="XML to Object">
+            <mulexml:alias name="item" class="mule.learning.beans.Item"/>
+        </mulexml:xml-to-object-transformer>
+        <component class="mule.learning.components.ItemLoggingComponent" doc:name="Java"/>
+    </flow>
+    
+    <flow name="xml-to-object-transformerFlow2">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/xmlToObject" doc:name="HTTP"/>
+        <!-- uses jaxb. As there is no JAXBContext created, mule create the one for us. 
+        If there is any JAXBContext created, mule uses it. The flows in jaxb-xml-to-object-transformer.xml creates a context which is used by all. 
+        Then the transformation that should happened here doesn't take place. Hence to run this flow, comment the flows in jaxb-xml-to-object-transformer.xml-->
+        <component class="mule.learning.components.ItemLoggingComponent" doc:name="Java"/>
+    </flow>
+</mule>

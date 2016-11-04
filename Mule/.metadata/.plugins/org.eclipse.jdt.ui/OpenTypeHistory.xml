@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+<typeInfo handle="=mule-learning-http/\/usr\/lib\/jvm\/jdk1.8.0_92\/jre\/lib\/rt.jar&lt;javax.activation(URLDataSource.class[URLDataSource" modifiers="33" timestamp="1459484250000"/>
+<typeInfo handle="=mule-learning-components/src\/main\/java&lt;com.learning.beans{InvokableClass.java[InvokableClass" modifiers="1" timestamp="1471171045000"/>
+<typeInfo handle="=mule-learning-components/src\/main\/java&lt;com.learning.beans{Address.java[Address" modifiers="1" timestamp="1471188024000"/>
+<typeInfo handle="=mule-learning-components/src\/main\/java&lt;com.learning.components{SimpleJavaComponent.java[SimpleJavaComponent" modifiers="1" timestamp="1471401690000"/>
+<typeInfo handle="=mule-learning-components/\/usr\/lib\/jvm\/jdk1.8.0_92\/jre\/lib\/rt.jar&lt;java.util.concurrent(Callable.class[Callable" modifiers="1537" timestamp="1459484250000"/>
+<typeInfo handle="=mule-learning-components/src\/main\/java&lt;com.learning.components{MyMethodEntryPointResolver.java[MyMethodEntryPointResolver" modifiers="1" timestamp="1471197745000"/>
+<typeInfo handle="=mule-learning-components/src\/main\/java&lt;com.learning.components{ControllableComponent.java[ControllableComponent" modifiers="1" timestamp="1471246303000"/>
+<typeInfo handle="=mule-learning-scopes/\/home\/rahul\/.m2\/repository\/org\/mule\/modules\/mule-module-twitter\/4.0.0\/mule-module-twitter-4.0.0.jar&lt;twitter4j.internal.json(ResponseListImpl.class[ResponseListImpl" modifiers="32" timestamp="1472534795000"/>
+<typeInfo handle="=mule-learning-components/\/usr\/lib\/jvm\/jdk1.8.0_92\/jre\/lib\/rt.jar&lt;java.io(Serializable.class[Serializable" modifiers="1537" timestamp="1459484250000"/>
+<typeInfo handle="=Calculator/\/opt\/mule\/anypointstudio\/AnypointStudio-6.0.x\/plugins\/org.mule.tooling.server.3.8.0.ee_6.1.0.201608231735\/mule\/lib\/mule\/mule-module-security-oauth2-provider-1.6.0.jar&lt;org.mule.modules.oauth2.provider.client(ClientStore.class[ClientStore" modifiers="1537" timestamp="1463071278000"/>
+</typeInfoHistroy>
